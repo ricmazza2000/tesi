@@ -12,54 +12,107 @@
 body{margin:0;background:var(--page);color:var(--ink);
  font-family:'Archivo',system-ui,-apple-system,sans-serif;line-height:1.6;
  display:flex;flex-direction:column;min-height:100vh}
-.wrap{max-width:960px;margin:0 auto;padding:64px 24px 40px;width:100%}
+.wrap{max-width:980px;margin:0 auto;padding:60px 24px 32px;width:100%}
 .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
  font-weight:600;border-top:1px solid var(--ring);padding-top:14px;margin-bottom:14px}
-h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:700;font-size:clamp(30px,5vw,46px);
+h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:700;font-size:clamp(29px,5vw,45px);
  line-height:1.08;margin:0 0 16px;letter-spacing:-.01em}
-.lead{color:var(--ink2);font-size:17px;max-width:64ch;margin:0 0 40px}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.lead{color:var(--ink2);font-size:17px;max-width:66ch;margin:0 0 36px}
+.due{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));margin-bottom:18px}
+.minori{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
 a.card{display:block;text-decoration:none;color:inherit;background:var(--surface);
- border:1px solid var(--ring);border-radius:10px;padding:22px 22px 20px;transition:border-color .15s,transform .15s}
+ border:1px solid var(--ring);border-radius:10px;padding:24px 24px 20px;
+ transition:border-color .15s,transform .15s}
 a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
 a.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a.card.piccola{padding:18px 20px 16px}
 .card .n{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.card h2{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:22px;margin:6px 0 8px}
-.card p{color:var(--ink2);font-size:14px;margin:0}
+.card h2{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:23px;margin:6px 0 10px}
+.card.piccola h2{font-size:18px;margin:4px 0 6px}
+.card p{color:var(--ink2);font-size:14px;margin:0 0 4px}
 .card .go{color:var(--accent);font-size:13px;font-weight:600;margin-top:14px;display:inline-block}
+.bollo{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+ font-weight:700;padding:3px 8px;border-radius:999px;margin-bottom:10px}
+.bollo.v{background:rgba(31,58,95,.1);color:var(--accent);border:1px solid rgba(31,58,95,.25)}
+.bollo.s{background:rgba(180,83,31,.1);color:var(--s2);border:1px solid rgba(180,83,31,.3)}
+@media (prefers-color-scheme:dark){.bollo.v{background:rgba(143,179,222,.14);border-color:rgba(143,179,222,.3)}
+ .bollo.s{background:rgba(221,133,82,.14);border-color:rgba(221,133,82,.32)}}
+.cifre{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 0;padding-top:14px;border-top:1px solid var(--ring)}
+.cifra b{display:block;font-family:'Bodoni Moda',Georgia,serif;font-size:21px;font-weight:600;line-height:1.1}
+.cifra span{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.nota{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--s2);
+ border-radius:8px;padding:16px 18px;margin:30px 0 0;font-size:14px;color:var(--ink2)}
+.nota b{color:var(--ink)}
+h3.sez{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+ font-weight:600;margin:38px 0 14px;border-top:1px solid var(--ring);padding-top:14px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
+ background:rgba(20,18,14,.06);padding:1px 5px;border-radius:4px}
+@media (prefers-color-scheme:dark){code{background:rgba(244,240,230,.08)}}
 footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--ring);
- max-width:960px;margin:32px auto 0;padding:18px 24px 40px;width:100%}
+ max-width:980px;margin:32px auto 0;padding:18px 24px 40px;width:100%}
 footer b{color:var(--ink2);font-weight:600}
 </style></head><body>
 <main class="wrap">
  <div class="kicker">Tesi magistrale · Consulenza professionale alle aziende · Università di Pisa</div>
  <h1>Un sistema di allerta precoce sul dissesto finanziario dei Comuni italiani</h1>
- <p class="lead">Un modello statistico che, a partire dai bilanci pubblici (OpenBDAP) e da poche fonti di
- contesto, stima quali Comuni italiani rischiano il dissesto <b>prima che accada</b>. Qui sotto: il portale
- con l'indice di rischio di tutti i Comuni, e la stessa lettura sulla mappa.</p>
- <div class="grid">
+ <p class="lead">Un modello statistico che, a partire dai bilanci pubblici (OpenBDAP) e da 8 fonti
+ di contesto, stima quali Comuni rischiano il dissesto <b>prima che accada</b>. Due porte, e la differenza
+ fra le due è il punto: la prima mostra il modello <b>messo alla prova</b> su un anno i cui esiti si
+ conoscono; la seconda lo punta sull'<b>ultimo bilancio disponibile</b>, dove nessun esito è ancora noto.</p>
+
+ <div class="due">
   <a class="card" href="portale.html">
-   <div class="n">Il portale</div>
-   <h2>Indice di rischio e metodo</h2>
-   <p>L'indice di rischio di tutti i ~7.900 Comuni, il metodo, i risultati, cosa fa scattare il rischio e la
-   scheda di dettaglio per singolo Comune.</p>
-   <span class="go">Apri il portale &rarr;</span></a>
-  <a class="card" href="mappa-nazionale.html">
-   <div class="n">La mappa nazionale</div>
+   <span class="bollo v">Validato · esiti noti</span>
+   <div class="n">Il modello alla prova</div>
+   <h2>Bilancio 2022</h2>
+   <p>La graduatoria costruita sui bilanci 2022, confrontata con quello che è davvero successo
+   negli anni dopo: chi è stato segnalato e poi è fallito, chi è sfuggito e perché. C'è il metodo,
+   la scheda di ogni Comune e i casi mancati documentati uno per uno.</p>
+   <div class="cifre">
+    <div class="cifra"><b>0,945</b><span>AUC (validazione temporale)</span></div>
+    <div class="cifra"><b>75%</b><span>dissesti nel primo 5%</span></div>
+    <div class="cifra"><b>7.864</b><span>Comuni in graduatoria</span></div>
+   </div>
+   <span class="go">Apri il portale della tesi &rarr;</span></a>
+
+  <a class="card" href="osservatorio.html">
+   <span class="bollo s">Sperimentale · esiti non noti</span>
+   <div class="n">Osservatorio aggiornato</div>
+   <h2>Ultimo bilancio: 2025</h2>
+   <p>L'ultimo bilancio con copertura sufficiente è il <b>2025</b>: 7.232 Comuni in graduatoria, 727 in sorveglianza. Nessuno di questi esiti è ancora verificabile: è il senso di un'allerta precoce, ed è anche il suo limite.</p>
+   <div class="cifre">
+    <div class="cifra"><b>7.232</b><span>Comuni valutati</span></div>
+    <div class="cifra"><b>727</b><span>in sorveglianza</span></div>
+    <div class="cifra"><b>2026/10/09</b><span>emissione</span></div>
+   </div>
+   <span class="go">Apri l'osservatorio &rarr;</span></a>
+ </div>
+
+ <div class="nota"><b>Perché due pagine e non una.</b> La stessa macchina, puntata su due anni diversi,
+ produce due oggetti che non si giudicano allo stesso modo. Sul 2022 si può dire quanto il
+ modello ha avuto ragione, perché i dissesti successivi sono accaduti e sono pubblici. Sul 2025
+ no: la lista si potrà valutare solo fra qualche anno. Tenerle separate evita l'equivoco più comune in
+ questo campo — presentare una previsione non verificabile con i numeri di accuratezza guadagnati su
+ un'altra.</div>
+
+ <h3 class="sez">Le stesse letture sulla mappa</h3>
+ <div class="minori">
+  <a class="card piccola" href="mappa-nazionale.html">
+   <div class="n">Mappa nazionale</div>
    <h2>Il rischio, Comune per Comune</h2>
-   <p>Tutta l'Italia colorata per fascia di rischio, con ricerca, filtro, zoom regionale, cursore temporale e
-   scheda di dettaglio per ogni Comune.</p>
+   <p>Tutta l'Italia per fascia di rischio, con ricerca, zoom regionale e cursore temporale.</p>
    <span class="go">Apri la mappa &rarr;</span></a>
-  <a class="card" href="mappa-toscana.html">
-   <div class="n">La mappa della Toscana</div>
+  <a class="card piccola" href="mappa-toscana.html">
+   <div class="n">Mappa della Toscana</div>
    <h2>Focus regionale</h2>
-   <p>La stessa lettura del rischio, in dettaglio sui Comuni toscani.</p>
+   <p>La stessa lettura, in dettaglio sui Comuni toscani.</p>
    <span class="go">Apri la mappa &rarr;</span></a>
  </div>
 </main>
 <footer>
  <b>Riccardo Mazzantini</b> · Relatore: Prof. Zarone, Università di Pisa · 2026 &nbsp;·&nbsp;
- Dati pubblici OpenBDAP 2008-2025. I punteggi sono una lista di sorveglianza a fini di ricerca,
- non una previsione individuale né un giudizio ufficiale sui Comuni.
+ Dati pubblici OpenBDAP 2008-2025, 97.056 osservazioni Comune×anno, 53 variabili.
+ I punteggi sono una lista di sorveglianza a fini di ricerca, non una previsione individuale
+ né un giudizio ufficiale sui Comuni.
 </footer>
 </body></html>
