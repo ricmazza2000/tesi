@@ -191,6 +191,26 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
 
 <section id="sintesi">
  <h2>In sintesi</h2>
+ <!-- le tre date che il lettore deve avere in testa fin dalla prima schermata:
+      senza, una fotografia storica si scambia per un monitoraggio in tempo reale -->
+ <div class="card" style="border-left:3px solid var(--accent);margin-bottom:14px">
+  <h3 style="margin-top:2px">Prima di leggere: a quale anno si riferisce tutto questo</h3>
+  <div class="grid g2" style="gap:4px 24px">
+   <div class="ind"><div class="nm">I punteggi</div><div class="v"><b id="av-anno"></b></div>
+    <div class="ex">Ogni indice di rischio è calcolato sul <b>rendiconto dell'anno <span id="av-anno2"></span></b>,
+    l'ultimo con i bilanci completi per tutti i comuni, e stima la probabilità di un dissesto negli anni
+    <b>successivi</b>. Non è una fotografia di oggi.</div></div>
+   <div class="ind"><div class="nm">Lo stato amministrativo</div><div class="v">più recente</div>
+    <div class="ex">Dissesti e piani di riequilibrio vengono dall'ultima anagrafica ufficiale scaricata,
+    quindi sono <b>più aggiornati dei punteggi</b>. Per questo un comune può avere un punteggio del
+    <span id="av-anno3"></span> e accanto un dissesto dichiarato dopo: dove succede, la scheda lo dice
+    esplicitamente.</div></div>
+  </div>
+  <div class="ex" style="margin-top:8px;color:var(--ink2);font-size:13px">Quando una procedura è
+  <b>successiva</b> all'anno del punteggio, serve a <b>verificare</b> la previsione; quando è
+  <b>precedente</b>, spiega perché l'indice è basso — un ente già dentro una procedura non può
+  dichiararne un'altra. La scheda di ogni comune riporta sempre la distanza fra le due date.</div>
+ </div>
  <p class="lead">Il dissesto finanziario di un comune (art. 244 TUEL) è l'esito di un deterioramento che dura anni
  ed è già scritto nei bilanci molto prima della dichiarazione formale. L'obiettivo è riconoscerlo in anticipo,
  con un modello addestrato solo sul passato e verificato sul futuro.</p>
@@ -350,7 +370,7 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
   <p style="font-size:14px;color:var(--ink2)">I quattro grafici standard con cui si giudica un modello predittivo,
   calcolati sui punteggi <b>fuori campione</b> del modello principale (orizzonte t+1: 54.819 osservazioni,
   148 dissesti). Apri ciascuna finestra per il grafico.</p>
-  <details class="ev"><summary>Curva ROC — capacità di distinguere · AUC <b id="ev-auc"></b></summary>
+  <details class="ev"><summary>Curva ROC — capacità di distinguere · AUC <b id="ev-auc"></b> <span style="font-weight:400;color:var(--muted)">(su tutte le previsioni messe insieme, non media dei fold)</span></summary>
    <div style="font-size:12.5px;color:var(--ink2);margin:2px 0 8px">Più la curva si stacca dalla diagonale, meglio il modello ordina i comuni per rischio.</div>
    <div id="ch-roc"></div></details>
   <details class="ev"><summary>Curva Precision-Recall — l'evento raro · PR-AUC <b id="ev-ap"></b></summary>
@@ -372,9 +392,17 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
 
  <div class="grid g2">
   <div class="card"><h3 style="margin-top:2px">Come si leggono le metriche</h3>
+   <div class="ex" style="font-size:12.5px;color:var(--ink2);margin-bottom:10px">⚠️ <b>Perché gli stessi
+   indicatori hanno valori diversi in punti diversi di questa pagina.</b> I numeri in evidenza sono la
+   <b>media dei valori annuali</b>: si calcola la metrica su ciascuno dei fold e si fa la media, così ogni
+   anno pesa uguale. I grafici qui sotto (ROC, precisione-richiamo, calibrazione, matrice) sono invece
+   calcolati sull'<b>insieme di tutte le previsioni messe insieme</b>, dove gli anni con più comuni pesano
+   di più. Le due strade danno risultati vicini ma non identici, ed è normale: non sono due misure dello
+   stesso numero. Dove possibile è indicato quale delle due si sta guardando.</div>
    <div class="ind"><div class="nm">AUC</div><div class="v" id="m-auc"></div>
     <div class="ex">Presi a caso un comune che andrà in dissesto e uno che non ci andrà, è la probabilità che
-    il modello dia al primo un punteggio più alto. 0,5 = come lanciare una moneta; 1,0 = perfetto.</div></div>
+    il modello dia al primo un punteggio più alto. 0,5 = come lanciare una moneta; 1,0 = perfetto.
+    <b>Qui: media dei sette fold annuali.</b></div></div>
    <div class="ind"><div class="nm">Richiamo (recall)</div><div class="v" id="m-rec"></div>
     <div class="ex">Quota di dissesti reali che il modello segnala. È la metrica che conta di più: un dissesto
     mancato costa molto più di un allarme in eccesso.</div></div>
@@ -383,8 +411,11 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
     t+1 i dissesti sono ~0,003 del totale, e una PR-AUC di ~0,08 concentra i casi circa 30 volte più del caso.
     Sulla finestra estesa (più eventi) sale a ~0,20.</div></div>
    <div class="ind"><div class="nm">Falsi positivi</div><div class="v" id="m-fp"></div>
-    <div class="ex">Comuni segnalati che non dissestano. Con un evento così raro sono inevitabili e non sono
-    un errore: sono la lista di sorveglianza.</div></div>
+    <div class="ex">Comuni segnalati che <b>non dichiarano dissesto nell'orizzonte osservato</b>. Rispetto
+    all'evento previsto <b>sono errori</b>, e vanno contati come tali: con un evento così raro sono la
+    maggioranza delle segnalazioni. Detto questo, un ente segnalato può avere criticità reali che meritano
+    un controllo anche senza arrivare alla dichiarazione — ma questa è una valutazione istituzionale, non
+    un modo di riclassificare l'errore statistico.</div></div>
   </div>
   <div class="card"><h3 style="margin-top:2px">Rispetto alla letteratura</h3>
    <p style="font-size:14px;color:var(--ink2)">Lo studio di riferimento sul tema (Caravaggio &amp; Resce,
@@ -530,9 +561,14 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
  <h2>Limiti dichiarati</h2>
  <p class="lead">Cosa il modello non può fare, detto esplicitamente. È la parte che rende difendibile il resto.</p>
  <div class="grid g2">
-  <div class="card"><div class="chart"><div class="ttl">Le cause reali del dissesto</div>
-   <div class="cap">Percentuale di relazioni ex art. 246 TUEL (<span id="n-rel"></span> documenti letti) in cui
-   ciascuna causa viene citata. Le prime due <b>non compaiono nel bilancio consuntivo</b>.</div>
+  <div class="card"><div class="chart"><div class="ttl">I temi citati nei documenti di dissesto</div>
+   <div class="cap"><b>Quota delle <span id="n-rel"></span> relazioni</b> ex art. 246 TUEL in cui il tema
+   compare. Il denominatore sono i <b>documenti leggibili</b>, non i comuni né le procedure: un comune con
+   più documenti conta una volta, uno senza documento non conta affatto.
+   <br>⚠️ I temi sono individuati per <b>parole chiave</b>, quindi segnalano che l'argomento è
+   <i>citato</i>, non che sia la causa accertata: a Rondanina le trattenute di Equitalia sono state lette
+   come «scarsa riscossione», mentre la vicenda era la restituzione di imposte incassate. Le prime due voci
+   restano comunque notevoli perché <b>non compaiono nel bilancio consuntivo</b>.</div>
    <div id="ch-cause"></div></div></div>
   <div class="card">
    <h3 style="margin-top:2px">I casi mancati</h3>
@@ -541,6 +577,13 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
    <b>prima della delibera</b> con l'evento successivo — non il punteggio di oggi, che per un ente già
    dissestato è basso proprio perché la procedura è in corso.</p>
    <div class="tiles" id="tiles-mancati" style="margin:10px 0 14px"></div>
+   <div class="ex" style="font-size:12.5px;color:var(--ink2);margin:-4px 0 12px">⚠️ <b>Con quale soglia
+   si decide che un comune era «segnalato».</b> Qui si usa la <b>fascia critica o alta</b>, cioè il
+   <b>10% più esposto</b>, che è l'allerta che il portale mostra davvero. La validazione del modello usa
+   invece un budget più stretto, il <b>5%</b>: con quello i dissesti segnalati in tempo scendono da
+   <b><span id="sg-10"></span></b> a <b><span id="sg-5"></span></b> su <span id="sg-tot"></span>, e i casi
+   mancati salgono di conseguenza. Sono due budget di controllo diversi, non due misure in contrasto:
+   l'importante è dire sempre quale si sta usando.</div>
    <p style="font-size:14px;color:var(--ink2)">Quasi tutti i casi mancati sono <b>mancati per poco</b>:
    la maggioranza stava in fascia media, a un passo dalla soglia. <b>Clicca su un comune</b> per vedere
    dove lo collocava il modello e quali cause cita la relazione ufficiale del dissesto:</p>
@@ -880,7 +923,8 @@ document.getElementById('tiles-top').innerHTML = [
 /* le tre date che non vanno confuse: l'anno del punteggio, il periodo dei dati e la
    data dello stato amministrativo. Senza distinguerle una fotografia storica sembra
    un monitoraggio in tempo reale. */
-['ttl-anno','cap-anno'].forEach(id=>{const e=document.getElementById(id); if(e)e.textContent=KPI.anno;});
+['ttl-anno','cap-anno','av-anno','av-anno2','av-anno3'].forEach(id=>{
+  const e=document.getElementById(id); if(e)e.textContent=KPI.anno;});
 
 /* i numeri in evidenza vengono dalla TABELLA UNICA di validazione (validazione_finale.py):
    una sola fonte per tutto. La specifica principale e' Logit, orizzonte t+1. */
@@ -1152,6 +1196,10 @@ if(CMS.casi_mancati!=null){
   ].map(([n,l,h])=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div><div class="h">${h}</div></div>`).join('');
 }
 const gpn=document.getElementById('gp-n'); if(gpn) gpn.textContent=IT(CMS.gia_in_procedura_indice_basso||0);
+/* le due soglie, dichiarate: il portale segnala il 10% piu' esposto, la validazione usa il 5% */
+[['sg-10',CMS.segnalati_fascia_alta],['sg-5',CMS.segnalati_top5],
+ ['sg-tot',CMS.dissesti_valutabili]].forEach(([id,v])=>{
+  const e=document.getElementById(id); if(e&&v!=null) e.textContent=IT(v);});
 const elenco = CM.length ? CM : (FN.length ? FN : []);
 document.getElementById('mancati').innerHTML = elenco.map((m,i)=>{
  // quanto ci e' andato vicino: sopra 75 era comunque nel quarto piu' esposto
