@@ -224,9 +224,11 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
   <p class="note" id="hero-note"></p>
  </div>
  <div class="grid g2">
-  <div class="card"><div class="chart"><div class="ttl">Quanti comuni sono a rischio oggi</div>
-   <div class="cap">Distribuzione dei comuni italiani per fascia di rischio nell'anno di valutazione.
-   Le fasce sono definite sulla posizione relativa: Critico = il 2% più esposto d'Italia.</div>
+  <div class="card"><div class="chart"><div class="ttl">Quanti comuni erano a rischio nel <span id="ttl-anno"></span></div>
+   <div class="cap">Distribuzione dei comuni italiani per fascia di rischio <b>nell'anno di valutazione
+   (<span id="cap-anno"></span>)</b>, l'ultimo con i bilanci completi. Non è una fotografia di oggi:
+   lo <b>stato amministrativo</b> mostrato nelle schede è invece aggiornato all'ultima anagrafica
+   scaricata. Le fasce sono definite sulla posizione relativa: Critico = il 2% più esposto d'Italia.</div>
    <div id="ch-fasce"></div></div></div>
   <div class="card"><div class="chart"><div class="ttl">Il modello li aveva visti arrivare?</div>
    <div class="cap" id="cap-valid"></div>
@@ -236,8 +238,8 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
 
 <section id="metodo">
  <h2>Come è fatto</h2>
- <p class="lead">Quattro passaggi. Il punto delicato è il terzo, la convalida: se ne parla per esteso in
- .</p>
+ <p class="lead">Quattro passaggi. Il punto delicato è il terzo, la convalida: se ne parla per esteso
+ nella scheda <a href="#convalida">Perché la convalida è temporale e non casuale</a>, qui sotto.</p>
  <div class="steps">
   <div class="step"><span class="k">1 · Dati</span><b>Un pannello comune × anno</b>
    <p>Ogni riga è un comune in un anno, con i suoi indicatori di bilancio e di contesto. Otto fonti pubbliche
@@ -275,7 +277,7 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
  </div>
 
  <div class="card">
-  <h3 style="margin-top:4px">Perché la convalida è temporale e non casuale</h3>
+  <h3 id="convalida" style="margin-top:4px">Perché la convalida è temporale e non casuale</h3>
   <p style="font-size:14px;color:var(--ink2)">Ogni riga è un <b>comune in un anno</b>. Nascondendo una parte
   delle righe a caso, il modello finirebbe per addestrarsi su Napoli 2019 e dover indovinare Napoli 2017:
   non prevedrebbe il deterioramento, gli basterebbe riconoscere l'ente. Qui si nasconde invece il
@@ -304,7 +306,9 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
    volte). L'orizzonte triennale è validabile per intero fino all'anno di test <b>2022</b> (serve osservare i
    dissesti fino al 2025); il t+1 fino al <b>2024</b>. La riga evidenziata è la specifica principale.</div></div>
   <table id="tab-val"><thead><tr>
-   <th>Orizzonte</th><th>Modello</th><th class="hide">Periodo</th><th class="num">Fold</th>
+   <!-- "Periodo" distingue righe altrimenti identiche (completo contro armonizzato):
+        nasconderlo su schermo stretto rendeva due righe Logit indistinguibili -->
+   <th>Orizzonte</th><th>Modello</th><th>Periodo</th><th class="num">Fold</th>
    <th class="num">Eventi</th><th class="num">AUC</th><th class="num">PR-AUC</th><th class="num">Recall 5%</th>
   </tr></thead><tbody></tbody></table>
  </div>
@@ -355,8 +359,14 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
   <details class="ev"><summary>Calibrazione — le probabilità sono affidabili?</summary>
    <div style="font-size:12.5px;color:var(--ink2);margin:2px 0 8px">Rischio previsto contro frequenza reale. I punti <b>sotto</b> la diagonale indicano che il modello sovrastima (effetto del bilanciamento delle classi): è la ragione per cui il portale usa il <b>percentile</b> e non la probabilità grezza.</div>
    <div id="ch-cal"></div></details>
-  <details class="ev"><summary>Matrice di confusione — alla soglia operativa</summary>
-   <div style="font-size:12.5px;color:var(--ink2);margin:2px 0 8px">Dissesti presi contro mancati e falsi allarmi, alla soglia di Youden.</div>
+  <details class="ev"><summary>Matrice di confusione — <b>ad altra soglia</b>, non quella dei numeri in evidenza</summary>
+   <div style="font-size:12.5px;color:var(--ink2);margin:2px 0 8px">⚠️ <b>Attenzione a non confrontarla
+   con il richiamo riportato sopra.</b> I numeri in evidenza sono a <b>budget fisso</b>: si segnala il
+   <b>5% dei comuni</b> e si guarda quanti dissesti si colgono. Questa matrice usa invece la <b>soglia
+   di Youden</b>, che massimizza sensibilità più specificità e segnala molti più enti: il richiamo è
+   quindi più alto, ma al prezzo di molti più falsi allarmi. Sono due compromessi diversi fra
+   quantità di controlli e dissesti intercettati, non due misure dello stesso numero. Il confronto
+   corretto fra soglie è la <b>curva del budget</b> nella sezione sul meccanismo di legge.</div>
    <div id="ch-cm"></div></details>
  </div>
 
@@ -502,7 +512,7 @@ Questo portale mostra i dati usati, il metodo, i risultati e il comportamento de
  <div class="card scroll" style="padding:6px 8px"><table><thead><tr>
   <th data-k="c">Comune</th><th data-k="r" class="hide">Regione</th>
   <th data-k="ix" class="num">Indice t+1</th><th data-k="ix1" class="num hide">Indice 3 anni</th>
-  <th data-k="f">Fascia</th><th data-k="sit" class="hide">Situazione</th>
+  <th data-k="f">Fascia</th><th data-k="sit">Situazione</th>
   <th data-k="ris" class="num hide">Riscossione</th><th data-k="gc" class="num hide">Giorni cassa</th>
   <th id="th-ord" class="num" style="display:none"></th>
  </tr></thead><tbody id="tb"></tbody></table></div>
@@ -829,10 +839,14 @@ document.getElementById('tiles-top').innerHTML = [
   [IT(KPI.comuni), 'comuni italiani', 'ogni comune, non un campione'],
   [IT(KPI.osservazioni), 'osservazioni comune × anno', `${KPI.anno_min}–${KPI.anno_max}`],
   [KPI.feature, 'variabili nel modello', 'da 8 fonti pubbliche'],
-  [IT(KPI.dissesti_finestra), 'dissesti da prevedere', `di cui ${KPI.dissesti_t1} entro un anno`],
-  [IT(KPI.riequilibri), 'piani di riequilibrio', 'la crisi prima del dissesto'],
-  [IT(KPI.in_dissesto_oggi), 'comuni oggi in dissesto', 'procedura aperta'],
+  [IT(KPI.dissesti_finestra), 'osservazioni pre-dissesto', `righe comune × anno, di cui ${KPI.dissesti_t1} a un anno dall'evento`],
+  [IT(KPI.riequilibri), 'osservazioni pre-riequilibrio', 'la crisi prima del dissesto'],
+  [IT(KPI.in_dissesto_oggi), 'comuni con dissesto aperto', 'stato dell\'ultima anagrafica, non dell\'anno valutato'],
 ].map(([n,l,h])=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div><div class="h">${h}</div></div>`).join('');
+/* le tre date che non vanno confuse: l'anno del punteggio, il periodo dei dati e la
+   data dello stato amministrativo. Senza distinguerle una fotografia storica sembra
+   un monitoraggio in tempo reale. */
+['ttl-anno','cap-anno'].forEach(id=>{const e=document.getElementById(id); if(e)e.textContent=KPI.anno;});
 
 /* i numeri in evidenza vengono dalla TABELLA UNICA di validazione (validazione_finale.py):
    una sola fonte per tutto. La specifica principale e' Logit, orizzonte t+1. */
@@ -876,7 +890,7 @@ if(S.val_tabella){
   document.querySelector('#tab-val tbody').innerHTML = S.val_tabella.map(r=>{
     const best = r.orizzonte.indexOf('principale')>=0 && r.modello==='Logit' && r.periodo==='completo';
     return `<tr${best?' style="background:rgba(127,127,127,.14);font-weight:600"':''}>
-      <td>${r.orizzonte}</td><td>${r.modello}</td><td class="hide">${r.periodo}</td>
+      <td>${r.orizzonte}</td><td>${r.modello}</td><td>${r.periodo}</td>
       <td class="num">${r.fold}</td><td class="num">${IT(r.eventi)}</td>
       <td class="num">${F3(r.auc).replace('.',',')}</td>
       <td class="num">${F3(r.pr).replace('.',',')}</td>
@@ -1136,7 +1150,12 @@ const IND=[
  {k:'red', n:'Reddito imponibile medio', f:'eur', d:'high', w:16000, b:12000, m:'irpef_reddito_medio',
   e:'Reddito IRPEF medio per dichiarante: la base imponibile su cui il comune può contare.'},
  {k:'maf', n:'Sciolto per infiltrazione mafiosa', f:'sn', d:'low', w:1, b:1, m:null,
-  e:'Consiglio comunale sciolto ex art. 143 TUEL in passato. Questi comuni dissestano 10 volte più degli altri.'},
+  // il rapporto si LEGGE dai dati, non si scrive a mano: il "10 volte" che stava qui
+  // era il valore pre-ricostruzione dell'anagrafica e contraddiceva il numero in
+  // evidenza poche sezioni sopra, calcolato dalla stessa fonte
+  e:'Consiglio comunale sciolto ex art. 143 TUEL in passato. Questi comuni dissestano '
+    +(S.governance.tasso_sciolti/S.governance.tasso_altri).toFixed(1).replace('.',',')
+    +' volte più degli altri.'},
  {k:'ram', n:'Risultato di amministrazione', f:'eur', d:'high', w:0, b:0, m:null,
   e:'Risultato di amministrazione al 31 dicembre. Negativo significa chiusura in rosso.'},
  {k:'isv', n:'ISV (indice a soglie)', f:'pts', d:'low', w:15, b:35, m:null,
@@ -1220,7 +1239,9 @@ function render(){
   <td><b>${x.c}</b></td><td class="hide">${x.r}</td>
   <td class="num">${gi(x)==null?'n/d':F1(gi(x))}</td><td class="num hide">${x.ix1==null?'n/d':F1(x.ix1)}</td>
   <td><span class="badge ${gf(x)}">${gf(x)}</span></td>
-  <td class="hide">${x.sit==='—'?'':'<span class="badge '+sb[0]+'">'+sb[1]+'</span>'}</td>
+  <!-- la situazione amministrativa resta visibile anche su schermo stretto: senza,
+       un comune in dissesto appare semplicemente "BASSO" e l'indice si fraintende -->
+  <td>${x.sit==='—'?'':'<span class="badge '+sb[0]+'">'+sb[1]+'</span>'}</td>
   <td class="num hide">${x.ris==null?'n/d':(x.ris*100).toFixed(0)+'%'}</td>
   <td class="num hide">${x.gc==null?'n/d':Math.round(x.gc)}</td>
   ${ok?`<td class="num" style="font-weight:600">${fmt(x[ok], oi&&oi.f)}</td>`:''}</tr>`}).join('');
