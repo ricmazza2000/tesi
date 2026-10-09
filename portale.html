@@ -1426,10 +1426,14 @@ function apri(x){
      <p style="margin:6px 0"><b>2. Si sommano.</b> È una decomposizione esatta, non una stima: sommando tutte
      le aree si riottiene il punteggio del comune. Per questo un'area molto negativa può compensarne una
      positiva, ed è il <i>saldo</i> che determina la posizione in classifica.</p>
-     <p style="margin:6px 0"><b>3. La scala, in pratica.</b> Circa <b>+0,7 raddoppia</b> la probabilità stimata
-     di dissesto, <b>−0,7 la dimezza</b>. Quindi +1,4 la quadruplica, +2,1 la moltiplica per otto: la scala è
-     moltiplicativa, non additiva. Un valore fra −0,5 e +0,5 è sostanzialmente ininfluente; oltre ±2 è un
-     segnale forte.</p>
+     <p style="margin:6px 0"><b>3. La scala, in pratica.</b> Circa <b>+0,7 raddoppia le quote</b> (il rapporto
+     fra probabilità di dissesto e probabilità di non dissesto), <b>−0,7 le dimezza</b>. La scala è dunque
+     <b>moltiplicativa</b>: +1,4 quadruplica, +2,1 moltiplica per otto. Un valore fra −0,5 e +0,5 è
+     sostanzialmente ininfluente; oltre ±2 è un segnale forte.
+     <br><b>Attenzione a non leggerlo come «raddoppia il rischio»</b>: solo quando la probabilità è molto
+     piccola quote e probabilità quasi coincidono. Il modello è addestrato con le classi riequilibrate,
+     quindi le sue probabilità sono spinte verso valori alti e <b>non vanno lette come rischio reale</b> —
+     è una delle ragioni per cui il portale pubblica il percentile e non la probabilità.</p>
      <p style="margin:6px 0;color:var(--muted)">Il perché tecnico: il modello ufficiale è una regressione
      logistica, e questi sono i contributi al <i>logit</i> (coefficiente × valore standardizzato). Per un
      modello lineare questa scomposizione <i>è</i> il valore di Shapley, calcolato in forma esatta anziché
