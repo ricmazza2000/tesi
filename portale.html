@@ -295,24 +295,24 @@ aziende.</span></p>
      e cancellando riquadri, soglie e conteggi. Capitato, e invisibile nel codice. -->
 <section id="casi">
  <h2>Casi mancati</h2>
- <p class="lead">I dissesti che il modello <b>non aveva segnalato prima che accadessero</b>. Sono la prova
- più utile dei suoi limiti, e per questo stanno qui e non in fondo.</p>
+ <p class="lead">I dissesti avvenuti nel periodo valutato che il modello <b>non aveva messo nel gruppo
+ di allerta</b>. Sono la prova più utile dei suoi limiti, e per questo stanno qui e non in fondo.</p>
  <div class="card">
-  <p style="font-size:14.5px;color:var(--ink2);margin-top:2px">Il confronto è fra il punteggio
-  dell'<b>ultima lista emessa prima della delibera</b> e l'evento che è seguito. Non con il punteggio di
-  oggi: per un comune già dissestato quello è basso proprio perché la procedura è in corso, e confonderlo
-  con un errore di previsione è lo sbaglio più facile da fare.</p>
+  <p style="font-size:14.5px;color:var(--ink2);margin-top:2px" id="mancati-conto"></p>
   <div class="tiles" id="tiles-mancati" style="margin:10px 0 14px"></div>
-  <div class="ex" style="font-size:12.5px;color:var(--ink2);margin:-4px 0 12px"><b>Con quale soglia si
-  decide che un comune era «segnalato».</b> Qui si guarda la <b>fascia critica o alta</b>, cioè il
-  <b>10% più esposto</b>, che è l'allerta mostrata dal portale. La verifica del modello usa un budget più
-  stretto, il <b>5%</b>: con quello i dissesti intercettati in tempo scendono da
-  <b><span id="sg-10"></span></b> a <b><span id="sg-5"></span></b> su <span id="sg-tot"></span>. Sono due
-  budget di controllo diversi, non due misure in contrasto.</div>
-  <p style="font-size:14px;color:var(--ink2)">La maggior parte è <b>mancata per poco</b>, a un passo dalla
-  soglia. <b>Apri un comune</b> per vedere dove lo collocava il modello, che cosa dicono i documenti
-  ufficiali del dissesto e perché l'allerta non è arrivata.</p>
+  <div class="ex" style="font-size:12.5px;color:var(--ink2);margin:-4px 0 12px"><b>Un caso è «mancato»
+  quando valgono tutte e tre.</b> Il dissesto cade nel periodo valutato; il Comune era stato valutato in
+  quell'anno; e non era nel gruppo di allerta, cioè nel <b>5% più a rischio</b>. Un Comune senza
+  valutazione non è un caso mancato: è un problema di copertura dei dati. E il confronto è col punteggio
+  dell'<b>anno selezionato</b>, non con quello di oggi: per un Comune già dissestato l'indice di oggi è
+  basso proprio perché la procedura è in corso, e confonderlo con un errore di previsione è lo sbaglio
+  più facile da fare.</div>
+  <p style="font-size:14px;color:var(--ink2)">Cambiando <b>anno</b> o <b>orizzonte</b> l'elenco cambia:
+  sono eventi diversi in periodi diversi. <b>Apri un Comune</b> per vedere dove lo collocava il modello,
+  che cosa dicono i documenti ufficiali del dissesto e perché l'allerta non è arrivata.</p>
   <div id="mancati"></div>
+  <p class="note" style="margin:14px 0 0;border-top:1px solid var(--ring);padding-top:10px"
+     id="mancati-storico"></p>
  </div>
  <div class="card">
   <h3 style="margin-top:2px">Da non confondere: gli enti già in procedura</h3>
@@ -868,16 +868,55 @@ const TIPO_FN={'LIMITE INFORMATIVO':['var(--serious)','causa non visibile nei bi
  'DOCUMENTO NON LEGGIBILE':['var(--muted)','relazione solo in scansione']};
 /* elenco costruito su casi_mancati.py: il punteggio e' quello dell'ultima lista
    emessa PRIMA della delibera, non quello di oggi */
-if(CMS.casi_mancati!=null){
-  document.getElementById('tiles-mancati').innerHTML = [
-    [IT(CMS.dissesti_valutabili), 'dissesti valutabili', 'con una lista emessa prima della delibera'],
-    [IT(CMS.segnalati_fascia_alta)+' ('+F1(CMS.quota_segnalati_fascia_alta)+'%)', 'segnalati in tempo', 'fascia critica o alta'],
-    [IT(CMS.casi_mancati), 'casi mancati', 'mai in allerta prima dell\'evento'],
-    [IT(CMS.casi_mancati_sotto_top25), 'mancati di molto', 'mai nemmeno nel 25% più esposto'],
-  ].map(([n,l,h])=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div><div class="h">${h}</div></div>`).join('');
+/* Si disegna DOPO renderFN, perche' usa `elenco`: al caricamento questo
+   blocco girava una volta sola e `elenco` era ancora vuoto, quindi la
+   mattonella «mancati di molto» diceva zero su ogni anno. */
+function disegnaMancatiSintesi(){
+ if(CMS.casi_mancati==null) return;
+  /* Le mattonelle vengono dalla SELEZIONE, non dall'aggregato storico. Prima
+     mostravano i 44 casi mancati di tutta la storia sopra un elenco che ne
+     contiene quattro — lo stesso titolo per due conti diversi, ed e' il modo
+     piu' sicuro di far dubitare chi legge del numero giusto. L'aggregato
+     storico resta, ma scritto sotto e dichiarato per quello che e'. */
+  const Om = AM && AM.orizzonti ? AM.orizzonti[HZ] : null;
+  const host = document.getElementById('tiles-mancati');
+  const conto = document.getElementById('mancati-conto');
+  if(!Om || Om.stato==='non valutabile' || !Om.intercettazione){
+    host.innerHTML = '';
+    if(conto) conto.innerHTML = `Per il <b>${ANNO}</b> su questo orizzonte non c'è una
+      valutazione, quindi non ci sono casi mancati da elencare.`;
+  } else {
+    const ev = Om.eventi_osservati, colti = Om.intercettazione.top5.colti;
+    const per = Om.periodo[0]===Om.periodo[1] ? `nel ${Om.periodo[0]}`
+              : `fra il ${Om.periodo[0]} e il ${Om.periodo[1]}`;
+    const lontani = elenco.filter(m=>(m.indice||0) < 75).length;
+    if(conto) conto.innerHTML = `Dei <b>${ev} dissesti</b> dichiarati ${per},
+      il modello ne aveva ${colti===1?'messo':'messi'} <b>${colti}</b> nel 5% più a rischio
+      guardando il bilancio <b>${ANNO}</b>. I <b>${ev-colti}</b> che restano sono i casi
+      mancati di questa selezione.` + (Om.verifica_completa ? '' :
+      ` <span style="color:var(--serious)">Il periodo non è concluso: l'elenco è parziale.</span>`);
+    host.innerHTML = [
+      [IT(ev), 'dissesti nel periodo', per],
+      [IT(colti)+(ev?' ('+F1(colti/ev*100)+'%)':''), 'nel gruppo di allerta', '5% più a rischio'],
+      [IT(ev-colti), 'casi mancati', 'fuori dal 5%'],
+      [IT(lontani), 'mancati di molto', 'indice sotto 75'],
+    ].map(([n,l,h])=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div><div class="h">${h}</div></div>`).join('');
+  }
+  /* l'aggregato su tutta la storia: un'altra domanda, scritta come tale */
+  const st = document.getElementById('mancati-storico');
+  if(st && CMS && CMS.dissesti_valutabili){
+    st.innerHTML = `<b>Un'altra domanda, un altro numero.</b> Quelli qui sopra sono i dissesti
+      mancati <i>guardando il bilancio ${ANNO}</i>. Se invece si chiede «quanti dissesti il modello
+      non ha mai segnalato, in nessun anno, prima che accadessero», la risposta sta su tutta la
+      storia: <b>${IT(CMS.casi_mancati)} su ${IT(CMS.dissesti_valutabili)}</b> dissesti valutabili,
+      di cui ${IT(CMS.casi_mancati_sotto_top25)} mai nemmeno nel 25% più esposto. È il conto che
+      sta in tesi, e non dipende dall'anno scelto qui.`;
+  }
 }
 const gpn=document.getElementById('gp-n'); if(gpn) gpn.textContent=IT(CMS.gia_in_procedura_indice_basso||0);
 /* le due soglie, dichiarate: il portale segnala il 10% piu' esposto, la validazione usa il 5% */
+/* i segnaposto sg-* stavano nel paragrafo sulle due soglie, riscritto: la
+   lista usa il 5% e non c'e' piu' un 10% da spiegare accanto */
 [['sg-10',CMS.segnalati_fascia_alta],['sg-5',CMS.segnalati_top5],
  ['sg-tot',CMS.dissesti_valutabili]].forEach(([id,v])=>{
   const e=document.getElementById(id); if(e&&v!=null) e.textContent=IT(v);});
@@ -1287,8 +1326,14 @@ document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{
  const k=th.dataset.k; ordk.value=''; if(sortK===k)sortDir*=-1; else{sortK=k;sortDir=(k==='c'||k==='r'||k==='sit')?1:-1;} render();});
 [q,reg,fas,sit,ordk,orddir].forEach(e=>e.addEventListener('input',render));
 document.getElementById('nostoria').addEventListener('change',function(){SS=this.checked;updateNsNote();render();});
+/* Il cambio di ORIZZONTE passa dalla stessa funzione del cambio d'anno. Prima
+   chiamava solo aggiornaOrizzonte() e render(), quindi la graduatoria cambiava
+   ma la sezione dei casi mancati, le fasce e i risultati restavano
+   sull'orizzonte di prima: su un anno con 22 eventi a t+1 e 75 a t+3 si
+   leggevano i 22 anche guardando il triennale. Due strade per lo stesso
+   aggiornamento divergono sempre, e qui erano gia' divergenti. */
 document.getElementById('hz').addEventListener('change',function(){
-  HZ=this.value; aggiornaOrizzonte(); render();});
+  HZ=this.value; disegnaAnno();});
 updateNsNote(); aggiornaOrizzonte();
 document.getElementById('reset').onclick=()=>{q.value='';reg.value='';fas.value='';sit.value='';ordk.value='';orddir.value='desc';
  document.querySelectorAll('.tile.click').forEach(z=>z.classList.remove('act'));render();};
@@ -1643,6 +1688,7 @@ function disegnaAnno(){
   aggiornaOrizzonte();
   if(typeof updateNsNote==='function') updateNsNote();
   renderFN(false);
+  disegnaMancatiSintesi();
   aggiornaMappa();
   const inf=infoAnno(ANNO);
   if(inf && inf.stato==='non valutabile'){
