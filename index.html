@@ -56,44 +56,39 @@ footer b{color:var(--ink2);font-weight:600}
  <div class="kicker">Tesi magistrale · Consulenza professionale alle aziende · Università di Pisa</div>
  <h1>Un sistema di allerta precoce sul dissesto finanziario dei Comuni italiani</h1>
  <p class="lead">Un modello statistico che, a partire dai bilanci pubblici (OpenBDAP) e da 8 fonti
- di contesto, stima quali Comuni rischiano il dissesto <b>prima che accada</b>. Due porte, e la differenza
- fra le due è il punto: la prima mostra il modello <b>messo alla prova</b> su un anno i cui esiti si
- conoscono; la seconda lo punta sull'<b>ultimo bilancio disponibile</b>, dove nessun esito è ancora noto.</p>
+ di contesto, stima quali Comuni rischiano il dissesto <b>prima che accada</b>. Nel portale si scegli
+ l'<b>anno del bilancio</b>, dal 2017 all'ultimo disponibile: sugli anni passati si vede quanti dissesti
+ il modello aveva davvero intercettato, sugli ultimi la verifica è ancora aperta e il portale lo dichiara
+ invece di mostrare una percentuale provvisoria.</p>
 
  <div class="due">
   <a class="card" href="portale.html">
-   <span class="bollo v">Validato · esiti noti</span>
-   <div class="n">Il modello alla prova</div>
-   <h2>Bilancio 2022</h2>
-   <p>La graduatoria costruita sui bilanci 2022, confrontata con quello che è davvero successo
-   negli anni dopo: chi è stato segnalato e poi è fallito, chi è sfuggito e perché. C'è il metodo,
-   la scheda di ogni Comune e i casi mancati documentati uno per uno.</p>
+   <span class="bollo v">Validato · validazione temporale</span>
+   <div class="n">Il portale</div>
+   <h2>Indice di rischio, dal 2017 al 2025</h2>
+   <p>La graduatoria di tutti i Comuni per l'anno di bilancio che scegli, con la scheda di ciascuno e
+   i fattori che spostano il punteggio. Sugli anni i cui esiti si conoscono c'è il confronto con quello
+   che è davvero successo: chi è stato segnalato e poi è fallito, chi è sfuggito e perché.</p>
    <div class="cifre">
     <div class="cifra"><b>0,946</b><span>AUC (validazione temporale)</span></div>
     <div class="cifra"><b>74%</b><span>dissesti nel primo 5%</span></div>
-    <div class="cifra"><b>7.864</b><span>Comuni in graduatoria</span></div>
+    <div class="cifra"><b>7.864</b><span>Comuni per anno</span></div>
    </div>
-   <span class="go">Apri il portale della tesi &rarr;</span></a>
+   <span class="go">Apri il portale &rarr;</span></a>
 
-  <a class="card" href="osservatorio.html">
-   <span class="bollo s">Sperimentale · esiti non noti</span>
-   <div class="n">Osservatorio aggiornato</div>
-   <h2>Ultimo bilancio: 2025</h2>
-   <p>L'ultimo bilancio con copertura sufficiente è il <b>2025</b>: 7.232 Comuni in graduatoria, 727 in sorveglianza. Nessuno di questi esiti è ancora verificabile: è il senso di un'allerta precoce, ed è anche il suo limite.</p>
-   <div class="cifre">
-    <div class="cifra"><b>7.232</b><span>Comuni valutati</span></div>
-    <div class="cifra"><b>727</b><span>in sorveglianza</span></div>
-    <div class="cifra"><b>2026/10/10</b><span>emissione</span></div>
-   </div>
-   <span class="go">Apri l'osservatorio &rarr;</span></a>
+  <div class="card" style="background:var(--page)">
+   <div class="n">Come si legge</div>
+   <h2>Un anno, due orizzonti</h2>
+   <p>Il modello guarda la <b>fotografia</b> di un Comune in un anno e stima il rischio negli anni
+   <b>successivi</b>: a un anno e entro tre anni, che sono due valutazioni distinte. L'indice è una
+   <b>posizione in graduatoria</b>, non una probabilità: indice 95 vuol dire più esposto di circa il
+   95% dei Comuni valutati, non «95% di dissestare».</p>
+   <p style="margin-top:8px">Il <b>2022</b> è l'anno di riferimento della tesi, ed è quello
+   che si apre per primo: i suoi esiti sono noti e verificabili. Sugli ultimi anni il periodo non è
+   ancora concluso, e lì il portale mostra i conteggi <b>dichiarandoli parziali</b> invece di una
+   percentuale che sembrerebbe definitiva.</p>
+  </div>
  </div>
-
- <div class="nota"><b>Perché due pagine e non una.</b> La stessa macchina, puntata su due anni diversi,
- produce due oggetti che non si giudicano allo stesso modo. Sul 2022 si può dire quanto il
- modello ha avuto ragione, perché i dissesti successivi sono accaduti e sono pubblici. Sul 2025
- no: la lista si potrà valutare solo fra qualche anno. Tenerle separate evita l'equivoco più comune in
- questo campo — presentare una previsione non verificabile con i numeri di accuratezza guadagnati su
- un'altra.</div>
 
  <h3 class="sez">Le stesse letture sulla mappa</h3>
  <div class="minori">
