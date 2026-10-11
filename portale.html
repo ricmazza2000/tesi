@@ -363,16 +363,6 @@ rischio: 95 significa più a rischio del 95% dei comuni, non una probabilità di
    graduatoria. Allargare la soglia intercetta più dissesti e segnala più comuni che non dissesteranno.</p>
   </div>
   <div class="card">
-   <h3 style="margin-top:2px">Come viene verificato</h3>
-   <p style="font-size:14.5px;color:var(--ink2)">Il modello impara dagli anni passati e viene giudicato
-   sugli anni successivi, mai sugli stessi: ogni anno di verifica è valutato da un modello che <b>non ha
-   visto</b> quell'anno. Si usano solo esiti già osservabili all'epoca, per non fargli sapere il futuro.</p>
-   <p style="font-size:14.5px;color:var(--ink2);margin-bottom:0">⚠️ L'<b>anno del bilancio</b> e la
-   <b>data in cui quei dati diventano disponibili</b> sono due cose diverse: un rendiconto si approva entro
-   aprile dell'anno dopo e arriva alla banca dati nei mesi seguenti. Quella che si vede qui è una
-   <b>ricostruzione storica</b>, non un'allerta davvero emessa a quella data.</p>
-  </div>
-  <div class="card">
    <h3 style="margin-top:2px">Quali sono i limiti</h3>
    <p style="font-size:14.5px;color:var(--ink2)">Il modello <b>perde</b> alcuni dissesti e <b>segnala</b>
    comuni che non dissesteranno. Con circa 3 eventi ogni 1.000 osservazioni, la maggior parte dei comuni
@@ -383,14 +373,30 @@ rischio: 95 significa più a rischio del 95% dei comuni, non una probabilità di
    a sostituire l'analisi del singolo comune. La sezione <a href="#casi">Casi mancati</a> mostra i limiti
    uno per uno, sui casi reali.</p>
   </div>
-  <div class="card">
+  </div>
+ <details class="card" style="margin-top:12px">
+  <summary style="cursor:pointer;font-weight:600">Come viene verificato, e da dove vengono i dati</summary>
+  <div class="grid g2" style="margin-top:12px">
+   <div class="card">
+   <h3 style="margin-top:2px">Come viene verificato</h3>
+   <p style="font-size:14.5px;color:var(--ink2)">Il modello impara dagli anni passati e viene giudicato
+   sugli anni successivi, mai sugli stessi: ogni anno di verifica è valutato da un modello che <b>non ha
+   visto</b> quell'anno. Si usano solo esiti già osservabili all'epoca, per non fargli sapere il futuro.</p>
+   <p style="font-size:14.5px;color:var(--ink2);margin-bottom:0">⚠️ L'<b>anno del bilancio</b> e la
+   <b>data in cui quei dati diventano disponibili</b> sono due cose diverse: un rendiconto si approva entro
+   aprile dell'anno dopo e arriva alla banca dati nei mesi seguenti. Quella che si vede qui è una
+   <b>ricostruzione storica</b>, non un'allerta davvero emessa a quella data.</p>
+  </div>
+   <div class="card">
    <h3 style="margin-top:2px">Da dove vengono i dati</h3>
    <p style="font-size:14.5px;color:var(--ink2);margin-bottom:8px">Bilanci consuntivi, contesto sociale ed
    economico, debiti commerciali, redditi e storia delle procedure di crisi. Le fonti sono tutte pubbliche:</p>
    <div id="fonti-brevi" style="font-size:13px"></div>
    <p class="note" style="margin:10px 0 0" id="date-dati"></p>
   </div>
- </div>
+  </div>
+ </details>
+
 
  <details class="card" style="margin-top:14px">
   <summary style="cursor:pointer;font-weight:600">Glossario dei termini e degli indicatori</summary>
@@ -963,7 +969,9 @@ const TIPO_FN={'LIMITE INFORMATIVO':['var(--serious)','causa non visibile nei bi
    diversa: una posizione in graduatoria, una scomposizione statistica e una
    lettura documentale. Confonderle e' il modo piu' facile di far dire al
    modello che «aveva previsto il dissesto per queste cause». */
-const PRESI_QUANTI = 10;
+/* sei in evidenza, il resto dietro un collegamento: l'elenco serve a dare
+   un'idea e a poterne aprire uno, non a essere letto per intero. */
+const PRESI_QUANTI = 6;
 let presi = [], presiTutti = false;
 
 function elencoPresi(){
