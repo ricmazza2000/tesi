@@ -1,0 +1,127 @@
+{
+ "versione": 1,
+ "generato_il": "2026-10-11",
+ "eventi": 9452,
+ "con_data_esatta": 6345,
+ "quota_con_data": 0.671,
+ "per_categoria": {
+  "corte_conti": 3584,
+  "documento": 3092,
+  "esito_piano": 1312,
+  "dissesto": 822,
+  "riequilibrio": 642
+ },
+ "anni": [
+  "2026",
+  "2025",
+  "2024",
+  "2023",
+  "2022",
+  "2021",
+  "2020",
+  "2019",
+  "2018",
+  "2017",
+  "2016",
+  "2015",
+  "2014",
+  "2013",
+  "2012",
+  "2011",
+  "2010",
+  "2009",
+  "2008",
+  "2007",
+  "2006",
+  "2005",
+  "2004",
+  "2003",
+  "2002",
+  "2001",
+  "1999",
+  "1998",
+  "1997",
+  "1996",
+  "1995",
+  "1994",
+  "1993",
+  "1992",
+  "1991",
+  "1990",
+  "1989"
+ ],
+ "senza_anno": 5,
+ "fonti": [
+  {
+   "nome": "Banca Dati dei Comuni in Crisi — dissesti",
+   "copertura": "nazionale, 826 procedure con data su 826",
+   "frequenza": "giornaliera",
+   "esito": "riuscito",
+   "ultimo_controllo": "2026-10-11",
+   "eventi": 822
+  },
+  {
+   "nome": "Banca Dati dei Comuni in Crisi — riequilibri (SAP)",
+   "copertura": "nazionale, 627 avvii con data su 632",
+   "frequenza": "giornaliera",
+   "esito": "riuscito",
+   "ultimo_controllo": "2026-10-11",
+   "eventi": 1954
+  },
+  {
+   "nome": "Banca Dati dei Comuni in Crisi — catalogo documenti",
+   "copertura": "solo i comuni con procedura; 3.147 documenti indicizzati",
+   "frequenza": "settimanale",
+   "esito": "riuscito",
+   "ultimo_controllo": "2026-10-11",
+   "eventi": 3092
+  },
+  {
+   "nome": "Corte dei conti — elenco delibere",
+   "copertura": "12.856 delibere 2015-2026 su 2.344 comuni; la raccolta e’ una tantum, non ancora quotidiana",
+   "frequenza": "da attivare",
+   "esito": "riuscito",
+   "ultimo_controllo": "2026-10-11",
+   "eventi": 3584
+  },
+  {
+   "nome": "banchedati.corteconti.it",
+   "copertura": "NON raccolta",
+   "frequenza": "non applicabile",
+   "esito": "non tentato",
+   "ultimo_controllo": "",
+   "eventi": 0
+  },
+  {
+   "nome": "OpenBDAP — archivi di bilancio",
+   "copertura": "scaricati a mano; 2025 ripubblicato il 6 ottobre 2026 con 7.594 comuni contro i 7.233 precedenti",
+   "frequenza": "a scaglioni, irregolare",
+   "esito": "riuscito",
+   "ultimo_controllo": "2026-10-11",
+   "eventi": 0
+  },
+  {
+   "nome": "Albi pretori e Amministrazione trasparente dei comuni",
+   "copertura": "NON raccolta: piattaforme eterogenee, da verificare su un campione prima di dichiarare copertura",
+   "frequenza": "non attiva",
+   "esito": "non tentato",
+   "ultimo_controllo": "",
+   "eventi": 0
+  },
+  {
+   "nome": "Ministero dell’Interno — comunicati",
+   "copertura": "NON raccolta in questa versione",
+   "frequenza": "non attiva",
+   "esito": "non tentato",
+   "ultimo_controllo": "",
+   "eventi": 0
+  }
+ ],
+ "fonti_attive": 5,
+ "fonti_dichiarate": 8,
+ "copertura_parziale": true,
+ "nota_copertura": "La copertura non e’ nazionale completa: albi pretori dei comuni, comunicati del Ministero dell’Interno e testo integrale delle pronunce non sono raccolti. Il dettaglio sta fonte per fonte.",
+ "aggiornamento_in_ritardo": [],
+ "nota_date": "La data mostrata e’ quella in cui l’atto e’ avvenuto. «Acquisito di recente» e’ un’altra cosa, ed e’ un elenco separato: alla prima raccolta sono entrati novemila atti, quasi tutti di anni passati.",
+ "nota_modello": "Gli aggiornamenti sono indipendenti dall’anno di bilancio scelto nel portale, e non modificano il punteggio: l’indice si ricalcola solo da dati di bilancio, con il metodo validato."
+}

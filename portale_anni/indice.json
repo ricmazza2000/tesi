@@ -1,7 +1,7 @@
 {
- "generato_il": "2026-10-11T16:16:45",
+ "generato_il": "2026-10-11T17:52:35",
  "dataset": "dataset_con_ifc_pdi.csv",
- "impronta_dataset": "02dbf9f1c2b830d5",
+ "impronta_dataset": "78f9aa97a1b10e42",
  "esiti_completi_al": 2025,
  "anno_predefinito": 2022,
  "anno_minimo": 2017,
@@ -55,7 +55,7 @@
    "anno": 2018,
    "stato": "disponibile",
    "file": "anno_2018.json",
-   "mb": 5.91,
+   "mb": 5.92,
    "comuni": 7679,
    "orizzonti": {
     "t1": {
@@ -81,7 +81,7 @@
    "anno": 2019,
    "stato": "disponibile",
    "file": "anno_2019.json",
-   "mb": 8.95,
+   "mb": 8.96,
    "comuni": 7887,
    "orizzonti": {
     "t1": {
@@ -255,8 +255,8 @@
    "anno": 2025,
    "stato": "disponibile",
    "file": "anno_2025.json",
-   "mb": 8.2,
-   "comuni": 7232,
+   "mb": 8.61,
+   "comuni": 7592,
    "orizzonti": {
     "t1": {
      "stato": "disponibile",
