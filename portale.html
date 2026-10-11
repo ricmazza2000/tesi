@@ -2075,7 +2075,12 @@ const ANNI_MAPPE = (AIDX && AIDX.anni) ? AIDX.anni.map(a=>a.anno) : [ANNO_INLINE
 function aggiornaMappa(){
   const ok = ANNI_MAPPE.indexOf(+ANNO) >= 0;
   const y = ok ? ANNO : ANNO_INLINE;
-  document.querySelectorAll('a[href*="mappa_rischio"]').forEach(a=>{
+  /* ⚠️ anche il nome PUBBLICATO: prepara_sito.py rinomina
+     mappa-nazionale.html in mappa-nazionale.html, quindi un selettore
+     sul solo nome locale non trova niente ONLINE — e in locale funziona, che
+     e' il modo migliore per non accorgersene. */
+  document.querySelectorAll('a[href*="mappa_rischio"], a[href*="mappa-nazionale"],'
+    + ' a[href*="mappa-toscana"]').forEach(a=>{
     const base=(a.getAttribute('href')||'').split('?')[0];
     a.setAttribute('href', `${base}?anno=${y}&oriz=${HZ}`);
     if(!a.dataset.testo) a.dataset.testo = a.textContent.trim();
