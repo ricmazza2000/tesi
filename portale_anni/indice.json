@@ -1,5 +1,5 @@
 {
- "generato_il": "2026-10-10T08:25:18",
+ "generato_il": "2026-10-11T03:59:28",
  "dataset": "dataset_con_ifc_pdi.csv",
  "impronta_dataset": "e91993285a96454b",
  "esiti_completi_al": 2025,
@@ -29,7 +29,7 @@
    "anno": 2017,
    "stato": "disponibile",
    "file": "anno_2017.json",
-   "mb": 5.98,
+   "mb": 5.99,
    "comuni": 7773,
    "orizzonti": {
     "t1": {
@@ -81,7 +81,7 @@
    "anno": 2019,
    "stato": "disponibile",
    "file": "anno_2019.json",
-   "mb": 8.79,
+   "mb": 8.96,
    "comuni": 7887,
    "orizzonti": {
     "t1": {
@@ -110,7 +110,7 @@
    "anno": 2020,
    "stato": "disponibile",
    "file": "anno_2020.json",
-   "mb": 8.79,
+   "mb": 8.96,
    "comuni": 7879,
    "orizzonti": {
     "t1": {
@@ -139,7 +139,7 @@
    "anno": 2021,
    "stato": "disponibile",
    "file": "anno_2021.json",
-   "mb": 8.8,
+   "mb": 8.97,
    "comuni": 7877,
    "orizzonti": {
     "t1": {
@@ -168,7 +168,7 @@
    "anno": 2022,
    "stato": "disponibile",
    "file": "anno_2022.json",
-   "mb": 8.78,
+   "mb": 8.95,
    "comuni": 7864,
    "orizzonti": {
     "t1": {
@@ -197,7 +197,7 @@
    "anno": 2023,
    "stato": "disponibile",
    "file": "anno_2023.json",
-   "mb": 8.75,
+   "mb": 8.91,
    "comuni": 7834,
    "orizzonti": {
     "t1": {
@@ -226,7 +226,7 @@
    "anno": 2024,
    "stato": "disponibile",
    "file": "anno_2024.json",
-   "mb": 8.7,
+   "mb": 8.86,
    "comuni": 7799,
    "orizzonti": {
     "t1": {
@@ -255,7 +255,7 @@
    "anno": 2025,
    "stato": "disponibile",
    "file": "anno_2025.json",
-   "mb": 8.07,
+   "mb": 8.21,
    "comuni": 7232,
    "orizzonti": {
     "t1": {
