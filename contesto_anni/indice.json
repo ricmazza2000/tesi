@@ -1,0 +1,367 @@
+{
+ "generato_il": "2026-10-11T23:50:59",
+ "fonti": {
+  "istat_posas": {
+   "nome": "ISTAT — Popolazione residente (POSAS)",
+   "url": "https://demo.istat.it/app/?i=POS&l=it",
+   "nota": "Popolazione residente al 1° gennaio dell’anno indicato."
+  },
+  "istat_ifc": {
+   "nome": "ISTAT — Indice di fragilità comunale",
+   "url": "https://www.istat.it/comunicato-stampa/la-fragilita-dei-comuni-italiani-anno-2022/",
+   "nota": "Edizioni disponibili: 2018, 2019, 2021, 2022. Il 2020 non è pubblicato."
+  },
+  "mef_irpef": {
+   "nome": "MEF — Dichiarazioni dei redditi, open data",
+   "url": "https://www1.finanze.gov.it/finanze/analisi_stat/public/index.php?opendata=yes",
+   "nota": "Anno d’imposta. Il portale mostra l’anno d’imposta precedente a quello del bilancio, come fa il modello."
+  }
+ },
+ "indicatori": [
+  {
+   "k": "ab",
+   "n": "Abitanti",
+   "u": "persone",
+   "d": "Residenti al 1° gennaio dell’anno indicato.",
+   "f": "istat_posas"
+  },
+  {
+   "k": "d5",
+   "n": "Popolazione negli ultimi 5 anni",
+   "u": "variazione percentuale",
+   "d": "Variazione della popolazione residente fra il 1° gennaio dell’anno indicato e il 1° gennaio di cinque anni prima.",
+   "f": "istat_posas"
+  },
+  {
+   "k": "o65",
+   "n": "Residenti di 65 anni e oltre",
+   "u": "percentuale dei residenti",
+   "d": "Quota di residenti con 65 anni compiuti sul totale.",
+   "f": "istat_posas"
+  },
+  {
+   "k": "occ",
+   "n": "Occupati tra 20 e 64 anni",
+   "u": "percentuale dei residenti 20-64",
+   "d": "Quota di residenti fra 20 e 64 anni che risultano occupati. ⚠️ Riguarda i residenti che hanno un lavoro, anche se lavorano in un altro comune: non misura i posti di lavoro presenti nel territorio.",
+   "f": "istat_ifc"
+  },
+  {
+   "k": "istr",
+   "n": "Adulti con al massimo la licenza media",
+   "u": "percentuale dei residenti 25-64",
+   "d": "Quota di residenti fra 25 e 64 anni il cui titolo di studio più alto è la licenza media (istruzione secondaria inferiore).",
+   "f": "istat_ifc"
+  },
+  {
+   "k": "red",
+   "n": "Reddito imponibile medio dichiarato",
+   "u": "euro all’anno",
+   "d": "Importo medio dell’imponibile IRPEF fra i contribuenti del comune che dichiarano un imponibile positivo. ⚠️ Non è lo stipendio medio né il reddito medio di tutti gli abitanti: chi non presenta dichiarazione, o la presenta senza imponibile, non entra nel calcolo.",
+   "f": "mef_irpef"
+  },
+  {
+   "k": "ifc",
+   "n": "Fragilità del territorio (decile ISTAT)",
+   "u": "decile 1-10",
+   "d": "Posizione del comune nella graduatoria nazionale dell’indice di fragilità comunale: 1 = meno fragile, 10 = più fragile. ⚠️ È una classe del territorio, non una probabilità di dissesto.",
+   "f": "istat_ifc"
+  }
+ ],
+ "edizioni_ifc": [
+  2018,
+  2019,
+  2021,
+  2022
+ ],
+ "anni": [
+  {
+   "anno": 2008,
+   "anno_ifc": null,
+   "comuni": 8088,
+   "mb": 0.88,
+   "copertura": {
+    "ab": 7787,
+    "d5": 7775,
+    "o65": 7787,
+    "occ": 0,
+    "istr": 0,
+    "red": 0,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 11
+  },
+  {
+   "anno": 2009,
+   "anno_ifc": null,
+   "comuni": 8089,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7793,
+    "d5": 7782,
+    "o65": 7793,
+    "occ": 0,
+    "istr": 0,
+    "red": 8083,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 11
+  },
+  {
+   "anno": 2010,
+   "anno_ifc": null,
+   "comuni": 8084,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7796,
+    "d5": 7790,
+    "o65": 7796,
+    "occ": 0,
+    "istr": 0,
+    "red": 8084,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 6
+  },
+  {
+   "anno": 2011,
+   "anno_ifc": null,
+   "comuni": 8091,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7806,
+    "d5": 7802,
+    "o65": 7806,
+    "occ": 0,
+    "istr": 0,
+    "red": 8091,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 4
+  },
+  {
+   "anno": 2012,
+   "anno_ifc": null,
+   "comuni": 8091,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7806,
+    "d5": 7802,
+    "o65": 7806,
+    "occ": 0,
+    "istr": 0,
+    "red": 8091,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 4
+  },
+  {
+   "anno": 2013,
+   "anno_ifc": null,
+   "comuni": 8090,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7809,
+    "d5": 7806,
+    "o65": 7809,
+    "occ": 0,
+    "istr": 0,
+    "red": 8057,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 3
+  },
+  {
+   "anno": 2014,
+   "anno_ifc": null,
+   "comuni": 8057,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7831,
+    "d5": 7829,
+    "o65": 7831,
+    "occ": 0,
+    "istr": 0,
+    "red": 8056,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 2
+  },
+  {
+   "anno": 2015,
+   "anno_ifc": null,
+   "comuni": 8046,
+   "mb": 1.09,
+   "copertura": {
+    "ab": 7837,
+    "d5": 7837,
+    "o65": 7837,
+    "occ": 0,
+    "istr": 0,
+    "red": 8045,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 0
+  },
+  {
+   "anno": 2016,
+   "anno_ifc": null,
+   "comuni": 7997,
+   "mb": 1.08,
+   "copertura": {
+    "ab": 7861,
+    "d5": 7861,
+    "o65": 7861,
+    "occ": 0,
+    "istr": 0,
+    "red": 7996,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 0
+  },
+  {
+   "anno": 2017,
+   "anno_ifc": null,
+   "comuni": 7978,
+   "mb": 1.08,
+   "copertura": {
+    "ab": 7872,
+    "d5": 7871,
+    "o65": 7872,
+    "occ": 0,
+    "istr": 0,
+    "red": 7977,
+    "ifc": 0
+   },
+   "var5_non_confrontabili": 0
+  },
+  {
+   "anno": 2018,
+   "anno_ifc": 2018,
+   "comuni": 7951,
+   "mb": 1.44,
+   "copertura": {
+    "ab": 7886,
+    "d5": 7885,
+    "o65": 7886,
+    "occ": 7870,
+    "istr": 7870,
+    "red": 7951,
+    "ifc": 7870
+   },
+   "var5_non_confrontabili": 0
+  },
+  {
+   "anno": 2019,
+   "anno_ifc": 2019,
+   "comuni": 7914,
+   "mb": 1.44,
+   "copertura": {
+    "ab": 7889,
+    "d5": 7888,
+    "o65": 7889,
+    "occ": 7898,
+    "istr": 7898,
+    "red": 7914,
+    "ifc": 7898
+   },
+   "var5_non_confrontabili": 0
+  },
+  {
+   "anno": 2020,
+   "anno_ifc": 2019,
+   "comuni": 7844,
+   "mb": 1.43,
+   "copertura": {
+    "ab": 7841,
+    "d5": 7840,
+    "o65": 7841,
+    "occ": 7842,
+    "istr": 7842,
+    "red": 7844,
+    "ifc": 7842
+   },
+   "var5_non_confrontabili": 0
+  },
+  {
+   "anno": 2021,
+   "anno_ifc": 2021,
+   "comuni": 7862,
+   "mb": 1.43,
+   "copertura": {
+    "ab": 7859,
+    "d5": 7855,
+    "o65": 7859,
+    "occ": 7861,
+    "istr": 7861,
+    "red": 7861,
+    "ifc": 7861
+   },
+   "var5_non_confrontabili": 3
+  },
+  {
+   "anno": 2022,
+   "anno_ifc": 2022,
+   "comuni": 7904,
+   "mb": 1.44,
+   "copertura": {
+    "ab": 7904,
+    "d5": 7898,
+    "o65": 7904,
+    "occ": 7903,
+    "istr": 7903,
+    "red": 7904,
+    "ifc": 7903
+   },
+   "var5_non_confrontabili": 6
+  },
+  {
+   "anno": 2023,
+   "anno_ifc": 2022,
+   "comuni": 7896,
+   "mb": 1.44,
+   "copertura": {
+    "ab": 7896,
+    "d5": 7887,
+    "o65": 7896,
+    "occ": 7893,
+    "istr": 7893,
+    "red": 7896,
+    "ifc": 7893
+   },
+   "var5_non_confrontabili": 9
+  },
+  {
+   "anno": 2024,
+   "anno_ifc": 2022,
+   "comuni": 7859,
+   "mb": 1.43,
+   "copertura": {
+    "ab": 7856,
+    "d5": 7822,
+    "o65": 7856,
+    "occ": 7853,
+    "istr": 7853,
+    "red": 7859,
+    "ifc": 7853
+   },
+   "var5_non_confrontabili": 34
+  },
+  {
+   "anno": 2025,
+   "anno_ifc": 2022,
+   "comuni": 7868,
+   "mb": 1.43,
+   "copertura": {
+    "ab": 7867,
+    "d5": 7856,
+    "o65": 7867,
+    "occ": 7861,
+    "istr": 7861,
+    "red": 7867,
+    "ifc": 7861
+   },
+   "var5_non_confrontabili": 11
+  }
+ ]
+}
