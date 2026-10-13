@@ -1,23 +1,23 @@
 {
- "generato_il": "2026-10-13T21:57:55",
+ "generato_il": "2026-10-13T22:59:50",
  "dataset": "dataset_con_ifc_pdi.csv",
  "impronta_dataset": "d790aadaed390a1b",
  "esiti_completi_al": 2025,
  "anno_predefinito": 2022,
  "anno_minimo": 2017,
  "anni_esclusi": {
-  "2008": "nel training (fino al 2007) esistono solo 0 variabili su 53, minimo 95%",
-  "2009": "nel training (fino al 2008) esistono solo 23 variabili su 53, minimo 95%",
-  "2010": "nel training (fino al 2009) esistono solo 24 variabili su 53, minimo 95%",
-  "2011": "nel training (fino al 2010) esistono solo 24 variabili su 53, minimo 95%",
-  "2012": "nel training (fino al 2011) esistono solo 26 variabili su 53, minimo 95%",
-  "2013": "nel training (fino al 2012) esistono solo 26 variabili su 53, minimo 95%",
-  "2014": "nel training (fino al 2013) esistono solo 26 variabili su 53, minimo 95%",
-  "2015": "nel training (fino al 2014) esistono solo 26 variabili su 53, minimo 95%",
-  "2016": "nel training (fino al 2015) esistono solo 27 variabili su 53, minimo 95%"
+  "2008": "nel training (fino al 2007) esistono solo 0 variabili su 52, minimo 95%",
+  "2009": "nel training (fino al 2008) esistono solo 22 variabili su 52, minimo 95%",
+  "2010": "nel training (fino al 2009) esistono solo 23 variabili su 52, minimo 95%",
+  "2011": "nel training (fino al 2010) esistono solo 23 variabili su 52, minimo 95%",
+  "2012": "nel training (fino al 2011) esistono solo 25 variabili su 52, minimo 95%",
+  "2013": "nel training (fino al 2012) esistono solo 25 variabili su 52, minimo 95%",
+  "2014": "nel training (fino al 2013) esistono solo 25 variabili su 52, minimo 95%",
+  "2015": "nel training (fino al 2014) esistono solo 25 variabili su 52, minimo 95%",
+  "2016": "nel training (fino al 2015) esistono solo 26 variabili su 52, minimo 95%"
  },
- "variabili": 53,
- "variabili_senza_storia": 51,
+ "variabili": 52,
+ "variabili_senza_storia": 50,
  "soglie": [
   0.05,
   0.1,
@@ -29,7 +29,7 @@
    "anno": 2017,
    "stato": "disponibile",
    "file": "anno_2017.json",
-   "mb": 5.98,
+   "mb": 5.99,
    "comuni": 7773,
    "orizzonti": {
     "t1": {
@@ -40,7 +40,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 28,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "non valutabile",
@@ -55,7 +55,7 @@
    "anno": 2018,
    "stato": "disponibile",
    "file": "anno_2018.json",
-   "mb": 5.91,
+   "mb": 5.92,
    "comuni": 7679,
    "orizzonti": {
     "t1": {
@@ -66,7 +66,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 34,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "non valutabile",
@@ -92,7 +92,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 24,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -102,7 +102,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 68,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   },
@@ -121,7 +121,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 19,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -131,7 +131,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 68,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   },
@@ -150,7 +150,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 20,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -160,7 +160,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 80,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   },
@@ -179,7 +179,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 22,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -189,7 +189,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 75,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   },
@@ -197,7 +197,7 @@
    "anno": 2023,
    "stato": "disponibile",
    "file": "anno_2023.json",
-   "mb": 8.91,
+   "mb": 8.9,
    "comuni": 7834,
    "orizzonti": {
     "t1": {
@@ -208,7 +208,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 16,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -218,7 +218,7 @@
      ],
      "verifica_completa": false,
      "eventi_osservati": 43,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   },
@@ -237,7 +237,7 @@
      ],
      "verifica_completa": true,
      "eventi_osservati": 13,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -247,7 +247,7 @@
      ],
      "verifica_completa": false,
      "eventi_osservati": 20,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   },
@@ -266,7 +266,7 @@
      ],
      "verifica_completa": false,
      "eventi_osservati": 1,
-     "variabili_vive": 53
+     "variabili_vive": 52
     },
     "t3": {
      "stato": "disponibile",
@@ -276,7 +276,7 @@
      ],
      "verifica_completa": false,
      "eventi_osservati": 1,
-     "variabili_vive": 53
+     "variabili_vive": 52
     }
    }
   }
