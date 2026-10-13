@@ -1,0 +1,52 @@
+RICERCA SULLE CHIUSURE DEI RIEQUILIBRI — 13 OTTOBRE 2026
+
+Che cosa contiene
+Il registro copre le 642 procedure della cronologia del progetto, riferite a 590 comuni. Non è la dichiarazione che siano state ricostruite tutte le date. Le procedure sono episodi distinti: un comune può aver ritirato un piano, iniziato un altro e poi dichiarato dissesto. Non si collegano i dati usando il solo nome.
+
+Da dove vengono i dati
+1. Repertorio Ca' Foscari: stati attuali, dossier e allegati, conservati come copie del 13 ottobre 2026.
+   https://www.bancadaticomunicf.eu/public/elen_rieq_sap.php
+   https://www.bancadaticomunicf.eu/public/elen_rieq.php
+   https://www.bancadaticomunicf.eu/public/elen_docu.php
+2. Deliberazioni originali della Corte dei conti, reperite nel catalogo o nei siti dei comuni.
+3. Relazioni della Corte al Parlamento e relazioni regionali, comprese quelle pubblicate nel sito della Camera e del Senato. Si conservano il numero di pagina PDF, il passaggio controllato e l'impronta del testo.
+4. Atti comunali e leggi regionali, soprattutto per ritiri e fusioni. La stampa serve a trovare un atto: non sostituisce da sola la verifica del suo contenuto.
+
+Date da tenere separate
+data_avvio_documentata e fonte_avvio_url: avvio riscontrato nell'atto, conservato separatamente dalla data dell'input. A Bianco, C.C.31 del 18/08/2017, l'originale contraddice il 20/12/2017 del repertorio. Non sovrascrivere la cronologia senza verificare atto, episodio e disponibilità.
+data_fine_finanziaria: quando il documento attesta il raggiungimento degli obiettivi del piano. Non è automaticamente la scadenza iniziale o il termine rimodulato.
+anno_fine_finanziaria: solo l'anno, quando il documento non giustifica un giorno esatto. Non convertirlo in un finto 1 gennaio o 31 dicembre.
+data_accertamento: data della decisione o presa d'atto indicata nella prova. Può riguardare anche un'approvazione, un diniego o un altro controllo: leggere idoneita_data_fine, tipo_prova ed esito_verificato. La presenza di una data in questa colonna non basta a provare la chiusura.
+data_fine_procedura_documentata: data consiliare di ritiro/revoca riportata nella fonte. Non significa risanamento.
+anno_fine_procedura e mese_fine_procedura: granularità parziale del ritiro; il giorno rimane sconosciuto.
+data_termine_approvato: termine previsto o anticipato, da distinguere dall'accertamento del suo raggiungimento.
+data_deposito: deposito espressamente datato nel documento. Non riempire una riga vuota usando la data di decisione, firma o comunicazione.
+data_pubblicazione: data indicata dal sito, ancora da corroborare rispetto alla disponibilità storica. Un timbro di registrazione non è automaticamente una pubblicazione.
+data_estinzione_ente e ente_successore: fusione amministrativa; non equivalgono al risanamento del piano.
+aggiornamento_repertorio: colonna Aggior. del repertorio, conservata solo come metadato. NON è la fine del riequilibrio, la pubblicazione dell'atto o la sua conoscibilità all'epoca.
+
+Qualità delle prove
+Atto conclusivo datato: è documentato un passaggio conclusivo, compresi i ritiri. La categoria non certifica che il comune sia finanziariamente sano e non certifica la disponibilità all'epoca.
+Solo anno documentato: una fonte indica l'anno, o mese e anno. Il giorno resta da reperire.
+Prova parziale: approvazione postuma, termine rimodulato, dichiarazione comunale o diniego non bastano, da soli, a documentare una conclusione positiva.
+Fonti discordanti: mantenere le alternative nelle note e leggere l'atto originale; non scegliere una data per ottenere un risultato favorevole.
+Fusione documentata: si conosce l'estinzione dell'ente; il debito e il piano possono proseguire nell'ente successore.
+Chiusura da documentare: il repertorio descrive l'episodio come chiuso, ma in questa ricerca manca una prova revisionata della sua data.
+Stato da verificare negli atti: i collegamenti già presenti nella cronologia o lo stato attuale non sono stati trasformati automaticamente in verifiche documentali.
+
+Uso nel modello: criterio da definire prima dell'integrazione
+Per una ricostruzione retrospettiva si può descrivere la fine finanziaria attestata successivamente, dichiarando che è una ricostruzione con informazioni conosciute oggi. Per una previsione realizzabile all'epoca si può usare soltanto ciò che risultava disponibile alla data della fotografia. Una deliberazione del 2026 che conferma il risultato del 2025 non può essere trattata come informazione già nota nel 2025.
+La disponibilità storica non è stata ancora certificata: disponibilita_storica_verificata rimane false. Copia locale, data di deposito e data nel sito odierno aiutano la ricerca, ma non sono una prova automatica di accessibilità all'epoca.
+Sono integrate 100 prove con un termine utilizzabile. Il segnale di procedura aperta è ricalcolato nell’anno di fine documentata e negli anni successivi, tenendo separati eventuali nuovi piani e dissesti. Sono modificate 338 righe annuali relative a 89 comuni; le altre variabili, gli esiti e il campione restano identici. Approvazioni non conclusive e date discordanti non vengono usate come chiusure. La versione precedente è conservata. Il registro include applicata_ricostruzione_retrospettiva e termine_usato_nel_modello; gli originari flag della fotografia 2025 descrivono invece l’input prima della correzione.
+Non assegnare automaticamente una chiusura ai piani vecchi, né diminuire il rischio solo perché la lettera finale è N o A. Considerare anche eventuali criticità persistenti documentate dalla Corte.
+
+Esempi che spiegano la distinzione
+Casole d'Elsa: fine finanziaria 31/12/2023, accertamento 22/05/2025. Aggior. 2022 non è la data di chiusura.
+Borgia: fine finanziaria 31/12/2025, decisione 21/05/2026, registrazione dell'atto 15/06/2026. L'atto conferma il riequilibrio sostanziale e prescrive anche correttivi.
+Pratella e Casamicciola Terme: il dispositivo dichiara la cessazione, ma rileva contestualmente gravi anomalie. Chiusura della procedura e assenza di fragilità sono due informazioni diverse.
+Vibo Valentia: ritiro 11/09/2023, presa d'atto 05/10/2023, deposito 06/10/2023; l'ente passa a un diverso strumento straordinario, non è per questo risanato.
+Placanica: l'approvazione del 21/03/2018 è postuma, ma l'originale richiede ancora la relazione e la verifica finale. Non usarla automaticamente come fine finanziaria.
+
+Che cosa manca ancora
+Il registro distingue le procedure chiuse senza prova revisionata, le prove parziali, le discordanti cronologie, gli agganci al dissesto e gli stati aperti/assenti da verificare. I file separati sono elenchi di lavoro, non dati completati per presunzione.
+Sono stati tentati tutti i 2.184 allegati del catalogo: 1.838 hanno testo estraibile, 342 sono scansioni e 4 download sono falliti. Download ed estrazione non equivalgono alla revisione del contenuto. Alcuni ulteriori atti individuati sul web non sono scaricabili per collegamenti inattivi, errori di certificato o indisponibilità del sito; i tentativi sono conservati.
