@@ -1,87 +1,101 @@
 {
-  "fase": "pubblicazione completata e verificata online; prosegue ricerca residua",
-  "aggiornato_il": "2026-10-13T22:42:07+02:00",
-  "salvataggio": "dati_bdap\\output\\salvataggi\\2026-10-13_2149_prima-chiusure-documentate",
-  "panel_precedente_sha256": "78f9aa97a1b10e425f3cc770730d40ce3e77ee9a15acff696a69ef0bda393ed7",
-  "panel_sha256": "d790aadaed390a1bdda5b67a0205b1a7aa2b460be2f408d8523224e767f2e6b3",
-  "righe": 97416,
+  "fase": "ricalcolo completato; controlli finali e deployment da verificare",
+  "aggiornato_il": "2026-10-14T00:06:26+02:00",
+  "versione_congelata": "v2026-10-14-pubblicazione-chiusure",
+  "specifica_variabili": 52,
+  "prove_integrate": 103,
+  "prove_reviewed_catalogo": 117,
+  "prove_revisionate_ricerca": 119,
+  "chiusure_residue": 29,
+  "nuove_prove_non_ancora_applicate": [
+    "RUVO DEL MONTE",
+    "PARETO"
+  ],
+  "panel_iniziale_sha256": "78f9aa97a1b10e425f3cc770730d40ce3e77ee9a15acff696a69ef0bda393ed7",
+  "panel_precedente_sha256": "d790aadaed390a1bdda5b67a0205b1a7aa2b460be2f408d8523224e767f2e6b3",
+  "panel_sha256": "6777971f534ab317f270b83679e645f8212a68cc552d08919feeccfd41c624e0",
+  "impronte_annuali": {
+    "anno_2017.json": "8816baf01d0359309b259621dbfb2825727ae8e058d7f68a029100a1849b4fa7",
+    "anno_2018.json": "da8fd64c5eb970866a8571a4a0672019e78f89824ae29de22c2f18ba21f124bc",
+    "anno_2019.json": "4f883f463b39c971ffd2afb6a93f323e2c3ca70470ee588c1aff2ad690962273",
+    "anno_2020.json": "929d8c174cc578d81f11e9c9418aece952d649d40bf7a9e89724528ac0d53d38",
+    "anno_2021.json": "e073ba0ccad281f9609119bdb288533d93521f9edc591648cd0ca0157cfe1225",
+    "anno_2022.json": "bd2c71c5d6dd01ffa6b8a006e10ace8a9060bc96558b320fd1d2c1c9a1152dec",
+    "anno_2023.json": "4e49c63264d6723e0e2b77f8ad68569b2514c7ac99b3dea5a27e8fbc194fa4bd",
+    "anno_2024.json": "dfb29a4aad91729615722f454616c6147f426a1aff2f1c64d8530c0771ec49c1",
+    "anno_2025.json": "bc91e44b974554f5567fe30be4d853e9987533906553b05a9b6781a555db2734"
+  },
+  "salvataggio": "output/salvataggi/2026-10-13_2340_prima-tre-nuove-cessazioni",
   "colonne_modificate": [
     "crisi_rieq_attivo",
     "crisi_rieq_attivo_certo",
     "crisi_stato_foto"
   ],
-  "righe_segnale_modificato": 338,
-  "comuni_segnale_modificato": 89,
-  "criterio": "ricostruzione retrospettiva; fine finanziaria accertata o cessazione/accertamento conclusivo, conferma e disponibilita separate",
-  "prove_integrate": 100,
-  "prove_reviewed": 113,
-  "chiusure_residue": 35,
-  "impronte_annuali": {
-    "anno_2017.json": "59e1ae495bf49052328a91c256a914e8d17d15cf083bf86a846688e448c3a9ea",
-    "anno_2018.json": "4972815d01f18baa026797eca891a8996992f5be828bef9dabfed2377d2bc629",
-    "anno_2019.json": "751b6c5fd758485f6d7af3206fe19487f976e9f7cb8fddcc180b9049517ae622",
-    "anno_2020.json": "2660e6ea6e99c366ec42c99cf06fb641f63b71c62a7cf50034c2aa84c3c49d6e",
-    "anno_2021.json": "38179a8266f41b319ed29346e2b543f7b630dd013d49d93d7cd372630dc7cd16",
-    "anno_2022.json": "7ac1267abbbcc5261da74dc604e400b403bc6d31982b8a9b9fc21addbce01d9d",
-    "anno_2023.json": "3fe7cd7c194cdcd45ec747c35cec7da90f09e190e7a58cdc91203b2339738daf",
-    "anno_2024.json": "285a87d9537b53941e29f71ce04caca281e23442c169269bb355af8efe8d1225",
-    "anno_2025.json": "3bec465c7127d1414fead4bb3ed94fcf0cd70c3ecd4502e94abe22e1bbc63973"
-  },
+  "righe_stato_modificato_in_questa_integrazione": 30,
+  "righe_segnale_modificato_in_questa_integrazione": 19,
+  "comuni_modificati_in_questa_integrazione": 3,
+  "comuni_segnale_modificato_dalla_versione_iniziale": 92,
+  "righe_segnale_modificato_dalla_versione_iniziale": 357,
+  "altre_114_colonne_identiche": true,
+  "snapshot_anagrafica_sha256": "6beee7e0a090a4b66fe920c99eb370d9b5868e4a37ea8735a361d9365de308df",
   "validazione_t1": {
-    "eventi": 148,
-    "intercettati_top5": 116,
-    "quota_complessiva": 0.7837837837837838,
-    "richiamo_medio_annuo": 0.797,
-    "pr_auc_media": 0.134
+    "osservazioni_positive": 148,
+    "intercettati_top5": 120,
+    "quota_complessiva": 0.8108108108108109,
+    "richiamo_medio_annuo": 0.815,
+    "pr_auc_media": 0.129,
+    "auc_media": 0.952,
+    "fold": 7
   },
   "validazione_t3": {
     "osservazioni_positive": 370,
-    "intercettate_top5": 228,
-    "richiamo_medio_annuo": 0.618
+    "intercettati_top5": 231,
+    "quota_complessiva": 0.6243243243243243,
+    "richiamo_medio_annuo": 0.626,
+    "pr_auc_media": 0.208,
+    "auc_media": 0.938,
+    "fold": 5
   },
-  "commit_codice": "1aeed56a76ac46f461ee3f2d599684df2492cd0f",
-  "commit_sito": "94f5ad938bbf25f73ffa320b32360675c48b7003",
-  "verifica_online_il": "2026-10-13T22:42:07+02:00",
-  "url_deployment": "https://github.com/ricmazza2000/tesi/actions/runs/38463781435",
-  "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
-  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
-  "verifiche_online": [
-    {
-      "file": "portale.html",
-      "url": "https://ricmazza2000.github.io/tesi/portale.html?v=94f5ad9",
-      "corrisponde": true,
-      "sha256_remoto": "945bc72ff787cc9b796aa3de7746df28c796ee3c908b696c21faa451094f36f4"
+  "fotografia_2022": {
+    "t1": {
+      "top5": {
+        "segnalati": 394,
+        "colti": 19,
+        "quota": 0.8636
+      },
+      "top10": {
+        "segnalati": 787,
+        "colti": 21,
+        "quota": 0.9545
+      },
+      "top20": {
+        "segnalati": 1573,
+        "colti": 22,
+        "quota": 1.0
+      }
     },
-    {
-      "file": "riequilibri.html",
-      "url": "https://ricmazza2000.github.io/tesi/riequilibri.html?v=94f5ad9",
-      "corrisponde": true,
-      "sha256_remoto": "8da3b020fd994523383320b406e094851aa743e65403da8f8ab68034fcfa8312"
-    },
-    {
-      "file": "portale_anni/anno_2022.json",
-      "url": "https://ricmazza2000.github.io/tesi/portale_anni/anno_2022.json?v=94f5ad9",
-      "corrisponde": true,
-      "sha256_remoto": "6304c8b788d398715556d1f0bba2e0527117612dcf6e9fe32ba13c23c7178e5a"
-    },
-    {
-      "file": "portale_anni/anno_2023.json",
-      "url": "https://ricmazza2000.github.io/tesi/portale_anni/anno_2023.json?v=94f5ad9",
-      "corrisponde": true,
-      "sha256_remoto": "87d88f15bf7f9bea430b4ab6428584b172814bcb6bebc4619caf824dc4d443c1"
-    },
-    {
-      "file": "portale_anni/comuni_procedure.json",
-      "url": "https://ricmazza2000.github.io/tesi/portale_anni/comuni_procedure.json?v=94f5ad9",
-      "corrisponde": true,
-      "sha256_remoto": "2383e367c3b8d9adb798de21a36fe01e95fdf87565d9599c5a3f5319a37d6018"
-    },
-    {
-      "file": "ricerca_riequilibri/integrazione.json",
-      "url": "https://ricmazza2000.github.io/tesi/ricerca_riequilibri/integrazione.json?v=94f5ad9",
-      "corrisponde": true,
-      "sha256_remoto": "893c667b3c3dcf75327f4ff6af20a3cf6cf3c2e083f3d561b2876fae1ce3dc5f"
+    "t3": {
+      "top5": {
+        "segnalati": 394,
+        "colti": 49,
+        "quota": 0.6533
+      },
+      "top10": {
+        "segnalati": 787,
+        "colti": 61,
+        "quota": 0.8133
+      },
+      "top20": {
+        "segnalati": 1573,
+        "colti": 69,
+        "quota": 0.92
+      }
     }
-  ],
-  "nota_concorrenza": "La copia locale include il successivo commit f01d980 di un controllo sui contributi, non ancora sul remoto. La pubblicazione dei riequilibri usa il commit 1aeed56."
+  },
+  "criterio": "Ricostruzione retrospettiva; disponibilita all'epoca non certificata. Ritiro e fusione non sono risanamento.",
+  "allerta": "Budget per probabilita non arrotondata e ordine stabile; rk/rk3 conservano il rango esatto. Il percentile grafico non decide l'appartenenza al top5/top10.",
+  "prima_pubblicazione": "94f5ad9/1aeed56",
+  "base_concorrente_verificata": "e8b6158/f2b3a7f",
+  "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
+  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html"
 }

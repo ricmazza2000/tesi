@@ -50,3 +50,7 @@ Placanica: l'approvazione del 21/03/2018 è postuma, ma l'originale richiede anc
 Che cosa manca ancora
 Il registro distingue le procedure chiuse senza prova revisionata, le prove parziali, le discordanti cronologie, gli agganci al dissesto e gli stati aperti/assenti da verificare. I file separati sono elenchi di lavoro, non dati completati per presunzione.
 Sono stati tentati tutti i 2.184 allegati del catalogo: 1.838 hanno testo estraibile, 342 sono scansioni e 4 download sono falliti. Download ed estrazione non equivalgono alla revisione del contenuto. Alcuni ulteriori atti individuati sul web non sono scaricabili per collegamenti inattivi, errori di certificato o indisponibilità del sito; i tentativi sono conservati.
+
+
+Seconda integrazione, notte 13-14 ottobre 2026
+Sono ora integrate 103 prove, incluse Nesso, Santa Giuletta e il ritiro di Mombaroccio. La specifica corrente contiene 52 variabili. Questa aggiunta corregge 30 stati annuali in tre comuni; il segnale di procedura aperta cambia in 19 righe. Le altre 114 colonne del panel e lo snapshot dell'anagrafica sono identici. Il primo aggiornamento di 100 prove resta archiviato separatamente. Il budget di allerta e selezionato sulla probabilita non arrotondata: i ranghi rk/rk3 evitano che l'arrotondamento grafico cambi i casi intercettati e mancati. Ruvo del Monte e Pareto hanno nuove prove utilizzabili nel rapporto, ancora da applicare in una versione successiva.
