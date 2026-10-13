@@ -1,5 +1,5 @@
 {
-  "fase": "ricalcolo completato; controlli finali e deployment da verificare",
+  "fase": "pubblicazione completata e verificata online; prosegue ricerca residua",
   "aggiornato_il": "2026-10-14T00:06:26+02:00",
   "versione_congelata": "v2026-10-14-pubblicazione-chiusure",
   "specifica_variabili": 52,
@@ -97,5 +97,68 @@
   "prima_pubblicazione": "94f5ad9/1aeed56",
   "base_concorrente_verificata": "e8b6158/f2b3a7f",
   "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
-  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html"
+  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
+  "verificato_online_il": "2026-10-14T00:21:49+02:00",
+  "commit_codice": "bdcab9fb8d081ea1e2fae1a2bf169fdba7bd37a2",
+  "commit_sito": "d8ecbef6952820f246ddf74180af5e9cd1e00be8",
+  "versione_online_verificata": "ebba7a4da2fb8d3e1af428569ec3ff95a5b8a015",
+  "url_deployment": "https://github.com/ricmazza2000/tesi/actions/runs/38476654609",
+  "verifiche_online": [
+    {
+      "file": "portale.html",
+      "corrisponde": true,
+      "sha256": "525466f199bba7991901b96b79ac8da04efa66f224be29328f71f6b9126a9538"
+    },
+    {
+      "file": "mappa-nazionale.html",
+      "corrisponde": true,
+      "sha256": "6796a2487a522d370534ee631186c8839f4eab67b43e598f27f1e689c5178693"
+    },
+    {
+      "file": "riequilibri.html",
+      "corrisponde": true,
+      "sha256": "5fd6114303140a4a9deb2e4d24a41fc07b0581e050009efe3df42bb6fb55b4f3"
+    },
+    {
+      "file": "ricerca_riequilibri/integrazione.json",
+      "corrisponde": true,
+      "sha256": "5e5ab10926e0b9b675a834cf6f7dd5e8d90291ce91b9cc4a4f4107bb34e07c51"
+    },
+    {
+      "file": "ricerca_riequilibri/chiusure_ancora_da_documentare.csv",
+      "corrisponde": true,
+      "sha256": "389842530e63d0c86d0a0bd258230ffce0ba51f357b9914ea04d4b06c6716610"
+    },
+    {
+      "file": "portale_anni/anno_2019.json",
+      "corrisponde": true,
+      "sha256": "5e420523aa6a50bc933fc671b89ea5a4bb104e10fe3a5b7b6b70eefad5b9b3fc"
+    },
+    {
+      "file": "portale_anni/anno_2022.json",
+      "corrisponde": true,
+      "sha256": "53f9e9a84b65d971ad4d9125b1cc75a6734758c3f07344335cdb1ebd888ec40d"
+    },
+    {
+      "file": "portale_anni/anno_2024.json",
+      "corrisponde": true,
+      "sha256": "897c657a9cf84fe83e5f360f5446d1727f9c7ccd356fc994c62023870aa81bab"
+    },
+    {
+      "file": "portale_anni/anno_2025.json",
+      "corrisponde": true,
+      "sha256": "ee51556774dab9870b453da5f29c6a9670b74137eaaf1eaddbdeeb0897996168"
+    },
+    {
+      "file": "portale_anni/comuni_procedure.json",
+      "corrisponde": true,
+      "sha256": "a2ec9147ce9d549c99b83eafed9416ea53e43e4660462afd810ba9387c9887a7"
+    }
+  ],
+  "nuove_prove_utilizzabili_in_attesa": [
+    "RUVO DEL MONTE"
+  ],
+  "nuove_prove_parziali_da_completare": [
+    "PARETO: esecutivita della C.C.13/2025 da acquisire"
+  ]
 }
