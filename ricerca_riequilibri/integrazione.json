@@ -1,6 +1,6 @@
 {
-  "fase": "ricalcolo e pagine verificati; pubblicazione in preparazione",
-  "aggiornato_il": "2026-10-13T22:23:41+02:00",
+  "fase": "pubblicazione completata e verificata online; prosegue ricerca residua",
+  "aggiornato_il": "2026-10-13T22:42:07+02:00",
   "salvataggio": "dati_bdap\\output\\salvataggi\\2026-10-13_2149_prima-chiusure-documentate",
   "panel_precedente_sha256": "78f9aa97a1b10e425f3cc770730d40ce3e77ee9a15acff696a69ef0bda393ed7",
   "panel_sha256": "d790aadaed390a1bdda5b67a0205b1a7aa2b460be2f408d8523224e767f2e6b3",
@@ -38,5 +38,50 @@
     "osservazioni_positive": 370,
     "intercettate_top5": 228,
     "richiamo_medio_annuo": 0.618
-  }
+  },
+  "commit_codice": "1aeed56a76ac46f461ee3f2d599684df2492cd0f",
+  "commit_sito": "94f5ad938bbf25f73ffa320b32360675c48b7003",
+  "verifica_online_il": "2026-10-13T22:42:07+02:00",
+  "url_deployment": "https://github.com/ricmazza2000/tesi/actions/runs/38463781435",
+  "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
+  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
+  "verifiche_online": [
+    {
+      "file": "portale.html",
+      "url": "https://ricmazza2000.github.io/tesi/portale.html?v=94f5ad9",
+      "corrisponde": true,
+      "sha256_remoto": "945bc72ff787cc9b796aa3de7746df28c796ee3c908b696c21faa451094f36f4"
+    },
+    {
+      "file": "riequilibri.html",
+      "url": "https://ricmazza2000.github.io/tesi/riequilibri.html?v=94f5ad9",
+      "corrisponde": true,
+      "sha256_remoto": "8da3b020fd994523383320b406e094851aa743e65403da8f8ab68034fcfa8312"
+    },
+    {
+      "file": "portale_anni/anno_2022.json",
+      "url": "https://ricmazza2000.github.io/tesi/portale_anni/anno_2022.json?v=94f5ad9",
+      "corrisponde": true,
+      "sha256_remoto": "6304c8b788d398715556d1f0bba2e0527117612dcf6e9fe32ba13c23c7178e5a"
+    },
+    {
+      "file": "portale_anni/anno_2023.json",
+      "url": "https://ricmazza2000.github.io/tesi/portale_anni/anno_2023.json?v=94f5ad9",
+      "corrisponde": true,
+      "sha256_remoto": "87d88f15bf7f9bea430b4ab6428584b172814bcb6bebc4619caf824dc4d443c1"
+    },
+    {
+      "file": "portale_anni/comuni_procedure.json",
+      "url": "https://ricmazza2000.github.io/tesi/portale_anni/comuni_procedure.json?v=94f5ad9",
+      "corrisponde": true,
+      "sha256_remoto": "2383e367c3b8d9adb798de21a36fe01e95fdf87565d9599c5a3f5319a37d6018"
+    },
+    {
+      "file": "ricerca_riequilibri/integrazione.json",
+      "url": "https://ricmazza2000.github.io/tesi/ricerca_riequilibri/integrazione.json?v=94f5ad9",
+      "corrisponde": true,
+      "sha256_remoto": "893c667b3c3dcf75327f4ff6af20a3cf6cf3c2e083f3d561b2876fae1ce3dc5f"
+    }
+  ],
+  "nota_concorrenza": "La copia locale include il successivo commit f01d980 di un controllo sui contributi, non ancora sul remoto. La pubblicazione dei riequilibri usa il commit 1aeed56."
 }
