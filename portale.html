@@ -1928,8 +1928,8 @@ function statoProc(c, rif){
     return {k:'aperta', txt:'aperta al 31 dicembre ' + rif + ' — ' + c.st};
   /* dichiarata chiusa, ma senza data: è il caso da non nascondere */
   return {k:'incerta', txt:'stato storico incerto — ' + (c.st||'chiusa'),
-          nota:'La data di chiusura non è disponibile. Lo stato storico è '
-             + 'incerto; nel calcolo la procedura è considerata ancora aperta.'};
+          nota:'Il repertorio indica una chiusura, ma non ne documenta la data. '
+             + 'Lo stato di questo episodio nell’anno selezionato resta incerto.'};
 }
 function cronologia(x, rif){
   /* ⚠️ Si legge `cron`, che porta le DATE, lo stato e la revoca di ogni
@@ -1968,10 +1968,13 @@ function etichettaQuando(x, rif){
            + `<span style="color:var(--muted)">${st}</span>`
            + (e.fonte ? `<br><a style="font-size:12px" href="${CauseDocumentali.testoHtml(e.fonte)}" target="_blank" rel="noopener noreferrer">Leggi l’accertamento${e.atto?' · '+CauseDocumentali.testoHtml(e.atto):''}</a>` : '');
   }).join('<br>');
-  /* l'avvertenza sulle chiusure senza data compare una volta, non per riga */
+  /* Ogni avviso nomina il proprio episodio: una vecchia chiusura incerta
+     non deve sembrare riferita al piano successivo già concluso. */
   const inc = p.filter(e=>e.st && e.st.nota);
-  const note = [...new Set(inc.map(e=>e.st.nota))]
-    .map(t=>`<div style="color:var(--muted);margin-top:3px">⚠️ ${t}</div>`).join('');
+  const note = inc.map(e=>{
+    const episodio = e.tipo + (e.data ? ' del ' + dataIt(e.data) : ' del ' + e.anno);
+    return `<div style="color:var(--muted);margin-top:3px">⚠️ ${CauseDocumentali.testoHtml(episodio + ': ' + e.st.nota)}</div>`;
+  }).join('');
   return righe + note;
 }
 const TIPO_FN={'LIMITE INFORMATIVO':['var(--serious)','causa non visibile nei bilanci'],
