@@ -1,20 +1,20 @@
 {
-  "fase": "quarta integrazione pubblicata e verificata online",
-  "aggiornato_il": "2026-10-14T03:10:06.807548+02:00",
-  "versione_congelata": "v2026-10-14-ritiro-taverna",
+  "fase": "quinta integrazione verificata: documentazione del ritiro 2026, ingressi e risultati invariati",
+  "aggiornato_il": "2026-10-14T04:18:42.406434+02:00",
+  "versione_congelata": "v2026-10-14-ritiro-pietra-marazzi",
   "specifica_variabili": 52,
-  "prove_integrate": 106,
-  "prove_reviewed_catalogo": 121,
-  "prove_revisionate_ricerca": 121,
-  "chiusure_residue": 27,
+  "prove_integrate": 107,
+  "prove_reviewed_catalogo": 122,
+  "prove_revisionate_ricerca": 122,
+  "chiusure_residue": 26,
   "nuove_prove_non_ancora_applicate": [],
   "prove_parziali_segnalate": [
     "PARETO|2025: esecutivita della revoca mancante",
     "MONTALTO UFFUGO|2015: pronuncia conclusiva da reperire"
   ],
   "panel_iniziale_sha256": "78f9aa97a1b10e425f3cc770730d40ce3e77ee9a15acff696a69ef0bda393ed7",
-  "panel_precedente_sha256": "97466f152027444495898d01f477b51b423bb0cf7cdf5283f8bd474133a25463",
-  "panel_sha256": "492f6cb965c1ba54049a3f27a8057f68ecc76bfd1e9f7059f9e77bfeb6089caa",
+  "panel_precedente_sha256": "492f6cb965c1ba54049a3f27a8057f68ecc76bfd1e9f7059f9e77bfeb6089caa",
+  "panel_sha256": "041ae58dbdf7aa2243bb90d5aa860b01e5b7d1efccb02cd087afe6143e4cf3df",
   "snapshot_anagrafica_sha256": "6beee7e0a090a4b66fe920c99eb370d9b5868e4a37ea8735a361d9365de308df",
   "impronte_annuali": {
     "anno_2017.json": "7f3ea340f5a7a69f7c419712a6fd459c5decc5e362aa1f19aec4c3e861065cb9",
@@ -27,14 +27,13 @@
     "anno_2024.json": "f840f13d28cd0aba159bfd65fcc58f4b3d2ede04505e86fe9cb431e5e4db2d17",
     "anno_2025.json": "4dfda787f56f53633d06c8cf756ee6b28bd32aeb3f6c840f1760e16c6d0202a7"
   },
-  "salvataggio": "output/salvataggi/2026-10-14_0300_prima-ritiro-taverna-documentato",
+  "salvataggio": "output/salvataggi/2026-10-14_0410_prima-ritiro-pietra-marazzi",
   "colonne_modificate": [
-    "crisi_rieq_attivo",
     "crisi_rieq_attivo_certo",
     "crisi_stato_foto"
   ],
-  "righe_stato_modificato_in_questa_integrazione": 10,
-  "righe_segnale_modificato_in_questa_integrazione": 10,
+  "righe_stato_modificato_in_questa_integrazione": 1,
+  "righe_segnale_modificato_in_questa_integrazione": 0,
   "comuni_modificati_in_questa_integrazione": 1,
   "comuni_segnale_modificato_dalla_versione_iniziale": 95,
   "righe_segnale_modificato_dalla_versione_iniziale": 380,
@@ -101,14 +100,25 @@
     "d8ecbef/bdcab9f",
     "0e1047c/6175337",
     "412c297/6bdcb7f: correzioni degli stati e delle date",
-    "25905d5/fa0ae79: rapporto con Taverna in attesa"
+    "25905d5/fa0ae79: rapporto con Taverna in attesa",
+    "dc833cf/1e7fd41: ritiro di Taverna",
+    "7b01d66/d5ebbcd: metadati della quarta integrazione"
   ],
   "base_concorrente_verificata": "Annotazioni 71afdf2/ebba7a4 e correzioni di presentazione 70b444f/6bdcb7f preservate",
   "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
   "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
-  "commit_codice": "1e7fd41017ce5942d7cc2d286b7b61b33a41073d",
-  "commit_sito": "dc833cf4ebddc6760576c0557331a88d025053f2",
-  "pubblicato_il": "2026-10-14T03:32:20.285224+02:00",
-  "deployment": "https://github.com/ricmazza2000/tesi/actions/runs/38495760322",
-  "verifica_online": "verifica_online_quarta_integrazione/risultato.json"
+  "ingressi_52_variabili_identici": true,
+  "ingressi_52_variabili_sha256": "41b7c5ddc18e3613e0a13744735acd4eeec9aa66439ab9bb7964100a70a60290",
+  "master_identici_alla_quarta_versione": [
+    "MASTER_validazione_finale.csv",
+    "MASTER_validazione_sintesi.csv",
+    "MASTER_casi_mancati.csv",
+    "MASTER_anticipo_giorni.csv",
+    "MASTER_emissioni_storiche.csv",
+    "casi_mancati.csv"
+  ],
+  "spiegazione_integrazione": "Pietra Marazzi: ritiro documentato nel 2026. Prima decisione 30 gennaio, sostituita il 7 febbraio; si conserva soltanto il comune anno di fine senza imporre un unico giorno iniziale. La fotografia 2025 rimane in riequilibrio, ora con fine successiva documentata. Nessun ingresso delle 52 variabili o segnale di allerta modificato.",
+  "altri_chiarimenti": "Malvagna C.C.3/2022: mancata presentazione, non revoca. Olevano revisori 2026: piano descritto ancora in corso; nessuna chiusura anticipata datata assunta.",
+  "documenti_catalogo_iniziale": 2184,
+  "fonti_aggiuntive_ricerca": 50
 }
