@@ -10,7 +10,7 @@
   --grid:#DFD8C6; --axis:#C6BCA4; --ring:rgba(20,18,14,.12);
   --s1:#1F3A5F; --s2:#B4531F; --s3:#5B7A5A; --s8:#8C2B22;
   --good:#E8D9B8; --warning:#E0A951; --serious:#B4531F; --critical:#8C2B22;
-  --accent:#1F3A5F;
+  --accent:#1F3A5F; --contrib-neg:#A99A84; --contrib-pos:#625B50;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -19,7 +19,7 @@
     --grid:#2B2721; --axis:#3B362E; --ring:rgba(244,240,230,.14);
     --s1:#8FB3DE; --s2:#DD8552; --s3:#8FAE86; --s8:#D96A5E;
     --good:#C9B78A; --warning:#E0A951; --serious:#D9784A; --critical:#C4453A;
-    --accent:#8FB3DE;
+    --accent:#8FB3DE; --contrib-neg:#817767; --contrib-pos:#CEC3B0;
   }
 }
 *{box-sizing:border-box}
@@ -109,6 +109,16 @@ tr.row{cursor:pointer} tr.row:hover{background:var(--page)}
 .ind{display:grid;grid-template-columns:1fr auto;gap:1px 12px;padding:9px 0;border-bottom:1px solid var(--grid)}
 .ind .nm{font-weight:600;font-size:14px} .ind .v{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
 .ind .ex{grid-column:1/-1;font-size:12.5px;color:var(--ink2);margin-top:1px}
+.scheda-bilancio{margin:22px 0 18px;border-top:1px solid var(--ring);padding-top:14px}
+.scheda-bilancio h3{margin:0 0 5px;font-size:17px}
+.scheda-liquidita{margin:12px 0;padding:10px 14px;border:1px solid var(--ring);border-radius:9px;background:var(--page)}
+.scheda-liquidita h4{margin:0 0 4px;font-size:14px}
+.scheda-liquidita .ind:last-child{border-bottom:0}
+.scheda-contabile [data-stato]{display:block;font-size:11px;font-weight:500;color:var(--muted)}
+.scheda-contabile [data-stato="critico"]{color:var(--critical)}
+.scheda-contabile [data-stato="riferimento"]{color:var(--ink2)}
+#card .scheda-calcolo{margin:18px 0;padding:12px 0;border-top:1px solid var(--ring)}
+#card .scheda-segnale .v{color:var(--ink2)}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
 .dg{background:var(--good)}.dw{background:var(--warning)}.db{background:var(--critical)}.dn{background:var(--muted)}
 .statobox{background:var(--page);border:1px solid var(--grid);border-radius:10px;padding:10px 14px;margin:10px 0 14px;font-size:13.5px}
@@ -673,6 +683,42 @@ window.onerror=function(m,f,l){document.documentElement.dataset.jserr=(m||'?')+'
   root.CauseDocumentali = {archivio, pannello, confronto, fattori, css, testoHtml: escape};
 })(typeof window !== 'undefined' ? window : globalThis);
 
+/* Presentazione dei contributi: non modifica i dati né il calcolo. */
+(function(root){
+  'use strict';
+  const avviso='Il dato segnala una criticità contabile, ma nel modello riceve un contributo negativo. Questo non indica una protezione dal dissesto.';
+  function notaBreve(nota){
+    // Le statistiche del campione restano nel catalogo della metodologia.
+    // Non si applica il segno medio del campione a ogni anno e orizzonte.
+    return (nota||'').split(/(?:⚠️\s*)?Attenzione al segno:/)[0].replace(/(?:\s*⚠️\s*)+$/,'').trim();
+  }
+  function criticita(id,valore,indicatore){
+    if(valore==null || !Number.isFinite(Number(valore))) return false;
+    // Criteri sul dato osservato, non sul segno medio dei coefficienti.
+    if(['pdi_3_2','pdi_ha_dfb','din_riscoss_incalo'].includes(id)) return Number(valore)>0;
+    if(!indicatore || indicatore.d==='neutral') return false;
+    return indicatore.d==='low' ? valore>=indicatore.w
+      : indicatore.d==='high' ? valore<=indicatore.w : false;
+  }
+  function contrasto(id,valore,contributo,indicatore){
+    return contributo<0 && criticita(id,valore,indicatore) ? avviso : '';
+  }
+  function statoP3(valore){
+    if(valore==null || !Number.isFinite(Number(valore))) return ['assente','Dato assente'];
+    return Number(valore)>0 ? ['critico','Segnale critico'] : ['riferimento','Fascia di riferimento'];
+  }
+  function righeEtichetta(testo,lunghezza){
+    const righe=[''];
+    for(const parola of String(testo).split(/\s+/)){
+      const ultima=righe.length-1;
+      if(righe[ultima] && righe[ultima].length+1+parola.length>lunghezza) righe.push(parola);
+      else righe[ultima]+=(righe[ultima]?' ':'')+parola;
+    }
+    return righe;
+  }
+  root.SchedaContributi={notaBreve,contrasto,statoP3,righeEtichetta};
+})(typeof globalThis!=='undefined'?globalThis:this);
+
 /* Dati dei tre segnali: richiesti soltanto quando si apre il comune. */
 (function(root){
   'use strict';
@@ -691,7 +737,7 @@ window.onerror=function(m,f,l){document.documentElement.dataset.jserr=(m||'?')+'
     return cache.get(anno);
   }
   async function aggiorna(card,anno,key){
-    const segnali=Array.from(card.querySelectorAll('.scheda-segnale[data-var]'));
+    const segnali=Array.from(card.querySelectorAll('.scheda-segnale[data-var], .scheda-contabile[data-var]'));
     if(!segnali.length) return;
     try{
       const comuni=await carica(anno), valori=comuni[key];
@@ -700,6 +746,20 @@ window.onerror=function(m,f,l){document.documentElement.dataset.jserr=(m||'?')+'
         if(!card.contains(s)) continue; // la persona può aver aperto un altro comune
         const f=valori[s.dataset.var], host=s.querySelector('[data-dato]');
         if(!host) continue;
+        if(s.classList.contains('scheda-contabile')){
+          const v=f?.valore;
+          const stato=SchedaContributi.statoP3(v);
+          const numero=s.querySelector('[data-valore]'), etichetta=s.querySelector('[data-stato]');
+          numero.textContent=v==null ? 'n/d' : f.dato;
+          etichetta.textContent=stato[1];etichetta.dataset.stato=stato[0];
+          host.textContent=v==null ? 'Il rendiconto non riporta questo indicatore per l’anno scelto.'
+            : v>0 ? 'Anticipazione ancora presente all’inizio dell’anno successivo: la chiusura contabile non equivale al rimborso.'
+            : 'Non risultano anticipazioni chiuse solo contabilmente.';
+          const provenienza=s.querySelector('[data-provenienza]');
+          provenienza.textContent=f && ['riportato','incerto'].includes(f.stato) ? f.nota||'' : '';
+          provenienza.hidden=!provenienza.textContent;
+          continue;
+        }
         if(!f){
           if(host.textContent==='Caricamento del valore…') host.textContent='Valore numerico non disponibile nella scheda.';
           continue;
@@ -715,6 +775,13 @@ window.onerror=function(m,f,l){document.documentElement.dataset.jserr=(m||'?')+'
           if(f.stato==='incerto') p.style.color='var(--serious)';
         }
         host.append(p);
+        const contrasto=s.querySelector('[data-contrasto]');
+        if(contrasto){
+          const indicatore=typeof IND==='undefined' ? null : IND.find(i=>i.m===s.dataset.var);
+          contrasto.textContent=f.stato==='stimato' ? ''
+            : SchedaContributi.contrasto(s.dataset.var,f.valore,Number(s.dataset.contributo),indicatore);
+          contrasto.hidden=!contrasto.textContent;
+        }
         if(f.stato==='riportato' || f.stato==='incerto'){
           const nota=document.createElement('div');
           nota.textContent=f.stato==='riportato'
@@ -730,6 +797,12 @@ window.onerror=function(m,f,l){document.documentElement.dataset.jserr=(m||'?')+'
       for(const s of segnali){
         if(!card.contains(s)) continue;
         const h=s.querySelector('[data-dato]');
+        if(s.classList.contains('scheda-contabile')){
+          s.querySelector('[data-valore]').textContent='n/d';
+          const et=s.querySelector('[data-stato]');et.textContent='Dato non caricato';et.dataset.stato='assente';
+          if(h) h.textContent='Valore non caricato: non viene interpretato come zero.';
+          continue;
+        }
         if(h && h.textContent==='Caricamento del valore…')
           h.textContent='Valore non disponibile nella scheda; contributo e definizione sono consultabili nei dettagli.';
       }
@@ -1387,8 +1460,10 @@ function tableView(host, cols, rows){
 /* barre orizzontali, 1 o 2 serie */
 function barH(host, rows, series, opt={}){
   host.innerHTML='';
-  const LW=opt.lw||210, W=Math.max(host.clientWidth||760, 480), RW=W-LW-52;
-  const bh=series.length>1?11:15, gap=2, rh=series.length*bh+(series.length-1)*gap+16;
+  const W=Math.max(host.clientWidth||760, 480), LW=opt.wrap?Math.min(opt.lw||210,W*.42):opt.lw||210, RW=W-LW-52;
+  const etichette=rows.map(r=>opt.wrap?SchedaContributi.righeEtichetta(r.l,Math.floor((LW-20)/7)):[r.l]);
+  const bh=series.length>1?11:15, gap=2, rh=Math.max(series.length*bh+(series.length-1)*gap+16,
+    opt.wrap?Math.max(1,...etichette.map(e=>e.length))*15+14:0);
   const H=rows.length*rh+8;
   const max=opt.max!=null?opt.max:Math.max(...rows.flatMap(r=>r.v.map(x=>Math.abs(x||0))))*1.02||1;
   const min=opt.min!=null?opt.min:0;
@@ -1401,10 +1476,11 @@ function barH(host, rows, series, opt={}){
   if(opt.zero) svg.appendChild(el('line',{x1:x0,x2:x0,y1:0,y2:H-14,stroke:'var(--axis)','stroke-width':1}));
   rows.forEach((r,i)=>{
     const y0=i*rh+4;
-    svg.appendChild(txt(LW-10,y0+(rh-16)/2,r.l,{an:'end',fill:'var(--ink)',fs:12.5}));
+    const cy=y0+(rh-16)/2;
+    etichette[i].forEach((l,k)=>svg.appendChild(txt(LW-10,cy+(k-(etichette[i].length-1)/2)*15,l,{an:'end',fill:'var(--ink)',fs:12.5})));
     r.v.forEach((v,j)=>{
       if(v==null||isNaN(v))return;
-      const y=y0+j*(bh+gap), xv=sc(v);
+      const y=(opt.wrap?cy-bh/2:y0)+j*(bh+gap), xv=sc(v);
       const xa=opt.zero?Math.min(x0,xv):LW, w=Math.max(opt.zero?Math.abs(xv-x0):xv-LW,1.5);
       const col=opt.zero ? (v<0?(opt.colNeg||'var(--s1)'):(opt.colPos||'var(--s8)')) : series[j].c;
       const g=el('g'); g.appendChild(el('rect',{x:xa,y,width:w,height:bh,rx:4,fill:col}));
@@ -1863,7 +1939,8 @@ function catDett(id, nota){
   if(v.f) h+='<div style="margin-top:4px"><b>Come si calcola:</b> '+v.f+'</div>';
   if(v.sg) h+='<div style="margin-top:4px"><b>Soglia:</b> '+v.sg+
               (v.sp?' — '+v.sp:'')+'</div>';
-  if(v.no) h+='<div style="margin-top:4px">⚠️ '+v.no+'</div>';
+  const breve=SchedaContributi.notaBreve(v.no);
+  if(breve) h+='<div style="margin-top:4px">'+breve.replace(/^(?:⚠️\s*)+/, '⚠️ ')+'</div>';
   if(v.fo) h+='<div style="margin-top:4px"><b>Fonte:</b> '+v.fo+'</div>';
   return h+'</div></details>';
 }
@@ -2725,7 +2802,6 @@ function apri(x){
    <details class="tv"><summary>Storia delle procedure e situazione attuale</summary>${etichettaQuando(x,ANNO)}
     ${x.sit && x.sit !== '—' ? `<p class="cap"><b>Situazione attuale:</b> ${x.sit.toLowerCase()}, da repertorio e atti ufficiali collegati.</p>` : ''}</details>
   </div>
-  <div id="perche"></div>
 `;
  const extra = `  <!-- ⚠️ Il contesto sociale sta DOPO la spiegazione del rischio e PRIMA
        delle notizie: descrive il territorio, non spiega il punteggio, e
@@ -2753,13 +2829,19 @@ function apri(x){
    <div id="ch-traj"></div></div></details>`
    :`<p class="cap" style="margin:6px 0 8px">Per questo comune non c'è una serie storica
      sull'orizzonte ${HZ==='t3'?'a tre anni':'a un anno'}.</p>`}`;
- /* ── 5. INDICATORI PRINCIPALI, detti in italiano ───────────────────────────
-    Cinque, non diciotto, e ciascuno con una frase: «il comune incassa il 60%
-    delle entrate accertate» si capisce, «tasso di riscossione 0,60» no. Gli
-    altri stanno sotto «Approfondisci», che e' dove li cerca chi li vuole. */
+ /* Dati contabili in primo piano; contributi statistici nell'approfondimento.
+    La tesoreria raccoglie misure di liquidità, non somme di contributi. */
  const PRINCIPALI=['ris','ant','gc','dis','dfb'];
- h+='<section class="scheda-bilancio"><h3>Il bilancio in cinque indicatori</h3><p class="cap">«Fascia di riferimento» significa che il dato non supera la soglia di attenzione; «Da approfondire» e «Segnale critico» indicano valori meno favorevoli. Sono soglie descrittive: non garantiscono conti sani e non misurano il peso nel modello.</p>';
+ const p3=`<div class="ind scheda-contabile" data-var="pdi_3_2"><div class="nm">${catNome('pdi_3_2')}</div>
+   <div class="v"><span data-valore>…</span><span data-stato="assente">Caricamento del dato</span></div>
+   <div class="ex"><div data-dato>Caricamento del valore…</div><p class="cap" data-provenienza hidden></p>
+    <details class="tv"><summary>Definizione e fonte</summary><div class="cap">
+     Il dato misura l’anticipazione ancora presente all’inizio dell’anno successivo, in percentuale del massimo previsto dalla norma.
+     Un valore maggiore di zero supera il parametro P3 di legge.
+     <div style="margin-top:4px"><b>Fonte:</b> ${CAT.pdi_3_2.fo}</div></div></details></div></div></div>`;
+ h+='<section class="scheda-bilancio"><h3>Cosa mostrano i dati di bilancio</h3><p class="cap">Le etichette descrivono i dati: «Da approfondire» e «Segnale critico» indicano una criticità; «Fascia di riferimento» indica che la soglia di attenzione non è superata. Non misurano il contributo al punteggio.</p>';
  PRINCIPALI.forEach(k=>{const i=INDBYK[k], v=x[k]; if(!i) return;
+  if(k==='ant') h+='<div class="scheda-liquidita"><h4>Liquidità e tesoreria</h4>';
   /* Nome · Valore · Anno effettivo, come chiede il brief: l'anno si scrive
      solo quando NON è quello della fotografia, per non riempire la scheda di
      etichette che non dicono niente. */
@@ -2769,8 +2851,10 @@ function apri(x){
       <div class="ex">${v==null?'Dato non disponibile per questa fotografia.':i.fr?i.fr(v):''}
        ${k==='dis' && v!=null && v<0.5?' <span>Questo totale non esclude altre quote in disavanzo.</span>':''}
       ${v!=null && pr[1]?`<div style="color:var(--serious);margin-top:3px">${pr[1]}</div>`:''}
-      ${i.m?catDett(i.m,i.e):''}</div></div>`;});
- h+='</section>';
+      ${i.m?catDett(i.m,i.e):''}</div></div>`;
+  if(k==='gc') h+=p3;
+ });
+ h+='</section><div id="perche"></div>';
  h+=CauseSchedaComune.sezione(x, P.documentazione || {}, ANNO, HZ);
  h+=extra;
  /* ── 6. APPROFONDISCI ──────────────────────────────────────────────────── */
@@ -2816,8 +2900,7 @@ function apri(x){
  const SB = (HZ==='t3' && x.sb3) ? x.sb3 : x.sb;
  const SV = (HZ==='t3' && x.sv3) ? x.sv3 : x.sv;
  if(SP && SB){
-  ph.innerHTML=`<details class="tv scheda-calcolo"><summary>Come si combinano i segnali: grafici e metodo</summary><div class="chart" style="margin:6px 0 4px"><div class="ttl">Quali fattori alzano o abbassano il punteggio</div>
-   ${x.motivo?`<div class="cap" style="font-weight:600;margin:2px 0 8px;line-height:1.45">${x.motivo}</div>`:``}
+  ph.innerHTML=`<details class="tv scheda-calcolo"><summary>Come è calcolato il punteggio</summary><div class="chart" style="margin:12px 0 4px"><div class="ttl">Contributi al calcolo</div>
    <div class="cap">A destra ciò che <b>alza</b> il punteggio, a sinistra ciò che lo <b>abbassa</b>.
    Sono raggruppati per area, e il totale di un'area è il <b>saldo</b>: un totale vicino a zero
    <b>non</b> significa «comune nella media», può nascondere due variabili che si compensano.
@@ -2828,12 +2911,10 @@ function apri(x){
     <div style="font-size:12.5px;color:var(--ink2);line-height:1.55;padding:2px 2px 6px">
      <p style="margin:6px 0"><b>Non sono percentuali, né euro, né punti dell'indice 0-100.</b> Sono la
      <i>spinta</i> che ogni area dà al punteggio, misurata sulla scala interna del modello.
-     Quattro cose per leggerli senza sbagliare:</p>
+     Come leggerli:</p>
      <p style="margin:6px 0"><b>1. Il segno dice il verso.</b> <b>Positivo</b> alza il punteggio,
      <b>negativo</b> lo abbassa. ⚠️ Un contributo negativo <b>non dimostra una protezione</b>: dice
-     che il modello ha letto quel valore come tranquillizzante, e può sbagliarsi. Nei casi mancati
-     documentati succede sistematicamente: un comune che non ha <i>dichiarato</i> debiti fuori
-     bilancio riceve un contributo negativo, e i debiti emergono dopo.</p>
+     come entra quel dato nel calcolo insieme agli altri. Non è un giudizio sui conti del comune.</p>
      <p style="margin:6px 0"><b>2. Lo zero non è «il comune medio».</b> Un totale d'area vicino a
      zero può nascondere variabili che si compensano, una molto positiva e una molto negativa.
      E un contributo nullo può venire da una variabile che nel campione di addestramento era
@@ -2845,36 +2926,26 @@ function apri(x){
      comune; il numero 0-100 mostrato sopra è la <b>posizione</b> di quella probabilità nella
      graduatoria dell'anno. Sono due scale diverse: i contributi <b>non</b> si sommano per
      ottenere il percentile.</p>
-     <p style="margin:6px 0"><b>4. La scala è moltiplicativa, sulle quote.</b> Circa <b>+0,7
-     raddoppia le quote</b> (il rapporto fra probabilità di dissesto e di non dissesto),
-     <b>−0,7 le dimezza</b>; +1,4 quadruplica. Un valore fra −0,5 e +0,5 è sostanzialmente
-     ininfluente, oltre ±2 è un segnale forte.
-     <br>⚠️ <b>Non è «raddoppia il rischio»</b>: quote e probabilità quasi coincidono solo quando
-     la probabilità è molto piccola. Il modello è addestrato con le classi riequilibrate, quindi le
-     sue probabilità sono spinte verso valori alti e <b>non vanno lette come rischio reale</b> — è
-     una delle ragioni per cui il portale pubblica il percentile e non la probabilità.</p>
+     <p style="margin:6px 0"><b>4. Non è una probabilità reale.</b> Il modello è addestrato con
+     le classi riequilibrate: la probabilità interna serve a ordinare i comuni e non è calibrata
+     come frequenza effettiva del dissesto. Per questo il portale mostra la posizione in graduatoria.</p>
      <p style="margin:6px 0"><b>5. Oltre un certo punto il modello non distingue più.</b>
      Ogni variabile viene standardizzata e poi <b>tagliata a 5 deviazioni standard</b>: serve a
      non far decidere la graduatoria a un singolo valore fuori scala, ma significa che oltre
      quel tetto <b>un valore più alto non conta più</b>.
-     <br>⚠️ Dove quasi tutti i comuni hanno zero il tetto scatta presto. Sui <b>debiti fuori
-     bilancio</b>, che il 98% dei comuni non ha, la deviazione standard è piccola e il tetto
-     cade intorno al <b>12-15% degli impegni</b>: un comune al 76% contribuisce <b>esattamente
-     come uno al 13%</b>. Nel 2022 erano sopra il tetto 6 comuni su 5.310 per l'indicatore 13.3
-     e 27 su 5.395 per il 13.2 — pochi, ma sono i casi estremi.
-     <br>Quindi un contributo piccolo <b>non vuol dire che il dato sia piccolo</b>: può voler
-     dire che il dato è così grande che il modello ha smesso di contarlo.</p>
+     Il tetto sul valore grezzo dipende dalla variabile e dal campione di addestramento dell’anno
+     e dell’orizzonte scelti. Un contributo piccolo <b>non significa che il dato contabile sia piccolo</b>:
+     i valori originali e le relative soglie restano visibili nella sezione del bilancio.</p>
      <p style="margin:6px 0;color:var(--muted)">Il perché tecnico: il modello ufficiale è una
      regressione logistica, e questi sono i contributi al <i>logit</i> (coefficiente × valore
-     standardizzato, con la standardizzazione tosata a ±5). Per un modello lineare questa
-     scomposizione <i>è</i> il valore di Shapley, calcolato in forma esatta anziché approssimato.
+     standardizzato, con la standardizzazione limitata a ±5).
      Che ricostruisca il logit è verificato a ogni esecuzione con uno scarto sotto 1e-12.</p>
     </div></details>
-   </details><details class="tv"><summary>Tutti i contributi delle variabili</summary>
-    <div style="font-size:12.5px;color:var(--ink2);margin:2px 0 6px">Attenzione a leggerle una per una:
-    variabili che misurano quasi la stessa cosa possono avere coefficienti grandi e di segno opposto che si
-    annullano fra loro. <b>Il numero affidabile è il totale dell'area</b>, qui sopra.</div>
-    <div id="ch-pvar"></div></details>`;
+   <details class="tv"><summary>Principali contributi individuali</summary>
+    <div style="font-size:12.5px;color:var(--ink2);margin:2px 0 6px">Sono i cinque fattori esportati con il risultato;
+    quando le due componenti del parametro P7 sono entrambe presenti, vengono unite nel loro saldo.
+    Le variabili possono compensarsi: anche un totale d’area vicino a zero non garantisce conti sani.</div>
+    <div id="ch-pvar"></div></details></details>`;
   /* dominio SIMMETRICO attorno allo zero: con barre divergenti e min=0 (il default)
      le negative si disegnano a sinistra dell'asse e finiscono sopra le etichette */
   const dom = rows => {const m=Math.max(...rows.map(r=>Math.abs(r.v[0])))*1.25||1;
@@ -2885,9 +2956,10 @@ function apri(x){
   const bl=SP.blocchi.map((n,i)=>({l:BLP[i]||n, v:[SB[i]]})).filter(r=>Math.abs(r.v[0])>0.005)
     .sort((a,b)=>Math.abs(b.v[0])-Math.abs(a.v[0]));
   barH(document.getElementById('ch-perche'), bl, [{n:'Contributo al punteggio',c:'var(--s1)'}],
-    {lw:180, zero:true, ...dom(bl), fmt:v=>(v>0?'+':'')+F2(v), fmtAx:v=>F2(v), dim:'Area'});
+    {lw:200, wrap:true, zero:true, colNeg:'var(--contrib-neg)', colPos:'var(--contrib-pos)',
+     ...dom(bl), fmt:v=>(v>0?'+':'')+F2(v), fmtAx:v=>F2(v), dim:'Area'});
   {const h=document.getElementById('ch-perche');
-   h.insertBefore(leg([{n:'Abbassa il punteggio',c:'var(--s1)'},{n:'Alza il punteggio',c:'var(--s8)'}]),
+   h.insertBefore(leg([{n:'Abbassa il punteggio',c:'var(--contrib-neg)'},{n:'Alza il punteggio',c:'var(--contrib-pos)'}]),
                   h.querySelector('details.tv'));}
   /* ⚠️ Le etichette si leggono dall'elenco che viaggia CON il risultato
      mostrato (AM.eti quando i dati vengono dal file dell'anno), e un indice
@@ -2952,10 +3024,12 @@ function apri(x){
         : `Dato del comune: <b>${fmt(valore,indic.f)}</b>.`;
       const verso = v[1] > 0 ? '↑ Alza il punteggio' : v[1] < 0 ? '↓ Abbassa il punteggio' : 'Contributo nullo';
       const nome = nomeDi(v);
+      const contrasto=sost?'':SchedaContributi.contrasto(vid,valore,v[1],indic);
       const definizione=(vid?catDett(vid):'').replace(/^<details[^>]*><summary>[^<]+<\/summary>/,'').replace(/<\/details>$/,'');
-      return `<div class="ind scheda-segnale" data-var="${vid||''}"><div class="nm">${nome}</div>
-        <div class="v" style="font-size:12.5px;color:${v[1]>0?'var(--critical)':'var(--s1)'}">${verso}</div>
+      return `<div class="ind scheda-segnale" data-var="${vid||''}" data-contributo="${v[1]}"><div class="nm">${nome}</div>
+        <div class="v" style="font-size:12.5px">${verso}</div>
         <div class="ex"><div data-dato>${dato}${pr[1]?`<span style="display:block;color:var(--serious)">${pr[1]}</span>`:''}</div>
+          <p class="cap" data-contrasto${contrasto?'':' hidden'}>${contrasto}</p>
           <details class="tv"><summary>Significato, fonte e contributo</summary>
            <p class="cap">Contributo sulla scala interna del modello: <b>${v[1]>0?'+':''}${F2(v[1])}</b>.
             Non sono punti dell’indice su 100; un contributo negativo non garantisce conti sani.</p>
@@ -2963,18 +3037,12 @@ function apri(x){
           </details></div></div>`;
     }).join('');
     const ph2=document.getElementById('ch-pvar');
-    /* ⚠️ L'elenco va nella PARTE PRINCIPALE, non dentro la sezione
-       richiudibile: `ch-pvar` sta dentro un <details>, e inserendolo accanto
-       a lui i tre fattori finivano nascosti. Si inserisce prima del
-       <details>, che è dove il brief li vuole; i decimali tecnici restano
-       nell'approfondimento. */
+    // Tutti i contributi restano nel pannello chiuso, anche quelli positivi.
+    // Non si nascondono selettivamente i soli segni controintuitivi.
     const dett = ph2.closest('details') || ph2;
     dett.insertAdjacentHTML('beforebegin',
-      '<h3 style="margin:16px 0 4px;font-size:15px">I tre segnali principali del modello</h3>'
+      '<h3 style="margin:16px 0 4px;font-size:15px">I tre principali contributi al calcolo</h3>'
       + '<p class="cap" style="margin:0 0 6px">Alzano o abbassano il punteggio nell’orizzonte scelto. Non sono, da soli, le cause del dissesto.</p>' + tre);
-    const calcolo=ph.querySelector('.scheda-calcolo');
-    if(calcolo){calcolo.append(dett);ph.append(calcolo);}
-    if(typeof ValoriSchede==='object') ValoriSchede.aggiorna(document.getElementById('card'),ANNO,x.cn);
     /* ⚠️ L'avviso vale per TUTTI i fattori esportati, non solo per i tre in
        testa: un dato sostituito al quarto posto resterebbe altrimenti senza
        contrassegno. */
@@ -2989,8 +3057,10 @@ function apri(x){
       '<div class="cap" style="margin:4px 0">Tutti i fattori esportati, in'
       + ' grafico:' + avvSost + '</div>');
     barH(ph2, vr, [{n:'Contributo',c:'var(--s1)'}],
-      {lw:250, zero:true, ...dom(vr), fmt:v=>(v>0?'+':'')+F2(v), fmtAx:v=>F2(v), dim:'Variabile'});}
+      {lw:210, wrap:true, zero:true, colNeg:'var(--contrib-neg)', colPos:'var(--contrib-pos)',
+       ...dom(vr), fmt:v=>(v>0?'+':'')+F2(v), fmtAx:v=>F2(v), dim:'Variabile'});}
  } else { ph.innerHTML=''; }
+ if(typeof ValoriSchede==='object') ValoriSchede.aggiorna(document.getElementById('card'),ANNO,x.cn);
  const conf=IND.filter(i=>i.m&&S.mediane[i.m]!=null&&x[i.k]!=null);
  if(conf.length){
    const cm=document.getElementById('cmp-uno');
