@@ -1,44 +1,44 @@
 {
-  "fase": "ricalcolo pubblicato e verificato online",
-  "aggiornato_il": "2026-10-14T01:31:46+02:00",
-  "versione_congelata": "v2026-10-14-revoche-ruvo-mussomeli",
+  "fase": "ricalcolo concluso; controlli finali e deployment da completare",
+  "aggiornato_il": "2026-10-14T03:10:06.807548+02:00",
+  "versione_congelata": "v2026-10-14-ritiro-taverna",
   "specifica_variabili": 52,
-  "prove_integrate": 105,
-  "prove_reviewed_catalogo": 120,
-  "prove_revisionate_ricerca": 120,
-  "chiusure_residue": 28,
+  "prove_integrate": 106,
+  "prove_reviewed_catalogo": 121,
+  "prove_revisionate_ricerca": 121,
+  "chiusure_residue": 27,
   "nuove_prove_non_ancora_applicate": [],
   "prove_parziali_segnalate": [
-    "PARETO|2025: esecutivita della revoca da acquisire",
-    "MONTALTO UFFUGO|2015: pronuncia conclusiva della Corte da acquisire"
+    "PARETO|2025: esecutivita della revoca mancante",
+    "MONTALTO UFFUGO|2015: pronuncia conclusiva da reperire"
   ],
   "panel_iniziale_sha256": "78f9aa97a1b10e425f3cc770730d40ce3e77ee9a15acff696a69ef0bda393ed7",
-  "panel_precedente_sha256": "6777971f534ab317f270b83679e645f8212a68cc552d08919feeccfd41c624e0",
-  "panel_sha256": "97466f152027444495898d01f477b51b423bb0cf7cdf5283f8bd474133a25463",
+  "panel_precedente_sha256": "97466f152027444495898d01f477b51b423bb0cf7cdf5283f8bd474133a25463",
+  "panel_sha256": "492f6cb965c1ba54049a3f27a8057f68ecc76bfd1e9f7059f9e77bfeb6089caa",
+  "snapshot_anagrafica_sha256": "6beee7e0a090a4b66fe920c99eb370d9b5868e4a37ea8735a361d9365de308df",
   "impronte_annuali": {
-    "anno_2017.json": "206c3b6eba107c2b188fc36bd9bca0d9d8576e47400bdec5d30dbd70d1157113",
-    "anno_2018.json": "dc732d03db1a2d9851be0a1377a86d17f33b693fabfcdc632a4c0a0842c60548",
-    "anno_2019.json": "c0320bb5ff7ff037e9a9457139afd69da5c2aa3c4e4c4fc4f0769c6d53c9a771",
-    "anno_2020.json": "e108be9e06da8c18efeab1c15ab73de91564d72d01b4c36c10b74d377545e1ba",
-    "anno_2021.json": "d820e685a055157f3ba2e6bd121f6708848ad864107ad94177671ec553276654",
-    "anno_2022.json": "b2c7df0b8a755b94240f5bbdab3979ab07fcbb0739bd52885f5dc54c0b77b58b",
-    "anno_2023.json": "284ab0a0aaf0ac4bc93c3cdb261c1df77ec37a15ef784336ec68789ec3b90856",
-    "anno_2024.json": "526091b762d182dffab75a17eccc41c72c71ab20dbaff13dffbe812a2157a464",
-    "anno_2025.json": "23f78e4c4c099997ee96b9c0805dd847ab6288c8d7fbf247d1d793097bd2fc12"
+    "anno_2017.json": "7f3ea340f5a7a69f7c419712a6fd459c5decc5e362aa1f19aec4c3e861065cb9",
+    "anno_2018.json": "aa206ed6f617b67849e14e11360f250dd416ffb9e07563103bbdf1658d1a7be2",
+    "anno_2019.json": "d76caa28c3b1acba88a478f93f5964c29fb6beba2518fb1057a803952869a660",
+    "anno_2020.json": "ea6ff247a515b4797853a43c2eac6a99f224f7b66f9f373694f2beecdb8976d4",
+    "anno_2021.json": "c812b43fa68e77132ec72a3f1854c6c0f4032b4051154781323e9590064bf27f",
+    "anno_2022.json": "071de9ca749ba8a39aadc9c5e7ce8bead3ccf2067226ab3259f62cd057c79384",
+    "anno_2023.json": "360b7b3585d6ad6460982a7e28712c269ff22b7271bf5af8837d042ab8e4a0fd",
+    "anno_2024.json": "f840f13d28cd0aba159bfd65fcc58f4b3d2ede04505e86fe9cb431e5e4db2d17",
+    "anno_2025.json": "4dfda787f56f53633d06c8cf756ee6b28bd32aeb3f6c840f1760e16c6d0202a7"
   },
-  "salvataggio": "output/salvataggi/2026-10-14_0121_prima-revoche-ruvo-mussomeli",
+  "salvataggio": "output/salvataggi/2026-10-14_0300_prima-ritiro-taverna-documentato",
   "colonne_modificate": [
     "crisi_rieq_attivo",
     "crisi_rieq_attivo_certo",
     "crisi_stato_foto"
   ],
-  "righe_stato_modificato_in_questa_integrazione": 13,
-  "righe_segnale_modificato_in_questa_integrazione": 13,
-  "comuni_modificati_in_questa_integrazione": 2,
-  "comuni_segnale_modificato_dalla_versione_iniziale": 94,
-  "righe_segnale_modificato_dalla_versione_iniziale": 370,
+  "righe_stato_modificato_in_questa_integrazione": 10,
+  "righe_segnale_modificato_in_questa_integrazione": 10,
+  "comuni_modificati_in_questa_integrazione": 1,
+  "comuni_segnale_modificato_dalla_versione_iniziale": 95,
+  "righe_segnale_modificato_dalla_versione_iniziale": 380,
   "altre_114_colonne_identiche": true,
-  "snapshot_anagrafica_sha256": "6beee7e0a090a4b66fe920c99eb370d9b5868e4a37ea8735a361d9365de308df",
   "validazione_t1": {
     "osservazioni_positive": 148,
     "intercettati_top5": 120,
@@ -50,9 +50,9 @@
   },
   "validazione_t3": {
     "osservazioni_positive": 370,
-    "intercettati_top5": 231,
-    "quota_complessiva": 0.6243243243243243,
-    "richiamo_medio_annuo": 0.626,
+    "intercettati_top5": 232,
+    "quota_complessiva": 0.6270270270270271,
+    "richiamo_medio_annuo": 0.629,
     "pr_auc_media": 0.208,
     "auc_media": 0.938,
     "fold": 5
@@ -78,8 +78,8 @@
     "t3": {
       "top5": {
         "segnalati": 394,
-        "colti": 48,
-        "quota": 0.64
+        "colti": 49,
+        "quota": 0.6533
       },
       "top10": {
         "segnalati": 787,
@@ -93,17 +93,17 @@
       }
     }
   },
-  "criterio": "Ricostruzione retrospettiva; disponibilita all'epoca non certificata. Ritiro e fusione non sono risanamento.",
+  "criterio": "Ricostruzione retrospettiva; disponibilita completa all’epoca non certificata. Ritiro e fusione non sono risanamento.",
   "allerta": "Budget per probabilita non arrotondata e ordine stabile; rk/rk3 conservano il rango esatto. Il percentile grafico non decide l'appartenenza al top5/top10.",
   "verifica_richiami": "I conteggi complessivi sono sommati sui singoli fold; la media dei richiami non viene moltiplicata per il numero di eventi. A tre anni le osservazioni positive possono ripetere lo stesso dissesto.",
-  "prima_pubblicazione": "94f5ad9/1aeed56",
-  "seconda_pubblicazione": "d8ecbef/bdcab9f",
-  "base_concorrente_verificata": "71afdf2/ebba7a4: annotazioni dei contributi preservate",
+  "pubblicazioni_precedenti": [
+    "94f5ad9/1aeed56",
+    "d8ecbef/bdcab9f",
+    "0e1047c/6175337",
+    "412c297/6bdcb7f: correzioni degli stati e delle date",
+    "25905d5/fa0ae79: rapporto con Taverna in attesa"
+  ],
+  "base_concorrente_verificata": "Annotazioni 71afdf2/ebba7a4 e correzioni di presentazione 70b444f/6bdcb7f preservate",
   "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
-  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
-  "pubblicato_il": "2026-10-14T01:44:43+02:00",
-  "commit_codice": "6175337114f3020845b1af88caaad8ad01fa8042",
-  "commit_sito": "0e1047c49d71bd74cd73ccac39d356a4eef9bc80",
-  "verifica_online": "verifica_online_terza_integrazione/risultato.json",
-  "deployment": "https://github.com/ricmazza2000/tesi/actions/runs/38485664673"
+  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html"
 }
