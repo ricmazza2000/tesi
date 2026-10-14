@@ -1,5 +1,5 @@
 {
-  "fase": "ricalcolo verificabile; controlli finali e deployment da completare",
+  "fase": "ricalcolo pubblicato e verificato online",
   "aggiornato_il": "2026-10-14T01:31:46+02:00",
   "versione_congelata": "v2026-10-14-revoche-ruvo-mussomeli",
   "specifica_variabili": 52,
@@ -100,5 +100,10 @@
   "seconda_pubblicazione": "d8ecbef/bdcab9f",
   "base_concorrente_verificata": "71afdf2/ebba7a4: annotazioni dei contributi preservate",
   "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
-  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html"
+  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
+  "pubblicato_il": "2026-10-14T01:44:43+02:00",
+  "commit_codice": "6175337114f3020845b1af88caaad8ad01fa8042",
+  "commit_sito": "0e1047c49d71bd74cd73ccac39d356a4eef9bc80",
+  "verifica_online": "verifica_online_terza_integrazione/risultato.json",
+  "deployment": "https://github.com/ricmazza2000/tesi/actions/runs/38485664673"
 }
