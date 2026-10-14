@@ -1,22 +1,21 @@
 {
-  "fase": "settima integrazione verificata: fine finanziaria Toscolano febbraio 2022 distinta dalla pronuncia di settembre",
-  "aggiornato_il": "2026-10-14T05:34:41.460888+02:00",
-  "versione_congelata": "v2026-10-14-chiusura-toscolano",
+  "fase": "ottava integrazione verificata: accertamento conclusivo Eboli 28 giugno 2023 senza data finanziaria antecedente inventata",
+  "aggiornato_il": "2026-10-14T06:22:59.167074+02:00",
+  "versione_congelata": "v2026-10-14-accertamento-eboli",
   "specifica_variabili": 52,
-  "prove_integrate": 109,
-  "prove_reviewed_catalogo": 124,
-  "prove_revisionate_ricerca": 124,
-  "chiusure_residue": 24,
+  "prove_integrate": 110,
+  "prove_reviewed_catalogo": 125,
+  "prove_revisionate_ricerca": 125,
+  "chiusure_residue": 23,
   "nuove_prove_non_ancora_applicate": [],
   "prove_parziali_segnalate": [
     "PARETO|2025: esecutivita della revoca mancante",
     "MONTALTO UFFUGO|2015: pronuncia conclusiva da reperire",
-    "SCICLI|2014: accertamento finale 99/2026 da acquisire",
     "SCICLI|2014: accertamento finale 99/2026 da acquisire"
   ],
   "panel_iniziale_sha256": "78f9aa97a1b10e425f3cc770730d40ce3e77ee9a15acff696a69ef0bda393ed7",
-  "panel_precedente_sha256": "524c2cbff5b852aab6c402ba036138d23833f4e8695f80e15186ffe0caf3fc7b",
-  "panel_sha256": "e5f2b43facff490d9a6f716958f7cdad5d4d5824a9f223fa90b3bc400f8ac2c8",
+  "panel_precedente_sha256": "e5f2b43facff490d9a6f716958f7cdad5d4d5824a9f223fa90b3bc400f8ac2c8",
+  "panel_sha256": "7a8f5afe185dce8bb8d175997500f6adc8ec249820ecdbf592f66c9a864ea47f",
   "snapshot_anagrafica_sha256": "6beee7e0a090a4b66fe920c99eb370d9b5868e4a37ea8735a361d9365de308df",
   "impronte_annuali": {
     "anno_2017.json": "7f3ea340f5a7a69f7c419712a6fd459c5decc5e362aa1f19aec4c3e861065cb9",
@@ -25,21 +24,21 @@
     "anno_2020.json": "ea6ff247a515b4797853a43c2eac6a99f224f7b66f9f373694f2beecdb8976d4",
     "anno_2021.json": "c812b43fa68e77132ec72a3f1854c6c0f4032b4051154781323e9590064bf27f",
     "anno_2022.json": "46d22c374c42bef17aea116ca451405b2733a86913a7f1393aa9a79d10cff5ed",
-    "anno_2023.json": "84d74986076182f5de948a355ac38cd4d36d01600ce85323e9920c641daec67d",
-    "anno_2024.json": "14b3b63ca5018099ceee2d0c40bae44c996048d04f9ad952cb6ee033ff47fc44",
-    "anno_2025.json": "d0e35628f8858c3ae8876dccb6eb8c044f909515088fe8f145e734facb897289"
+    "anno_2023.json": "7eb0ce650c686abf315c0b624229f4a9a722bbdb018f980fbe3266b6fd529612",
+    "anno_2024.json": "775bdc84753d47e19b2a5eaedc0163db6d32ea49ce84f10d3f81469d37d9f9ed",
+    "anno_2025.json": "765c5260c495eadd02676950758767c939dd58df3351944976f8c3c68c7f0ff1"
   },
-  "salvataggio": "output/salvataggi/2026-10-14_0525_prima-chiusura-toscolano-documentata",
+  "salvataggio": "output/salvataggi/2026-10-14_0614_prima-accertamento-eboli-documentato",
   "colonne_modificate": [
     "crisi_rieq_attivo",
     "crisi_rieq_attivo_certo",
     "crisi_stato_foto"
   ],
-  "righe_stato_modificato_in_questa_integrazione": 10,
-  "righe_segnale_modificato_in_questa_integrazione": 4,
+  "righe_stato_modificato_in_questa_integrazione": 11,
+  "righe_segnale_modificato_in_questa_integrazione": 3,
   "comuni_modificati_in_questa_integrazione": 1,
-  "comuni_segnale_modificato_dalla_versione_iniziale": 97,
-  "righe_segnale_modificato_dalla_versione_iniziale": 385,
+  "comuni_segnale_modificato_dalla_versione_iniziale": 98,
+  "righe_segnale_modificato_dalla_versione_iniziale": 388,
   "altre_114_colonne_identiche": true,
   "validazione_t1": {
     "osservazioni_positive": 148,
@@ -107,24 +106,26 @@
     "dc833cf/1e7fd41: ritiro di Taverna",
     "7b01d66/d5ebbcd: metadati della quarta integrazione",
     "7dd299c/297838d: ritiro Pietra Marazzi 2026",
-    "6a28cf4/9493c78: fine finanziaria Olevano 2025"
+    "6a28cf4/9493c78: fine finanziaria Olevano 2025",
+    "b3bb99f/6ebf2e0: chiusura Toscolano 2022"
   ],
   "base_concorrente_verificata": "Annotazioni 71afdf2/ebba7a4 e correzioni di presentazione 70b444f/6bdcb7f preservate",
   "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
   "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
-  "scientifici_identici_alla_sesta_versione": [
+  "scientifici_identici_alla_settima_versione": [
+    "punteggio_nazionale.csv",
+    "spiegazioni.csv",
     "MASTER_casi_mancati.csv",
     "MASTER_anticipo_giorni.csv",
     "MASTER_emissioni_storiche.csv"
   ],
   "annate_modificate": [
-    2022,
     2023,
     2024,
     2025
   ],
-  "spiegazione_integrazione": "Toscolano Maderno: Corte Lombardia 122/2022/PRSP accerta attuazione e obiettivi del piano 2014 rimodulato con C.C.12 del 28 aprile 2022. Fine finanziaria 10 febbraio 2022, saldo finale a 2i Rete Gas; decisione 8 settembre e deposito 12 settembre 2022. Nella fotografia 2021 la procedura resta attiva; dal 2022 il segnale di riequilibrio aperto è zero. I controlli intermedi e la durata programmata al 2023 non sono date di fine. La Corte raccomanda comunque di valutare il fondo perdite partecipate. Disponibilità storica completa non certificata.",
+  "spiegazione_integrazione": "Eboli: originale Corte Campania 212/2023/PRSP acquisito dalla sezione comunale ufficiale e verificato visivamente. Accerta gli obiettivi del piano attivato con C.C.74 del 4 dicembre 2012. Decisione 28 giugno 2023, deposito 6 luglio. Mancando una fine finanziaria complessiva inequivocabile si usa conservativamente la decisione conclusiva: attivo fino alla fotografia 2022, chiuso dal 2023. Recuperi del 2019, scadenza programmata 2021 e pagamenti singoli non diventano una data generale di chiusura. Riscossione e FCDE richiedono ancora attenzione. La pagina comunale indica pubblicazione 6 luglio 2023, ma la disponibilità storica completa non è certificata.",
   "altri_chiarimenti": "Malvagna C.C.3/2022: mancata presentazione e richiesta proroga, non revoca. Pareto piano 2026 distinto dal precedente.",
   "documenti_catalogo_iniziale": 2184,
-  "fonti_aggiuntive_ricerca": 52
+  "fonti_aggiuntive_ricerca": 54
 }
