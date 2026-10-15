@@ -1,0 +1,179 @@
+{
+  "versione": "v2026-10-15-senza-flag-fcde",
+  "variabili": 51,
+  "elenco": [
+    "anticipazioni_su_entrate",
+    "tasso_riscossione",
+    "dipendenza_trasferimenti",
+    "rigidita_personale",
+    "rigidita_strutturale",
+    "incidenza_interessi",
+    "ris_amm_norm",
+    "disavanzo",
+    "fcde_su_residui",
+    "indice_indebitamento",
+    "ris_eco_norm",
+    "variaz_pop_5a",
+    "tasso_over65",
+    "din_var3_riscoss",
+    "din_var1_anticip",
+    "din_var3_indeb",
+    "din_disav_3a",
+    "din_riscoss_incalo",
+    "cassa_min_su_pag",
+    "anni_da_scioglimento",
+    "ifc_decile",
+    "ifc_tasso_occupaz",
+    "pdi_smalt_deb_comm_es",
+    "pdi_smalt_deb_comm_prec",
+    "pdi_itp",
+    "pdi_ha_dfb",
+    "irpef_reddito_medio_rel",
+    "irpef_quota_imponibile",
+    "irpef_contrib_su_pop",
+    "pdi_1_1",
+    "pdi_2_8",
+    "pdi_3_2",
+    "pdi_10_3",
+    "pdi_12_4",
+    "pdi_dfb_riconosciuti",
+    "pdi_dfb_in_riconoscimento",
+    "pdi_dfb_da_finanziare",
+    "p8_cap_riscossione",
+    "pdi_8_4",
+    "pdi_8_1",
+    "pdi_6_3",
+    "pdi_5_1",
+    "pdi_3_1",
+    "pdi_12_3",
+    "pdi_11_3",
+    "pdi_7_7",
+    "pdi_14_1",
+    "crisi_rieq_attivo",
+    "crisi_dec_diss_foto",
+    "fondo_contenzioso_su_entrate",
+    "fondo_perdite_partecipate_su_entrate"
+  ],
+  "escluse_non_diagnostiche": [
+    "fcde_basso"
+  ],
+  "anno_predefinito": 2022,
+  "anni": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "panel_sha256": "c6810fce955d66b82483917060f825d37382ebbb09ac2d694971eb678984003a",
+  "validazione": {
+    "t1": {
+      "osservazioni_positive": 148,
+      "intercettate_top5": 121,
+      "quota_complessiva": 0.8175675675675675,
+      "per_anno": [
+        {
+          "anno": 2018,
+          "eventi": 34,
+          "intercettati_top5": 24
+        },
+        {
+          "anno": 2019,
+          "eventi": 24,
+          "intercettati_top5": 23
+        },
+        {
+          "anno": 2020,
+          "eventi": 19,
+          "intercettati_top5": 17
+        },
+        {
+          "anno": 2021,
+          "eventi": 20,
+          "intercettati_top5": 15
+        },
+        {
+          "anno": 2022,
+          "eventi": 22,
+          "intercettati_top5": 19
+        },
+        {
+          "anno": 2023,
+          "eventi": 16,
+          "intercettati_top5": 11
+        },
+        {
+          "anno": 2024,
+          "eventi": 13,
+          "intercettati_top5": 12
+        }
+      ]
+    },
+    "t3": {
+      "osservazioni_positive": 370,
+      "intercettate_top5": 234,
+      "quota_complessiva": 0.6324324324324324,
+      "per_anno": [
+        {
+          "anno": 2018,
+          "eventi": 79,
+          "intercettati_top5": 44
+        },
+        {
+          "anno": 2019,
+          "eventi": 68,
+          "intercettati_top5": 44
+        },
+        {
+          "anno": 2020,
+          "eventi": 68,
+          "intercettati_top5": 45
+        },
+        {
+          "anno": 2021,
+          "eventi": 80,
+          "intercettati_top5": 49
+        },
+        {
+          "anno": 2022,
+          "eventi": 75,
+          "intercettati_top5": 52
+        }
+      ]
+    }
+  },
+  "nota_validazione": "Quota complessiva distinta dalla media dei richiami annuali. Le finestre triennali possono ripetere lo stesso dissesto.",
+  "disponibilita_storica": "Ricostruzione retrospettiva; disponibilità storica di tutti gli ingressi non certificata.",
+  "stime_provvisorie": {
+    "stato": "in pausa",
+    "ricalcolate": false,
+    "confrontabili_con_graduatoria_corrente": false
+  },
+  "rapporto_documentale": "ricerca_riequilibri/integrazione.json",
+  "formato_impronte_pubbliche": "SHA-256 dei file UTF-8 con a-capo LF, come nei blob Git",
+  "impronte_annuali": {
+    "anno_2017.json": "7d388dcfa132dd328d5a60865bbd0411c188fc4b6054f28c2a78ec1386dcc16e",
+    "anno_2018.json": "4545fd1b90fbb049d7042ae7276a6a09ac40450d0e0d2e9172d54bd3b07fd4d3",
+    "anno_2019.json": "0c168ab31196964ee3deaf524b1eb9ae04d1085e27fa482cc3419e1b8bcdfa92",
+    "anno_2020.json": "e2b1278842bd51eadc667db6a78e1207064e5601950f87991dcbc14457ce20e1",
+    "anno_2021.json": "68db7e83069d35442b3fa865da040686f7cbba62204d8ebc9a4087fd2b13831c",
+    "anno_2022.json": "4a68a7f059af79d9213d5287be48a4169f4c9c67bcd23887079eb4a760789aed",
+    "anno_2023.json": "37a1c17deeb2c5fdd662f6dc9a7eddda317a8e52926e35871115757dd79fae62",
+    "anno_2024.json": "89c9f1543fb24eb4e0f5e1379a232a65045651feb407ab380e7ac97a1ff20f51",
+    "anno_2025.json": "f2b85c1c27cc9eda4d997e10050450c095328ea48550f09e9d79cc6a92e7b51d",
+    "comuni_procedure.json": "cf8059ed4f8cfe49f2eb1378b36dcd878a14033e64aebe339a8fd520dd154fb0",
+    "indice.json": "2485122235f523bfbe05f486bf1f6263e0717322bd4d9865b7f1e0fabb8e0c22"
+  },
+  "impronte_pagine": {
+    "index.html": "02f12334759e1707bc47b7ed9539642ba41d85fb13b856f53d550c02ad1ce39d",
+    "mappa-nazionale.html": "9db52371f1aaa46f5ba324ab5d5d4c1332c470881b77bb7af8dc7e1421e67683",
+    "mappa-toscana.html": "61d54d3c8b750dece892bb5bebc4fd965e1a57678d7b214e875e011d7eea1b04",
+    "portale.html": "118d04f5fd0b9c335373a6b10a2066c3fd64416711db46cdf70999d434d855bc",
+    "riequilibri.html": "81d7ab4e085ad36940a6cd6cfaafdc0e58cd8d976b3ee36f599ae8ee72d2fc38",
+    "stime.html": "36c2bba489c87de1f05c88fe3b2bc4c9d91876cbe479dc9dda3cc3829971884c"
+  }
+}
