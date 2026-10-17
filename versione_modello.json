@@ -1,5 +1,5 @@
 {
-  "versione": "v2026-10-15-senza-flag-fcde",
+  "versione": "v2026-10-17-chiusure-residue",
   "variabili": 51,
   "elenco": [
     "anticipazioni_su_entrate",
@@ -69,7 +69,7 @@
     2024,
     2025
   ],
-  "panel_sha256": "c6810fce955d66b82483917060f825d37382ebbb09ac2d694971eb678984003a",
+  "panel_sha256": "17b44f77dfb2ef0aa2d33e1f3513fc7633012d38d69811a1081a3330c8f1157a",
   "validazione": {
     "t1": {
       "osservazioni_positive": 148,
@@ -156,24 +156,24 @@
   "rapporto_documentale": "ricerca_riequilibri/integrazione.json",
   "formato_impronte_pubbliche": "SHA-256 dei file UTF-8 con a-capo LF, come nei blob Git",
   "impronte_annuali": {
-    "anno_2017.json": "7d388dcfa132dd328d5a60865bbd0411c188fc4b6054f28c2a78ec1386dcc16e",
-    "anno_2018.json": "4545fd1b90fbb049d7042ae7276a6a09ac40450d0e0d2e9172d54bd3b07fd4d3",
-    "anno_2019.json": "0c168ab31196964ee3deaf524b1eb9ae04d1085e27fa482cc3419e1b8bcdfa92",
-    "anno_2020.json": "e2b1278842bd51eadc667db6a78e1207064e5601950f87991dcbc14457ce20e1",
-    "anno_2021.json": "68db7e83069d35442b3fa865da040686f7cbba62204d8ebc9a4087fd2b13831c",
-    "anno_2022.json": "4a68a7f059af79d9213d5287be48a4169f4c9c67bcd23887079eb4a760789aed",
-    "anno_2023.json": "37a1c17deeb2c5fdd662f6dc9a7eddda317a8e52926e35871115757dd79fae62",
-    "anno_2024.json": "89c9f1543fb24eb4e0f5e1379a232a65045651feb407ab380e7ac97a1ff20f51",
-    "anno_2025.json": "f2b85c1c27cc9eda4d997e10050450c095328ea48550f09e9d79cc6a92e7b51d",
-    "comuni_procedure.json": "cf8059ed4f8cfe49f2eb1378b36dcd878a14033e64aebe339a8fd520dd154fb0",
-    "indice.json": "2485122235f523bfbe05f486bf1f6263e0717322bd4d9865b7f1e0fabb8e0c22"
+    "anno_2017.json": "f49844d748f00f105b70cc048635eb614c79c45d99476d84eb1d44e0b54d08ba",
+    "anno_2018.json": "1564f7c0233433361f4a744b3fa729e5ef14da4b0468f0ac684fac2ba534a832",
+    "anno_2019.json": "0819495c6038edd7d585bf6836e1ba411bd6f9e57e1c301307074880d16b323f",
+    "anno_2020.json": "ee82cc4f7badc23c2ef4cd4c771bb0b0ca25637b459cca246fa3af03dbb06464",
+    "anno_2021.json": "acc26ab7d41184d4fe19ce7865ed984134defe50def3cf875afbe58f642bbb59",
+    "anno_2022.json": "ce1ff41859bbdc84b9347bbd047c541b9c4736d3caa5d3d3a0e30f11f72ef9c5",
+    "anno_2023.json": "cb1a9754edafec65d1f231ce170c820041b8729ae76d00f5aa0e1ec3c1206efc",
+    "anno_2024.json": "e8a337a92da275c01c740b47b6ae5191aa44bda1fb1cd10d304b2c227008e6c4",
+    "anno_2025.json": "51c88dd220b78c1cc3b751f7b6e3e7d7c519edf1aef0d65bcaf170ff77621c5f",
+    "comuni_procedure.json": "4c458751a134cf366b85777589a3968df6bd288eaae357f7588765f2b6da1e0c",
+    "indice.json": "044a1b2516a016ca3f9ab613b966393392505158f856eea46f976132c59269dc"
   },
   "impronte_pagine": {
     "index.html": "02f12334759e1707bc47b7ed9539642ba41d85fb13b856f53d550c02ad1ce39d",
-    "mappa-nazionale.html": "9db52371f1aaa46f5ba324ab5d5d4c1332c470881b77bb7af8dc7e1421e67683",
-    "mappa-toscana.html": "61d54d3c8b750dece892bb5bebc4fd965e1a57678d7b214e875e011d7eea1b04",
-    "portale.html": "118d04f5fd0b9c335373a6b10a2066c3fd64416711db46cdf70999d434d855bc",
-    "riequilibri.html": "81d7ab4e085ad36940a6cd6cfaafdc0e58cd8d976b3ee36f599ae8ee72d2fc38",
+    "mappa-nazionale.html": "0ba87aa68d9d2be8251e6b31565a27b30e4d5d6b7bbd04d703ed60f0d4d736a4",
+    "mappa-toscana.html": "f778af312a26fb56a656e6fb3dc23f8690463e226a7d930d493e9cd76413c56e",
+    "portale.html": "2eb70a02d178fcff0bc44a15a588cf9cfd9bd194904290e4336f8e05cc916c01",
+    "riequilibri.html": "0d2889bf50a486f81b42d8cfe2fbe9d0f9204849e689d196528815c84a3bf606",
     "stime.html": "36c2bba489c87de1f05c88fe3b2bc4c9d91876cbe479dc9dda3cc3829971884c"
   }
 }

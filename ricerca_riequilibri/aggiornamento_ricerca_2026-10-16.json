@@ -1,0 +1,177 @@
+{
+  "aggiornato_il": "2026-10-17T20:41:58.948739+02:00",
+  "nuove_chiusure": [
+    {
+      "comune": "LIZZANO",
+      "key": "PUGLIA|LIZZANO",
+      "anno_avvio": 2016,
+      "data_avvio_input": "2016-04-29",
+      "id_procedura": "PUGLIA|LIZZANO|RIEQUILIBRIO|2016-04-29|1",
+      "data_accertamento": "2023-05-04",
+      "anno_fine_finanziaria": 2022,
+      "riferimento_atto": "72/2023/PRSP",
+      "fonte_url": "https://dgegovpa.it/Lizzanota/amministrazionetrasparente/AllegatoTrasparenza.aspx?id=1869",
+      "fonte_pagina": "https://dgegovpa.it/lizzanota/AmministrazioneTrasparente/Controllirilievi/Cortedeiconti",
+      "data_pubblicazione": "2023-05-18",
+      "pagine_verificate_visivamente": [
+        1,
+        6,
+        62
+      ],
+      "pagine_da_verificare": [],
+      "tipo_prova": "Pronuncia conclusiva originale della Corte dei conti",
+      "esito_verificato": "procedura conclusa",
+      "idoneita_data_fine": "atto conclusivo documentato; controllare disponibilita storica",
+      "note_verifica": "Pagina 1 indica monitoraggio e chiusura al 31 dicembre 2022. Pagina 6 afferma che il percorso si è concluso nel 2022. Dispositivo pagina 62 delibera la completa attuazione del piano approvato con C.C.39 del 25 luglio 2016. Decisione 4 maggio 2023, registrazione DEL-Reg. 16 maggio, protocollo uscita 17 maggio; non confondere registrazione e protocollo con data della decisione. La pagina comunale indica pubblicazione 18 maggio. Restano criticità di riscossione, residui e liquidità.",
+      "file_pdf": "documenti/4f234d2dbe28d7d96b73.pdf",
+      "file_testo": "documenti/4f234d2dbe28d7d96b73.txt",
+      "applicata": true
+    },
+    {
+      "comune": "SANTA MARIA DEL MOLISE",
+      "key": "MOLISE|SANTA MARIA DEL MOLISE",
+      "anno_avvio": 2015,
+      "data_avvio_input": "2015-12-30",
+      "id_procedura": "MOLISE|SANTA MARIA DEL MOLISE|RIEQUILIBRIO|2015-12-30|1",
+      "data_accertamento": "2022-06-13",
+      "data_deposito": "2022-07-22",
+      "data_pubblicazione": "2022-07-27",
+      "riferimento_atto": "132/2022/PRSP",
+      "fonte_url": "https://santamariadelmolise.halleyegov.it/amministrazione/trasparenza/pubblicazioni/allegati/allegato_141.html",
+      "documento_url": "https://santamariadelmolise.halleyegov.it/EG0/EGDOCVISJS.HBL?en=e1672&MESSA=PUBBLICA&DSK=00005N010265B&FORM=pdf",
+      "pagine_verificate_visivamente": [
+        25,
+        26
+      ],
+      "tipo_prova": "Pronuncia conclusiva originale della Corte dei conti",
+      "esito_verificato": "procedura conclusa",
+      "idoneita_data_fine": "atto conclusivo documentato; controllare disponibilita storica",
+      "note_verifica": "Il dispositivo alle pagine 25-26 accerta il raggiungimento del riequilibrio ALLA DATA DELLA DECISIONE, 13 giugno 2022. Deposito 22 luglio 2022. La scadenza rimodulata al 31 dicembre 2021 non è la data di chiusura qui applicabile: resta possibile limitato disavanzo e criticità sugli accantonamenti e contenzioso. La lista comunale riporta pubblicazione 27 luglio 2022, mentre la pagina migrata è aggiornata il 13 maggio 2026: date distinte. PDF ottenuto dal percorso pubblico restituito dal visualizzatore; conservato integralmente e con impronta.",
+      "file_pdf": "documenti/0ba12a28ce6ecaa05d8f.pdf",
+      "file_testo": "documenti/0ba12a28ce6ecaa05d8f.txt",
+      "applicata": true
+    },
+    {
+      "comune": "CASTELLUCCIO DEI SAURI",
+      "key": "PUGLIA|CASTELLUCCIO DEI SAURI",
+      "anno_avvio": 2014,
+      "data_avvio_input": "2014-09-04",
+      "id_procedura": "PUGLIA|CASTELLUCCIO DEI SAURI|RIEQUILIBRIO|2014-09-04|1",
+      "data_accertamento": "2021-06-10",
+      "anno_fine_finanziaria": 2020,
+      "data_pubblicazione": "2021-06-11",
+      "riferimento_atto": "97/2021/PRSP",
+      "fonte_url": "https://trasparenza.parsec326.it/repo/docs/C198/78/1547253_000005611_del_97.pdf",
+      "fonte_pagina": "https://www.comune.castellucciodeisauri.fg.it/amministrazione-trasparente/controlli-e-rilievi-sullamministrazione/corte-dei-conti/",
+      "pagine_verificate_visivamente": [
+        6,
+        42,
+        43
+      ],
+      "tipo_prova": "Pronuncia conclusiva originale della Corte dei conti",
+      "esito_verificato": "procedura conclusa",
+      "idoneita_data_fine": "atto conclusivo documentato; controllare disponibilita storica",
+      "note_verifica": "Avvio C.C.12 del 4 settembre 2014, piano C.C.29 del 2 dicembre 2014 rimodulato dalla C.C.3 del 24 marzo 2016. Pagina 6 attesta percorso conclusosi nel 2020; dispositivo pagina 43 delibera completa attuazione. Decisione 10 giugno 2021. Pubblicazione comunale 11 giugno 2021. Non è indicato un deposito separato. Non si usa il solo pagamento anticipato del debito nel 2017 come chiusura; permangono indicazioni su riscossione e restituzione fondo di rotazione. Non sovrascrivere lo stato A nello snapshot anagrafico con inferenze dalla durata del piano.",
+      "file_pdf": "documenti/a8a0bf73f88271dcca72.pdf",
+      "file_testo": "documenti/a8a0bf73f88271dcca72.txt",
+      "applicata": true
+    },
+    {
+      "comune": "SELLIA MARINA",
+      "key": "CALABRIA|SELLIA MARINA",
+      "anno_avvio": 2013,
+      "data_avvio_input": "2013-04-18",
+      "id_procedura": "CALABRIA|SELLIA MARINA|RIEQUILIBRIO|2013-04-18|1",
+      "data_accertamento": "2026-03-18",
+      "data_pubblicazione": "2026-05-28",
+      "riferimento_atto": "126/2026/PRSP",
+      "fonte_url": "https://selliamarina.soluzionipa.it/openweb/data/documenti/7638_c_7d88_DocumentiIstruttoria_1779974256.zip",
+      "fonte_pagina": "https://selliamarina.soluzionipa.it/openweb/pratiche/dett_registri.php?sezione=rilieviCorte&id=7638&codEstr=NEXT",
+      "pagine_verificate_visivamente": [
+        43,
+        44
+      ],
+      "tipo_prova": "Pronuncia conclusiva originale della Corte dei conti",
+      "esito_verificato": "procedura conclusa",
+      "idoneita_data_fine": "atto conclusivo documentato; controllare disponibilita storica",
+      "note_verifica": "Il dispositivo a pagina 43 delibera il sostanziale raggiungimento del riequilibrio ALLA DATA DELLA DECISIONE, 18 marzo 2026 (pagina 44). Piano C.C.17 del 16 giugno 2013, rimodulato con C.C.19/8 novembre 2013 e C.C.50/22 dicembre 2014. Non usare il termine del piano nel 2022 o il precedente recupero di singole passività come fine finanziaria. La Corte accerta contestualmente criticità prospettiche e richiede misure correttive; non equivale a salute finanziaria completa. Il PDF non mostra una data distinta nel campo deposito. La scheda comunale espone 28 maggio 2026; la data di decisione non è il 28 maggio. Fotografie 2017-2025 restano precedenti alla chiusura.",
+      "file_pdf": "documenti/257e230f12907182e019_1.pdf",
+      "file_testo": "documenti/257e230f12907182e019_1.txt",
+      "applicata": true
+    }
+  ],
+  "ultimi_piani_da_chiarire": [
+    {
+      "regione": "CALABRIA",
+      "comune": "JACURSO",
+      "data_avvio": "2017-08-21"
+    },
+    {
+      "regione": "CAMPANIA",
+      "comune": "CASALUCE",
+      "data_avvio": "2018-03-24"
+    },
+    {
+      "regione": "CAMPANIA",
+      "comune": "CASTEL CAMPAGNANO",
+      "data_avvio": "2020-07-29"
+    },
+    {
+      "regione": "CAMPANIA",
+      "comune": "PORTICI",
+      "data_avvio": "2016-08-29"
+    },
+    {
+      "regione": "CAMPANIA",
+      "comune": "SAN NICOLA MANFREDI",
+      "data_avvio": "2012-10-31"
+    },
+    {
+      "regione": "LOMBARDIA",
+      "comune": "SANT'ANGELO LODIGIANO",
+      "data_avvio": "2015-07-10"
+    },
+    {
+      "regione": "PUGLIA",
+      "comune": "MARGHERITA DI SAVOIA",
+      "data_avvio": "2017-02-03"
+    },
+    {
+      "regione": "PUGLIA",
+      "comune": "SAN PIETRO VERNOTICO",
+      "data_avvio": "2015-11-30"
+    },
+    {
+      "regione": "VENETO",
+      "comune": "POVEGLIANO VERONESE",
+      "data_avvio": "2017-04-05"
+    }
+  ],
+  "precedenti_storici_da_completare": 9,
+  "chiarimento_san_nicola": {
+    "fonte": "https://comune.sannicolamanfredi.bn.it/c062067/zf/index.php/trasparenza/index/visualizza-documento-generico/categoria/167/documento/257",
+    "documento_locale": "documenti/756e6efe2582b15255f2.pdf",
+    "pagina_verificata_visivamente": 1,
+    "fatto": "La comunicazione dell’esito del 23 luglio 2026 non approva il piano 2012, escludendo i presupposti dell’art.243-quater comma7. Non prova un risanamento o una chiusura positiva in una data precedente. Attesa la motivazione integrale.",
+    "applicata_al_modello": false
+  },
+  "piste_senza_nuova_prova": {
+    "PORTICI": "Carte comunali 134/2024 e 6/2024 individuate; collegamenti migrati falliscono; i filtri per numero e Campania nel repertorio pubblico non restituiscono risultati. Il 122/2020 approva il piano, non lo chiude.",
+    "POVEGLIANO VERONESE": "Acquisita dal sito comunale Corte Veneto 10/2021/PRSE; controlli 2017-2018 e passaggio a ripiano art.188 non forniscono atto/data di revoca. Relazione fine mandato collegata ma download ripetutamente non completato.",
+    "SANT ANGELO LODIGIANO": "Pronuncia 278/2021/VSG acquisita (scheda erroneamente 228): riguarda relazione fine mandato, non chiusura. Le pronunce 90,99,159/2018 restano rimodulazioni/intermedie.",
+    "CASALUCE": "Nuovo archivio ufficiale Corte dei conti privo di righe; nessuna data ricavata dal solo stato N.",
+    "MARGHERITA DI SAVOIA": "Riga ufficiale 49/2022 presente ma senza allegato. Determina365/2024 già acquisita resta prova parziale.",
+    "SAN PIETRO VERNOTICO": "Nuova pista nota integrativa2021-2023 individuata; acquisizione in timeout. Parere sulla revocabilità non è la revoca.",
+    "JACURSO": "Sito ufficiale collega nuova trasparenza dal27maggio2024; consultazione non completata. Restano i tentativi precedenti registrati.",
+    "CASTEL CAMPAGNANO": "Due episodi2019 e2020 distinti; governa quello2020. Nessuna data di revoca documentata, non imputata dal successivo piano."
+  },
+  "controlli": {
+    "documentali": 39,
+    "fold_confrontabili": 11,
+    "pacchetto_sito": "OK 51 variabili,81 JSON identici",
+    "casi_documentali_ui": 532,
+    "export": 76,
+    "anagrafica_congelata_invariata": true
+  },
+  "pubblicazione": "Pacchetto verificato; stato effettivo del deployment registrato separatamente."
+}

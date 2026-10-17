@@ -2130,7 +2130,7 @@
       "quota": 0.9583
      }
     },
-    "scarto_ricostruzione": 7.476685937035654e-12
+    "scarto_ricostruzione": 1.1738165994756855e-11
    },
    "t3": {
     "stato": "disponibile",
@@ -2164,7 +2164,7 @@
       "quota": 0.8971
      }
     },
-    "scarto_ricostruzione": 2.559730205575761e-12
+    "scarto_ricostruzione": 3.0535574069290305e-12
    }
   }
  },
@@ -10673,7 +10673,7 @@
    "c": "CIVITELLA ALFEDENA",
    "r": "ABRUZZO",
    "cn": "ABRUZZO|CIVITELLA ALFEDENA",
-   "p": 0.299424,
+   "p": 0.299423,
    "rk": 979,
    "ix": 87.6,
    "f": "MEDIO",
@@ -72773,7 +72773,7 @@
    "c": "ROCCAFORTE DEL GRECO",
    "r": "CALABRIA",
    "cn": "CALABRIA|ROCCAFORTE DEL GRECO",
-   "p": 0.831121,
+   "p": 0.831122,
    "rk": 375,
    "ix": 95.3,
    "f": "ALTO",
@@ -101410,7 +101410,7 @@
      -0.41
     ]
    ],
-   "p3": 0.546604,
+   "p3": 0.546605,
    "rk3": 1220,
    "ix1": 84.5,
    "f3": "MEDIO",
@@ -121973,7 +121973,7 @@
    "c": "PRATELLA",
    "r": "CAMPANIA",
    "cn": "CAMPANIA|PRATELLA",
-   "p": 0.301014,
+   "p": 0.301013,
    "rk": 978,
    "ix": 87.6,
    "f": "MEDIO",
@@ -207173,7 +207173,7 @@
    "c": "CONCERVIANO",
    "r": "LAZIO",
    "cn": "LAZIO|CONCERVIANO",
-   "p": 0.259173,
+   "p": 0.259174,
    "rk": 1062,
    "ix": 86.5,
    "f": "MEDIO",
@@ -718287,7 +718287,7 @@
    "c": "ACQUASPARTA",
    "r": "UMBRIA",
    "cn": "UMBRIA|ACQUASPARTA",
-   "p": 0.072343,
+   "p": 0.072342,
    "rk": 1695,
    "ix": 78.5,
    "f": "MEDIO",
@@ -723987,7 +723987,7 @@
    "c": "NORCIA",
    "r": "UMBRIA",
    "cn": "UMBRIA|NORCIA",
-   "p": 0.056579,
+   "p": 0.056578,
    "rk": 1842,
    "ix": 76.7,
    "f": "MEDIO",
