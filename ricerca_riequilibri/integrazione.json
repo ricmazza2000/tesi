@@ -1,6 +1,7 @@
 {
-  "fase": "undicesima integrazione locale verificata; pubblicazione da completare",
+  "fase": "undicesima integrazione pubblicata e verificata online",
   "aggiornato_il": "2026-10-17T20:39:42.964249+02:00",
+  "pubblicato": true,
   "versione_congelata": "v2026-10-17-chiusure-residue",
   "specifica_variabili": 51,
   "prove_integrate": 115,
@@ -99,5 +100,11 @@
   "spiegazione_integrazione": "Lizzano: fine finanziaria 2022, conferma 4 maggio 2023. Castelluccio dei Sauri: fine finanziaria 2020, conferma 10 giugno 2021. Santa Maria del Molise: dispositivo alla decisione 13 giugno 2022. Sellia Marina: dispositivo alla decisione 18 marzo 2026, nessuna chiusura nel 2022. Ultimo episodio iniziato entro ciascuna fotografia; Domanico 2015 concluso nel 2025 prevale sul precedente del 2014.",
   "allerta": "Probabilità non arrotondate e ranghi rk/rk3; nessuna soglia basata sul percentile arrotondato.",
   "url_portale": "https://ricmazza2000.github.io/tesi/portale.html",
-  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html"
+  "url_ricerca": "https://ricmazza2000.github.io/tesi/riequilibri.html",
+  "pubblicato_il": "2026-10-17T20:51:36.216595+02:00",
+  "commit_codice": "b21dbf8",
+  "commit_sito": "06a7cf4d8457eed96de588ff54acf74ca7422720",
+  "deployment": "https://github.com/ricmazza2000/tesi/actions/runs/39059356040",
+  "file_confrontati_online": 29,
+  "verifica_online": "../2026-10-16-riequilibri-residui/verifica_online.json"
 }
