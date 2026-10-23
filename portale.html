@@ -302,7 +302,190 @@ details.ct-fonti li{margin:0 0 6px}
  #card .scheda-segnale{grid-template-columns:1fr;gap:3px}
  #card .scheda-segnale .v{text-align:left}
 }
-</style><script>document.addEventListener("DOMContentLoaded",()=>{const s=document.createElement("style");s.textContent=PresentazionePortale.css;document.head.append(s);});</script></head><body>
+</style><script>document.addEventListener("DOMContentLoaded",()=>{const s=document.createElement("style");s.textContent=PresentazionePortale.css;document.head.append(s);});</script><style data-interfaccia-portale="scheda_portale_ui.css">/* Anteprima isolata: nessuna regola modifica dati o fasce del modello. */
+.portale-toolbar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 24px;background:#1f3a5f;color:#fff;font-size:13px;box-shadow:0 2px 8px #0001}
+.portale-toolbar strong{font-size:11px;letter-spacing:.12em;margin-right:10px}
+.portale-toolbar .portale-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.portale-toolbar button,.portale-toolbar a{font:inherit;color:#fff;background:transparent;border:1px solid #ffffff70;border-radius:6px;padding:6px 10px;cursor:pointer;text-decoration:none}
+.portale-toolbar button[aria-pressed=true]{color:#1f3a5f;background:#fff;border-color:#fff;font-weight:600}
+body:has(#ov.on)>.portale-toolbar{visibility:hidden}
+#ov.portale-confronto-ov{flex-direction:column;align-items:center;justify-content:flex-start;padding:12px 18px 24px;background:rgba(17,27,39,.64)}
+.portale-modi{display:none}
+.portale-confronto-ov>.portale-modi{display:flex;align-items:center;justify-content:flex-end;gap:6px;width:100%;max-width:720px;margin:0 auto 9px;color:#fff;font-size:11px;flex-shrink:0}
+.portale-confronto-ov.portale-ov>.portale-modi{max-width:1140px}
+.portale-modi span{margin-right:6px}
+.portale-modi button{border:1px solid #ffffff80;background:transparent;color:#fff;border-radius:5px;padding:5px 9px;font:inherit;cursor:pointer}
+.portale-modi button[aria-pressed=true]{background:#fff;color:#1f3a5f;font-weight:600}
+#card.portale-scheda{position:relative;max-width:1140px;padding:24px 32px 26px;border-radius:16px;background:var(--surface);flex-shrink:0}
+.portale-scheda .close{position:absolute;right:15px;top:11px;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:var(--ink2);float:none;z-index:2}
+.portale-scheda .close:hover{background:var(--grid)!important}
+.portale-scheda .portale-hero{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:28px;align-items:center;padding:0 24px 16px 0;border-bottom:1px solid var(--grid);margin-bottom:12px}
+.portale-scheda .portale-eyebrow{font-size:10px;letter-spacing:.14em;font-weight:600;color:var(--muted);margin-bottom:5px}
+.portale-scheda .portale-titolo h2{font-size:36px;line-height:1.15;margin-bottom:10px!important}
+.portale-scheda .portale-titolo>div:last-child{line-height:1.7;max-width:65ch}
+.portale-scheda .scheda-essenziale{background:var(--page);padding:14px 18px;border:1px solid var(--grid);border-radius:10px;margin:0!important;box-shadow:none}
+.portale-scheda .scheda-essenziale .big{font-size:42px!important;line-height:1.1}
+.portale-scheda .scheda-essenziale>div:last-child{font-size:11px!important;margin-top:8px!important;color:var(--ink2)}
+.portale-scheda>.cap{max-width:95ch}
+.portale-scheda>.statobox{padding:11px 14px;font-size:13px;line-height:1.55;background:var(--page);border-left-width:3px;margin-top:12px!important}
+.portale-scheda .scheda-bilancio{margin:22px 0 24px;padding:18px 0 24px;border-top:1px solid var(--grid);border-bottom:1px solid var(--grid)}
+.portale-scheda .scheda-bilancio h3{font-size:23px;line-height:1.25;margin:0 0 7px}
+.portale-scheda .portale-intro{font-size:13px;line-height:1.6;margin:0 0 18px;color:var(--ink2);max-width:90ch}
+.portale-legend{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.portale-legend:before{content:'';display:inline-block;width:2px;height:12px;background:var(--ink)}
+.portale-metriche{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+.portale-scheda .portale-metrica.ind{display:flex;flex-direction:column;gap:0;background:#fffdfa;border:1px solid var(--grid);border-radius:10px;padding:16px 15px;min-width:0}
+.portale-metrica .nm{font-size:13px!important;line-height:1.4;min-height:38px;color:var(--ink2)}
+#card .portale-metrica .v{display:flex;flex-direction:column;flex-wrap:nowrap;gap:6px;align-items:flex-start;text-align:left!important;margin:10px 0 10px;font-size:29px;font-family:'Bodoni Moda',Georgia,serif;line-height:1.2;min-height:69px}
+#card .portale-metrica .v .stato-ind{font:500 10px/1.4 'Archivo',sans-serif;white-space:normal;max-width:100%;margin:0;align-self:flex-start}
+.portale-metrica .ex{font-size:12px!important;line-height:1.55;margin-top:12px!important;color:var(--ink2)}
+.portale-metrica .ex details{font-size:12px!important;margin:10px 0 0!important}
+.portale-metrica .ex details summary{font-size:11px!important;color:var(--ink2)}
+.portale-confronto{font-size:11px;color:var(--ink2)}
+.portale-barra{position:relative;height:9px;margin:9px 1px 7px;background:var(--grid);border-radius:3px}
+.portale-barra .portale-riempimento{position:absolute;top:0;height:9px;background:var(--accent);border-radius:3px;min-width:0}
+.portale-barra .portale-zero{position:absolute;top:-3px;height:15px;width:1px;background:var(--axis)}
+.portale-barra .portale-mediana{position:absolute;top:-5px;height:19px;width:2px;background:var(--ink);transform:translateX(-1px);z-index:2}
+.portale-barra .portale-valore{position:absolute;top:-1px;width:11px;height:11px;border:2px solid var(--surface);background:var(--accent);border-radius:50%;transform:translateX(-50%);z-index:3}
+.portale-asse{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:7px}
+.portale-mediana-testo{margin-top:3px;line-height:1.5}
+.portale-mediana-testo b{color:var(--ink);font-variant-numeric:tabular-nums}
+.portale-copertura{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+.portale-non-dato{padding:8px 0;color:var(--muted)}
+.portale-scheda .portale-bandiera.ind{display:grid;grid-template-columns:1fr auto;gap:4px 24px;margin-top:14px;padding:15px 2px;border-bottom:0}
+.portale-bandiera .nm{font-size:13px}
+.portale-bandiera .v{font-size:17px}
+.portale-bandiera .ex{font-size:12px;max-width:95ch}
+.portale-scheda .portale-liquidita{margin:5px 0 0;padding:10px 12px;border:1px solid var(--grid);border-radius:8px;font-size:12px}
+.portale-liquidita>summary{cursor:pointer;font-weight:600;color:var(--ink2)}
+.portale-scheda #perche{margin:22px 0 14px}
+.portale-scheda #perche>.scheda-calcolo{border:1px solid var(--grid);border-radius:9px;padding:14px 16px;background:var(--page)}
+.portale-scheda #perche>.scheda-calcolo>summary{font-size:14px}
+.portale-scheda>details{border-bottom:1px solid var(--grid);padding:10px 0;margin:0!important}
+.portale-scheda>details>summary{font-size:13px!important}
+.portale-scheda>details:first-of-type{padding:3px 0 10px;border:0}
+.portale-scheda .portale-barre-nota{margin:12px 0 0;font-size:11px;color:var(--muted);line-height:1.5}
+.portale-errore{border:1px solid #8c2b22;color:#8c2b22;background:#fff4ee;padding:14px;margin:12px}
+@media(min-width:1500px){#card.portale-scheda{max-width:1220px}}
+@media(max-width:960px){.portale-metriche{grid-template-columns:repeat(2,minmax(0,1fr))}.portale-metrica .nm{min-height:0}.portale-toolbar{font-size:11px}}
+@media(max-width:620px){#ov.portale-ov{padding:8px}#card.portale-scheda{padding:25px 16px 20px;border-radius:10px}.portale-scheda .portale-hero{grid-template-columns:1fr;gap:15px;padding-right:0}.portale-scheda .portale-titolo{padding-right:24px}.portale-scheda .portale-titolo h2{font-size:29px}.portale-scheda .scheda-essenziale{display:block}.portale-metriche{grid-template-columns:1fr}.portale-metrica .nm{min-height:0}.portale-metrica .v{font-size:28px}.portale-toolbar{position:relative;padding:10px 12px;flex-direction:column;align-items:flex-start;gap:8px}.portale-toolbar .portale-copy{display:none}.portale-scheda .portale-bandiera.ind{grid-template-columns:1fr}.portale-bandiera .v{text-align:left}.portale-scheda .scheda-bilancio{margin-top:22px}}
+@media print{.portale-toolbar{display:none}}
+@media(prefers-color-scheme:dark){.portale-scheda .portale-metrica.ind{background:var(--page)}}
+</style>
+<style data-interfaccia-portale="layout_portale_ui.css">/* Gerarchia e colori della seconda prova: solo nella vista Proposta. */
+body:not(.portale-attiva) .portale-solo{display:none!important}
+body.portale-attiva .portale-nascondi{display:none!important}
+.portale-toolbar{position:relative}
+body.portale-attiva{--page:#EEEDE7;--surface:#FFFDF8;--ring:rgba(31,58,95,.15);--grid:#DDDCD3}
+.portale-attiva header.top{background:#172E4B;color:#fff;border-bottom:0;padding:28px 24px 18px}
+.portale-attiva header.top h1{font-size:30px;line-height:1.25;max-width:32ch;margin-bottom:12px}
+.portale-attiva header.top .sub{color:#E1E7EE;font-size:13px;margin-bottom:12px;max-width:85ch}
+.portale-attiva header.top .sub span{color:#C6D0DC!important}
+.portale-attiva #tramite a,.portale-attiva #tramite .qui{color:#E6EBF1}
+.portale-attiva #tramite .qui{background:#ffffff12;border-color:#ffffff60}
+.portale-attiva #tramite a:hover{border-color:#ffffff60}
+.portale-attiva #barra{background:var(--surface);box-shadow:0 2px 10px #172e4b09}
+.portale-attiva #schede{gap:12px}
+.portale-attiva #schede button{padding:11px 10px}
+.portale-attiva #schede button.on{border-bottom-width:3px}
+.portale-attiva #sel-riepilogo{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--accent);padding:12px 16px;margin:16px 0 22px;border-radius:8px}
+.portale-attiva main>section.on{padding-top:5px}
+.portale-attiva main>section>h2{font-size:29px;margin-bottom:10px}
+.portale-attiva main>section>.lead{font-size:14px;max-width:85ch;margin-bottom:18px;color:var(--ink2)}
+.portale-attiva main .card{background:var(--surface);border-radius:11px;border-color:var(--ring)}
+.portale-sottoschede{display:flex;flex-wrap:wrap;gap:5px;margin:14px 0 20px;padding:5px;background:#DCDDD7;border:1px solid var(--ring);border-radius:9px;width:fit-content;max-width:100%;scroll-margin-top:170px}
+.portale-sottoschede button{height:auto;min-height:36px;border:0;background:transparent;color:var(--ink2);font:500 13px 'Archivo',sans-serif;padding:9px 16px;border-radius:6px;cursor:pointer}
+.portale-sottoschede button[aria-pressed=true]{background:var(--surface);color:var(--accent);box-shadow:0 1px 3px #172e4b15;font-weight:600}
+.portale-attiva .striscia{margin-top:10px;margin-bottom:18px;background:var(--surface)}
+.portale-attiva .striscia>div{padding:13px 15px}
+.portale-attiva .striscia b{font-size:24px}
+.portale-attiva .controls{gap:12px}
+.portale-attiva #comuni .card.scroll{margin-top:12px;border-radius:10px}
+.portale-attiva #comuni table td{padding-top:13px;padding-bottom:13px}
+.portale-attiva .news-home{padding:20px;border:1px solid var(--ring);border-radius:11px;background:var(--surface);margin-top:26px}
+.portale-attiva .news-anteprima{background:var(--page)}
+.portale-attiva #cmp-confronto{margin-top:0!important;padding:24px}
+.portale-attiva #cmp-confronto>summary,.portale-attiva #cmp-confronto>.cap{display:none}
+.portale-occhiello{display:block;color:var(--accent);font-size:10px;font-weight:600;letter-spacing:.13em;margin-bottom:5px}
+.portale-intro-confronto h3,.portale-catalogo-intro h3,.portale-percorso h3{font-size:25px;line-height:1.3;margin:0 0 9px}
+.portale-intro-confronto p,.portale-catalogo-intro p{font-size:13px;color:var(--ink2);max-width:85ch;margin:0 0 20px}
+.portale-attiva #cmp-confronto>.controls{align-items:flex-start;gap:14px;padding:15px;background:var(--page);border:1px solid var(--ring);border-radius:9px}
+.portale-attiva #cmpA,.portale-attiva #cmpB{display:none}
+.portale-cerca-comune{display:block;width:100%;max-width:100%;margin-top:6px;font-size:13px!important;background:var(--surface)}
+.portale-attiva .cmp-select{min-width:230px;color:var(--ink2);font-weight:600}
+.portale-cmp-errore{display:block;color:var(--critical);font-size:11px;min-height:0;margin-top:5px;font-weight:400}
+.portale-scambia{align-self:center;height:40px;margin-top:16px;font-size:12px}
+.portale-esegui-confronto{align-self:center;height:40px;margin-top:16px;background:var(--s1);color:var(--surface);border:1px solid var(--s1);font-size:12px;font-weight:600}
+.portale-attiva .cmp-profili{margin-top:20px}
+.portale-attiva .cmp-profilo{background:var(--surface);border-radius:10px;border-top:3px solid var(--s1)}
+.portale-attiva .cmp-profilo:nth-child(2){border-top-color:#617D91}
+.portale-cmp-etichetta{font-size:10px;letter-spacing:.1em;color:var(--muted);font-weight:600}
+.portale-attiva .cmp-profilo h3{font-size:24px;margin-top:5px}
+.portale-attiva .cmp-profilo:nth-child(2) .cmp-rischio span{background:#617D91}
+.portale-apri-comune{height:auto!important;border:0;background:transparent;color:var(--accent);padding:8px 0 0;font:600 12px 'Archivo',sans-serif;cursor:pointer;margin-top:12px}
+.portale-attiva .cmp-lettura{background:var(--page);border:0;padding:13px 15px;border-radius:7px}
+.portale-attiva .cmp-tabella .portale-tabella-confronto{table-layout:fixed;min-width:620px}
+.portale-attiva .portale-tabella-confronto th:first-child{width:32%}
+.portale-attiva .portale-tabella-confronto thead th{font-size:11px;vertical-align:top;letter-spacing:.02em}
+.portale-attiva .portale-tabella-confronto thead small{font-size:10px;text-transform:none}
+.portale-attiva .cmp-tabella .portale-tabella-confronto td{padding:14px 10px}
+.portale-cmp-mini{display:block;position:relative;height:5px;background:var(--grid);border-radius:2px;margin-top:10px;width:100%;overflow:hidden}
+.portale-cmp-mini i{position:absolute;top:0;height:100%;background:var(--s1)}
+.portale-tabella-confronto td:nth-child(3) .portale-cmp-mini i{background:#617D91}
+.portale-attiva .portale-scarto>b{font:600 13px 'Archivo',sans-serif;line-height:1.5}
+.portale-attiva .portale-scarto>small{font-size:10.5px}
+.portale-cmp-nota{font-size:11px;color:var(--muted);line-height:1.6;max-width:100ch;margin:12px 0 18px}
+.portale-attiva #leggere>.card{margin-top:18px}
+.portale-percorso{background:var(--surface);border:1px solid var(--ring);border-radius:11px;padding:22px;margin:0 0 20px}
+.portale-passi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:18px 0 14px}
+.portale-passi button{display:flex;align-items:center;gap:9px;text-align:left;height:auto;min-height:55px;background:var(--page);border:1px solid var(--ring);border-radius:7px;font:500 12px 'Archivo',sans-serif;line-height:1.4;padding:10px;cursor:pointer;color:var(--ink2)}
+.portale-passi button>span{display:grid;place-items:center;flex-shrink:0;width:23px;height:23px;background:var(--grid);border-radius:50%;font-size:11px}
+.portale-passi button[aria-pressed=true]{background:#1F3A5F;color:#fff;border-color:#1F3A5F}
+.portale-passi button[aria-pressed=true]>span{background:#ffffff25}
+.portale-passo-lettura{background:var(--page);border-radius:7px;padding:15px;font-size:13px;line-height:1.65;min-height:74px}
+.portale-trasparenza{font-size:11px;color:var(--muted);margin:13px 0 0;max-width:100ch}
+.portale-attiva #leggere .grid.g2>.card{padding:22px}
+.portale-attiva #leggere .grid.g2>.card h3{font-size:21px}
+.portale-attiva .portale-catalogo{padding:22px;margin-top:0!important}
+.portale-attiva .portale-catalogo>summary{display:none}
+.portale-attiva #gloss{margin-top:0!important}
+.portale-attiva .gloss-cerca{margin:20px 0 12px;font-weight:600}
+.portale-attiva .gloss-cerca input{max-width:100%;background:var(--surface)}
+.portale-filtri-catalogo{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.2fr) auto;gap:12px;align-items:end;padding:13px;background:var(--page);border-radius:8px;border:1px solid var(--ring);margin:0 0 10px}
+.portale-filtri-catalogo label{font-size:12px;min-width:0;color:var(--ink2);font-weight:600}
+.portale-filtri-catalogo select{display:block;width:100%;margin-top:5px;font-size:12px;background:var(--surface);max-width:100%}
+.portale-filtri-catalogo button{font-size:12px}
+.portale-attiva #gloss-esito{font-size:12px;padding:5px 0 12px;margin:0;color:var(--accent)}
+.portale-attiva .gloss-gruppo{margin:20px 0 28px}
+.portale-attiva .gloss-gruppo>h3{font-size:19px;margin-bottom:12px}
+.portale-attiva .gloss-gruppo>.gloss-area{border:1px solid var(--ring);border-radius:8px;background:var(--surface);padding:13px 16px;margin:9px 0}
+.portale-attiva .gloss-area>summary{font-size:13px}
+.portale-attiva .gloss-voce{padding:17px 0}
+.portale-attiva .gloss-voce h4{font-size:16px;margin-bottom:8px}
+.portale-catalogo-meta{font-size:11px;line-height:1.6;color:var(--muted);margin:7px 0}
+.portale-catalogo-meta>span{display:inline-block;padding:3px 7px;border:1px solid var(--ring);border-radius:4px;background:var(--page);margin:0 6px 6px 0;font-size:10px;font-weight:500}
+.portale-catalogo-meta p{font-size:11px!important;margin:0 0 4px!important;max-width:95ch}
+.portale-attiva #gloss>.cap:not(#gloss-esito){display:none}
+.portale-catalogo-numeri{display:flex;gap:8px;flex-wrap:wrap;max-width:100%!important;margin:12px 0 16px!important}
+.portale-catalogo-numeri span{font-size:11px;display:inline-block;border:1px solid var(--ring);border-radius:5px;background:var(--page);padding:5px 8px;color:var(--ink2)}
+@media(max-width:760px){
+ .portale-attiva header.top{padding:22px 18px 14px}.portale-attiva header.top h1{font-size:25px}
+ .portale-attiva #cmp-confronto{padding:16px}.portale-scambia,.portale-esegui-confronto{margin-top:0}
+ .portale-passi{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .portale-attiva .portale-tabella-confronto{min-width:0!important}.portale-attiva .portale-tabella-confronto thead{display:none}
+ .portale-attiva .portale-tabella-confronto tbody tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--grid);padding:10px 0}
+ .portale-attiva .portale-tabella-confronto tbody th{width:auto;grid-column:1/-1;border:0;padding:6px 10px}
+ .portale-attiva .portale-tabella-confronto tbody td{border:0;overflow-wrap:anywhere}
+ .portale-attiva .portale-tabella-confronto td[data-comune]:before{content:attr(data-comune);display:block;font-size:10px;color:var(--muted);margin-bottom:5px}
+ .portale-attiva .portale-tabella-confronto .portale-scarto{grid-column:1/-1;background:var(--page);padding:8px 10px!important}
+ .portale-attiva .portale-scarto:before{content:'Differenza primo − secondo';display:block;font-size:10px;color:var(--muted);margin-bottom:4px}
+ .portale-attiva .portale-catalogo{padding:16px}
+ .portale-sottoschede{width:100%;scroll-margin-top:220px}.portale-sottoschede button{flex:1;padding:9px 8px;font-size:12px}
+}
+@media(max-width:560px){.portale-attiva .cmp-select{min-width:100%}.portale-attiva .cmp-profili{grid-template-columns:1fr}.portale-filtri-catalogo{grid-template-columns:1fr}.portale-filtri-catalogo button{justify-self:start}}
+@media(prefers-color-scheme:dark){body.portale-attiva{--page:#171B20;--surface:#20262C;--grid:#3D454D;--ring:rgba(200,210,220,.2)}.portale-sottoschede{background:#14191F}}
+</style>
+</head><body>
 <div class="tip" id="tip"></div>
 
 <header class="top"><div class="wrap">
@@ -3626,4 +3809,312 @@ selAnno.addEventListener('change', ()=>caricaAnno(selAnno.value));
    procedure, e un comune con due dissesti ne mostrava uno solo. */
 if(!P._fuso){ fondiProcedure(P.data); P._fuso = true; }
 disegnaAnno();
-</script></body></html>
+</script><script data-interfaccia-portale="scheda_portale_ui.js">/* Scheda pubblica: valori originali e aggiornamenti asincroni preservati. */
+const ConfrontiPortale = (() => {
+  const finito = v => typeof v === 'number' && Number.isFinite(v);
+  function mediana(valori) {
+    const v = valori.filter(finito).sort((a,b)=>a-b), n=v.length;
+    return {valore:n?(n%2?v[(n-1)/2]:(v[n/2-1]+v[n/2])/2):null,n};
+  }
+  function limiteAlto(v) {
+    if (!(v>0)) return 1;
+    const e=10**Math.floor(Math.log10(v)), q=v/e;
+    return (q<=1?1:q<=2?2:q<=2.5?2.5:q<=5?5:10)*e;
+  }
+  function scala(k, valore, riferimento) {
+    const valori=[valore,riferimento].filter(finito);
+    const base={ris:1,ant:.25,gc:120,dfb:5}[k]||1;
+    const max=limiteAlto(Math.max(base,...valori));
+    const basso=Math.min(0,...valori),min=basso<0?-limiteAlto(-basso):0;
+    const pos=v=>Math.max(0,Math.min(100,(v-min)/(max-min)*100));
+    return {min,max,zero:pos(0),valore:finito(valore)?pos(valore):null,
+      mediana:finito(riferimento)?pos(riferimento):null};
+  }
+  return {mediana,scala};
+})();
+
+(() => {
+  'use strict';
+  let datiMediane=null, mediane={};
+  const card=document.getElementById('card'), overlay=document.getElementById('ov');
+  document.body.classList.add('portale-attiva');
+  const esc=PresentazionePortale.esc;
+  function pulisci() {
+    card.classList.remove('portale-scheda'); overlay.classList.remove('portale-ov');
+    overlay.classList.remove('portale-confronto-ov');
+    card.removeAttribute('role'); card.removeAttribute('aria-modal'); card.removeAttribute('aria-labelledby');
+  }
+  function riferimenti() {
+    if(datiMediane!==DATA){
+      mediane=Object.fromEntries(['ris','ant','gc','dfb'].map(k=>[k,ConfrontiPortale.mediana(DATA.map(x=>x[k]))]));
+      datiMediane=DATA;
+    }
+    return mediane;
+  }
+  function confronto(i,v,stat) {
+    const d=document.createElement('div'); d.className='portale-confronto';
+    d.dataset.indicatore=i.k;
+    d.dataset.anno=String(ANNO);
+    if(!Number.isFinite(v)||v==null){
+      d.innerHTML='<div class="portale-non-dato">Confronto non disponibile: manca il valore del comune.</div>';
+      return d;
+    }
+    if(stat.valore==null){d.innerHTML='<div class="portale-non-dato">Mediana non disponibile.</div>';return d;}
+    const s=ConfrontiPortale.scala(i.k,v,stat.valore), f=n=>esc(fmt(n,i.f));
+    d.dataset.valore=String(v); d.dataset.mediana=String(stat.valore); d.dataset.n=String(stat.n);
+    const descr=`${i.n}: ${fmt(v,i.f)}. Mediana dei ${IT(stat.n)} comuni con dato nella fotografia ${ANNO}: ${fmt(stat.valore,i.f)}. Scala da ${fmt(s.min,i.f)} a ${fmt(s.max,i.f)}.`;
+    d.innerHTML=`<div class="portale-barra" role="img" aria-label="${esc(descr)}"><span class="portale-zero" style="left:${s.zero}%"></span><span class="portale-riempimento" style="left:${Math.min(s.zero,s.valore)}%;width:${Math.abs(s.valore-s.zero)}%"></span><span class="portale-mediana" style="left:${s.mediana}%"></span><span class="portale-valore" style="left:${s.valore}%"></span></div><div class="portale-asse" aria-hidden="true"><span>${f(s.min)}</span><span>${f(s.max)}</span></div><div class="portale-mediana-testo">Mediana Italia <b>${f(stat.valore)}</b><span class="portale-copertura">${IT(stat.n)} comuni con dato · fotografia ${ANNO}</span></div>`;
+    return d;
+  }
+  function applica(x) {
+    card.classList.add('portale-scheda'); overlay.classList.add('portale-ov');
+    card.setAttribute('role','dialog');card.setAttribute('aria-modal','true');card.setAttribute('aria-labelledby','portale-nome');
+    const titolo=card.querySelector(':scope>h2'), luogo=titolo?.nextElementSibling, indice=card.querySelector('.scheda-essenziale');
+    if(titolo && indice){
+      titolo.id='portale-nome';
+      const hero=document.createElement('div');hero.className='portale-hero';
+      const nome=document.createElement('div');nome.className='portale-titolo';
+      const occhio=document.createElement('div');occhio.className='portale-eyebrow';occhio.textContent='IL COMUNE IN SINTESI';
+      card.insertBefore(hero,titolo);nome.append(occhio,titolo);if(luogo)nome.append(luogo);hero.append(nome,indice);
+      // Elimina soltanto il distanziatore vuoto generato prima dell'indice.
+      const vuoto=hero.nextElementSibling;
+      if(vuoto?.tagName==='DIV' && !vuoto.textContent.trim() && !vuoto.children.length)vuoto.remove();
+    }
+    const sezione=card.querySelector('.scheda-bilancio');
+    if(!sezione)return;
+    const nodi=Array.from(sezione.querySelectorAll('.ind'));
+    const trova=k=>nodi.find(n=>!n.hasAttribute('data-var')&&n.querySelector('.nm')?.textContent.trim()===INDBYK[k]?.n);
+    const metriche=['ris','ant','gc','dfb'].map(k=>[k,trova(k)]), bandiera=trova('dis');
+    const p3=sezione.querySelector('.scheda-contabile[data-var="pdi_3_2"]');
+    // Mantiene gli stessi nodi che l'aggiornamento asincrono ha già catturato.
+    metriche.forEach(([,n])=>n?.remove());bandiera?.remove();p3?.remove();
+    sezione.innerHTML=`<h3>Il bilancio, a colpo d’occhio</h3><p class="portale-intro">La barra mostra il dato del comune; il <span class="portale-legend">trattino indica la mediana italiana</span> della fotografia ${ANNO}. Le etichette segnalano le soglie descrittive.</p>`;
+    const griglia=document.createElement('div');griglia.className='portale-metriche';sezione.append(griglia);
+    const stats=riferimenti();
+    metriche.forEach(([k,n])=>{
+      if(!n)return;
+      n.classList.add('portale-metrica');n.dataset.chiave=k;
+      const ex=n.querySelector('.ex');n.insertBefore(confronto(INDBYK[k],x[k],stats[k]),ex);
+      griglia.append(n);
+    });
+    const nota=document.createElement('p');nota.className='portale-barre-nota';
+    nota.textContent='Le scale si adattano ai valori del comune: confronta il dato con il trattino, non la lunghezza delle barre tra comuni o indicatori diversi. La mediana non è una soglia di sicurezza; le barre non misurano l’effetto sul punteggio.';
+    sezione.append(nota);
+    if(bandiera){bandiera.classList.add('portale-bandiera');sezione.append(bandiera);}
+    if(p3){const altro=document.createElement('details');altro.className='portale-liquidita';const s=document.createElement('summary');s.textContent='Un altro indicatore di tesoreria (P3)';altro.append(s,p3);sezione.append(altro);}
+  }
+
+  const apriAttuale=apri;
+  apri=function(x){
+    pulisci();apriAttuale(x);
+    overlay.classList.add('portale-confronto-ov');
+    applica(x);
+  };
+  // I casi spiegati hanno un proprio impianto: la prova riguarda la scheda ordinaria.
+  for(const nome of ['apriFN','apriPreso']){
+    if(typeof window[nome]==='function'){
+      const precedente=window[nome];
+      window[nome]=function(...args){pulisci();return precedente.apply(this,args);};
+    }
+  }
+})();
+</script>
+<script data-interfaccia-portale="layout_portale_ui.js">/* Portale pubblico: navigazione, confronto e catalogo. Nessun ricalcolo. */
+const LetturaConfrontoPortale = (()=>{
+  const valido=v=>typeof v==='number'&&Number.isFinite(v);
+  function scarto(formato,a,b){
+    if(!valido(a)||!valido(b))return {testo:'n/d',nota:'Manca almeno uno dei due dati.'};
+    if(formato==='sn')return {testo:a===b?'Uguale':'Diverso',nota:a===b?'Il fenomeno ha lo stesso stato.':'Il fenomeno è presente in uno solo dei due comuni.'};
+    const v=(a-b)*(formato==='pct'?100:1);
+    if(v!==0&&Math.abs(v)<0.005&&formato!=='gg')return {testo:'Meno di 0,01 punti percentuali',nota:v>0?'Il primo valore è leggermente più alto.':'Il primo valore è leggermente più basso.'};
+    const n=v.toLocaleString('it-IT',{maximumFractionDigits:formato==='gg'?0:2});
+    return {testo:(v>0?'+':'')+n+(formato==='gg'?' giorni':' punti percentuali'),nota:'Primo comune meno secondo comune.'};
+  }
+  return {scarto};
+})();
+
+(()=>{
+  'use strict';
+  const $=id=>document.getElementById(id), esc=PresentazionePortale.esc;
+  const attiva=()=>document.body.classList.contains('portale-attiva');
+  const comuni=$('comuni'), leggere=$('leggere'), cmp=$('cmp-confronto'), gloss=$('gloss');
+  const elenco=document.createElement('div');elenco.className='portale-elenco';
+  const hComuni=comuni.querySelector(':scope>h2');
+  const selettore=document.createElement('div');selettore.className='portale-sottoschede portale-solo';
+  selettore.setAttribute('aria-label','Come esplorare i comuni');
+  selettore.innerHTML='<button type="button" data-esplora="elenco" aria-pressed="true">Elenco dei comuni</button><button type="button" data-esplora="confronto" aria-pressed="false">Confronta due comuni</button>';
+  hComuni.after(selettore);
+  const figliElenco=Array.from(comuni.children).filter(n=>n!==hComuni&&n!==selettore&&n!==cmp);
+  figliElenco.forEach(n=>elenco.append(n));selettore.after(elenco);
+  const nuovaPosizione=document.createComment('Confronto nella prova locale');elenco.after(nuovaPosizione);
+  cmp.classList.add('portale-confronto-pannello');
+  const introCmp=document.createElement('div');introCmp.className='portale-solo portale-intro-confronto';
+  introCmp.innerHTML='<span class="portale-occhiello">CONFRONTO</span><h3>Due comuni, gli stessi indicatori</h3><p>Confronta prima dimensione e situazione dei comuni, poi i loro conti. Anno e orizzonte sono quelli scelti in alto.</p>';
+  cmp.querySelector('summary').after(introCmp);
+  let vista='elenco',vistaMetodo='breve',ultimaData=null,annoMeta=null;
+  function esplora(modo,scorri=false){
+    vista=modo;
+    selettore.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.esplora===modo)));
+    elenco.classList.toggle('portale-nascondi',modo==='confronto');
+    cmp.classList.toggle('portale-nascondi',modo!=='confronto');
+    if(modo==='confronto'&&attiva()){cmp.open=true;renderCmp();}
+    if(scorri)selettore.scrollIntoView({block:'start',behavior:'auto'});
+  }
+  selettore.addEventListener('click',e=>{const b=e.target.closest('[data-esplora]');if(b)esplora(b.dataset.esplora);});
+  function posizioneConfronto(){
+    nuovaPosizione.after(cmp);esplora(vista);
+  }
+
+  // Ricerca: i select originali restano la fonte della selezione.
+  const dl=document.createElement('datalist');dl.id='portale-comuni-opzioni';comuni.append(dl);
+  const campi=[['cmpA','Primo comune'],['cmpB','Secondo comune']].map(([id,nome])=>{
+    const input=document.createElement('input');input.className='portale-solo portale-cerca-comune';
+    input.type='search';input.setAttribute('list',dl.id);input.setAttribute('aria-label',nome);
+    input.placeholder='Scrivi il nome del comune…';input.autocomplete='off';
+    const errore=document.createElement('small');errore.className='portale-solo portale-cmp-errore';errore.id='portale-errore-'+id;errore.setAttribute('aria-live','polite');
+    input.setAttribute('aria-describedby',errore.id);$(id).after(input,errore);
+    function valida(notifica=true,applica=true){
+      const q=input.value.trim().toLocaleUpperCase('it-IT');
+      const candidati=DATA.filter(x=>etichettaComune(x).toLocaleUpperCase('it-IT')===q||x.c.toLocaleUpperCase('it-IT')===q);
+      if(candidati.length!==1){errore.textContent=candidati.length>1?'Scegli anche provincia o regione dall’elenco.':'Scegli un comune presente nell’elenco.';input.setAttribute('aria-invalid','true');return false;}
+      if(!applica)return true;
+      errore.textContent='';input.removeAttribute('aria-invalid');$(id).value=candidati[0].cn;
+      input.value=etichettaComune(candidati[0]);if(notifica)$(id).dispatchEvent(new Event('change',{bubbles:true}));return true;
+    }
+    input.addEventListener('change',()=>valida());
+    input.addEventListener('input',()=>{errore.textContent='';input.removeAttribute('aria-invalid');if(input.value.includes(' · '))valida();});
+    input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();valida();}});
+    return {id,input,errore,valida};
+  });
+  function etichettaComune(x){return `${x.c} · ${etichettaLuogo(x)}`;}
+  const swap=document.createElement('button');swap.type='button';swap.className='portale-solo portale-scambia';swap.textContent='Scambia i comuni';
+  cmp.querySelector('.controls').append(swap);
+  const confronta=document.createElement('button');confronta.type='button';confronta.className='portale-solo portale-esegui-confronto';confronta.textContent='Confronta';swap.before(confronta);
+  confronta.addEventListener('click',()=>{const esiti=campi.map(c=>c.valida(false,false));if(esiti.every(Boolean)){campi.forEach(c=>c.valida(false));renderCmp();}});
+  swap.addEventListener('click',()=>{const av=$('cmpA').value;$('cmpA').value=$('cmpB').value;$('cmpB').value=av;sincronizzaCampi();renderCmp();});
+  function sincronizzaCampi(){
+    campi.forEach(c=>{const x=DATA.find(x=>x.cn===$(c.id).value);c.input.value=x?etichettaComune(x):'';c.errore.textContent='';c.input.removeAttribute('aria-invalid');});
+  }
+  const visteCmp=new WeakSet();
+  function decoraConfronto(){
+    const profili=$('ch-cmp').querySelector('.cmp-profili');
+    if(!profili||visteCmp.has(profili))return;visteCmp.add(profili);
+    const a=DATA.find(x=>x.cn===$('cmpA').value),b=DATA.find(x=>x.cn===$('cmpB').value);
+    if(!a||!b)return;
+    const prof=Array.from(profili.querySelectorAll('.cmp-profilo'));
+    prof.forEach((n,i)=>{
+      const k=document.createElement('span');k.className='portale-solo portale-cmp-etichetta';k.textContent=i?'SECONDO COMUNE':'PRIMO COMUNE';n.prepend(k);
+      const apriComune=document.createElement('button');apriComune.type='button';apriComune.className='portale-solo portale-apri-comune';apriComune.textContent='Apri la scheda →';
+      apriComune.addEventListener('click',()=>apri(i?b:a));n.append(apriComune);
+    });
+    if([a,b].some(x=>(x.cron||[]).some(c=>c.t==='dissesto'&&!c.rv&&c.a<=ANNO))){
+      const avviso=document.createElement('p');avviso.className='portale-solo portale-cmp-nota';
+      avviso.textContent='Per i comuni con un dissesto già dichiarato nella fotografia, l’indice riguarda eventuali nuove dichiarazioni future: non misura il risanamento della crisi precedente.';
+      profili.after(avviso);
+    }
+    const tabella=$('ch-cmp').querySelector('.cmp-tabella table');if(!tabella)return;
+    tabella.classList.add('portale-tabella-confronto');
+    const th=document.createElement('th');th.className='portale-solo';th.scope='col';th.innerHTML='Differenza<small>primo − secondo</small>';tabella.tHead.rows[0].append(th);
+    const chiavi=IND.filter(i=>['ris','ant','gc','dis','dfb'].includes(i.k));
+    Array.from(tabella.tBodies[0].rows).forEach((r,idx)=>{
+      const i=chiavi[idx];if(!i)return;
+      [a,b].forEach((x,j)=>{
+        const td=r.cells[j+1];td.dataset.comune=x.c;
+        if(i.f==='sn'||x[i.k]==null)return;
+        const s=ConfrontiPortale.scala(i.k,a[i.k],b[i.k]);
+        const p=j?s.mediana:s.valore;if(p==null)return;
+        const mini=document.createElement('span');mini.className='portale-solo portale-cmp-mini';mini.setAttribute('aria-hidden','true');
+        mini.innerHTML=`<i style="left:${Math.min(s.zero,p)}%;width:${Math.abs(p-s.zero)}%"></i>`;td.append(mini);
+      });
+      const d=LetturaConfrontoPortale.scarto(i.f,a[i.k],b[i.k]),td=document.createElement('td');td.className='portale-solo portale-scarto';
+      td.innerHTML=`<b>${esc(d.testo)}</b><small>${esc(d.nota)}</small>`;r.append(td);
+    });
+    const n=document.createElement('p');n.className='portale-solo portale-cmp-nota';
+    n.textContent='Le due barre della stessa riga usano la stessa scala. La differenza è fra i valori osservati, non fra i contributi al modello. Per i debiti fuori bilancio restano i limiti dell’indicatore: somma di quote con denominatori diversi.';
+    tabella.parentElement.after(n);
+  }
+  new MutationObserver(decoraConfronto).observe($('ch-cmp'),{childList:true});
+
+  // Le spiegazioni originali del catalogo restano negli stessi articoli.
+  const glossDettagli=gloss.closest('details');glossDettagli.classList.add('portale-catalogo');
+  const hLeggere=leggere.querySelector(':scope>h2'),leadLeggere=hLeggere.nextElementSibling;
+  const menuMetodo=document.createElement('div');menuMetodo.className='portale-solo portale-sottoschede';
+  menuMetodo.innerHTML='<button type="button" data-metodo="breve" aria-pressed="true">Il modello in breve</button><button type="button" data-metodo="catalogo" aria-pressed="false">Indicatori e fonti</button>';
+  leadLeggere.after(menuMetodo);
+  const partiMetodo=Array.from(leggere.children).filter(n=>n!==hLeggere&&n!==leadLeggere&&n!==menuMetodo&&n!==glossDettagli);
+  const percorso=document.createElement('div');percorso.className='portale-solo portale-percorso';
+  percorso.innerHTML='<span class="portale-occhiello">COME FUNZIONA</span><h3>Dai dati alla lista di attenzione</h3><div class="portale-passi" aria-label="Passaggi del modello"></div><div class="portale-passo-lettura" aria-live="polite"></div><p class="portale-trasparenza">È una ricostruzione storica: l’anno di riferimento di un dato non è sempre quello in cui è stato pubblicato.</p>';
+  menuMetodo.after(percorso);partiMetodo.unshift(percorso);
+  let passoScelto=0;
+  function aggiornaPercorso(){
+    const passi=[
+      {titolo:'Fotografia '+ANNO,testo:`Legge bilancio, contesto e storia delle procedure del comune nella fotografia ${ANNO}. L’anno effettivo del dato può essere diverso: le schede lo indicano.`},
+      {titolo:'Impara dal passato',testo:'Impara dai dati degli anni precedenti per i quali è già possibile verificare se è seguito un dissesto. Combina le variabili: nessun indicatore, da solo, decide la graduatoria.'},
+      {titolo:'Ordina i comuni',testo:'L’indice da 0 a 100 è una posizione nella graduatoria. Per esempio, 95 significa più a rischio di circa il 95% dei comuni valutati; non significa una probabilità di dissesto del 95%.'},
+      {titolo:'Verifica gli eventi',testo:`Confrontiamo la graduatoria con i ${periodoDi(ANNO,HZ)}. Contiamo quanti dissesti rientravano nel gruppo di allerta. Se il periodo non è concluso, la verifica è provvisoria.`}
+    ];
+    percorso.querySelector('.portale-passi').innerHTML=passi.map((p,i)=>`<button type="button" data-passo="${i}" aria-pressed="${i===passoScelto}"><span>${i+1}</span>${esc(p.titolo)}</button>`).join('');
+    percorso.querySelector('.portale-passo-lettura').textContent=passi[passoScelto].testo;
+  }
+  percorso.addEventListener('click',e=>{const b=e.target.closest('[data-passo]');if(b){passoScelto=+b.dataset.passo;aggiornaPercorso();}});
+  function metodo(modo){
+    vistaMetodo=modo;menuMetodo.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.metodo===modo)));
+    partiMetodo.forEach(n=>n.classList.toggle('portale-nascondi',modo==='catalogo'));
+    glossDettagli.classList.toggle('portale-nascondi',modo!=='catalogo');
+    if(modo==='catalogo'&&attiva())glossDettagli.open=true;
+  }
+  menuMetodo.addEventListener('click',e=>{const b=e.target.closest('[data-metodo]');if(b)metodo(b.dataset.metodo);});
+  const introCatalogo=document.createElement('div');introCatalogo.className='portale-solo portale-catalogo-intro';
+  introCatalogo.innerHTML='<span class="portale-occhiello">CATALOGO</span><h3>Che cosa significa ogni indicatore</h3><p>Cerca un termine o scegli una famiglia. Le definizioni spiegano il dato; il suo contributo al rischio va letto nella scheda del singolo comune.</p>';
+  const numeri=document.createElement('p');numeri.className='portale-catalogo-numeri';
+  const nModello=Object.values(CAT).filter(v=>(v.u||(v.ar==='Indicatori descrittivi'?'contesto':'modello'))==='modello').length;
+  numeri.innerHTML=`<span><b>${nModello}</b> variabili usate dal modello</span><span><b>${Object.keys(CAT).length-nModello}</b> indicatori descrittivi</span>`;
+  introCatalogo.append(numeri);
+  gloss.prepend(introCatalogo);
+  const filtri=document.createElement('div');filtri.className='portale-solo portale-filtri-catalogo';
+  const aree=[...new Set(Object.values(CAT).map(v=>v.ar||'Altri indicatori'))];
+  filtri.innerHTML=`<label>Famiglia<select id="portale-famiglia"><option value="">Tutte le famiglie</option>${aree.map(a=>`<option>${esc(a)}</option>`).join('')}</select></label><label>Ruolo<select id="portale-uso"><option value="">Tutti gli indicatori</option><option value="modello">Usati dal modello</option><option value="contesto">Solo descrittivi</option></select></label><button type="button" id="portale-azzera-catalogo">Azzera filtri</button>`;
+  const ricercaGloss=$('gloss-q');ricercaGloss.closest('label').after(filtri);
+  const voci=Array.from(gloss.querySelectorAll('.gloss-voce[data-variabile]'));
+  voci.forEach(voce=>{
+    const v=CAT[voce.dataset.variabile];if(!v)return;
+    voce.dataset.famiglia=v.ar||'Altri indicatori';voce.dataset.ruolo=v.u||(v.ar==='Indicatori descrittivi'?'contesto':'modello');
+    const meta=document.createElement('div');meta.className='portale-solo portale-catalogo-meta';
+    meta.innerHTML=`<span>${voce.dataset.ruolo==='modello'?'Entra nel modello':'Solo descrittivo'}</span><span data-portale-anno></span><p><b>Fonte:</b> ${esc(v.fo||'Consulta le note della voce.')}</p><p class="portale-vintage"></p>`;
+    voce.querySelector('h4').after(meta);
+  });
+  function filtraCatalogo(){
+    if(!attiva())return;
+    const q=ricercaGloss.value.toLocaleLowerCase('it-IT').trim(),area=$('portale-famiglia').value,uso=$('portale-uso').value;
+    let n=0;
+    voci.forEach(v=>{const ok=(!q||(v.textContent+' '+v.dataset.cerca).toLocaleLowerCase('it-IT').includes(q))&&(!area||v.dataset.famiglia===area)&&(!uso||v.dataset.ruolo===uso);v.hidden=!ok;if(ok)n++;});
+    gloss.querySelectorAll('.gloss-gruppo').forEach(g=>{
+      g.querySelectorAll('.gloss-area').forEach(a=>{const vs=Array.from(a.querySelectorAll('.gloss-voce[data-variabile]')),visibili=vs.filter(v=>!v.hidden).length;a.hidden=!visibili;if((q||area||uso)&&!a.hidden)a.open=true;const small=a.querySelector('summary>small');if(small){small.dataset.originale||=small.textContent;small.textContent=(q||area||uso)?`(${visibili} di ${vs.length})`:small.dataset.originale;}});
+      g.hidden=Array.from(g.querySelectorAll('.gloss-area')).every(a=>a.hidden);
+    });
+    $('gloss-esito').textContent=`${n} ${n===1?'indicatore':'indicatori'} su ${voci.length}`+(n?(q||area||uso?' · risultati con tutti i filtri scelti.':' · apri una famiglia per il dettaglio.'):' · prova a cambiare ricerca o filtri.');
+  }
+  ricercaGloss.addEventListener('input',filtraCatalogo);$('portale-famiglia').addEventListener('change',filtraCatalogo);$('portale-uso').addEventListener('change',filtraCatalogo);
+  $('portale-azzera-catalogo').addEventListener('click',()=>{ricercaGloss.value='';$('portale-famiglia').value='';$('portale-uso').value='';gloss.querySelectorAll('.gloss-gruppo .gloss-area').forEach(a=>a.open=false);filtraCatalogo();});
+  function aggiornaMeta(){
+    voci.forEach(n=>{const v=CAT[n.dataset.variabile],meta=n.querySelector('.portale-catalogo-meta');if(!v||!meta)return;
+      const r=VINT[v.fo_k],a=r?annoEffettivo(n.dataset.variabile,ANNO):null;
+      meta.querySelector('[data-portale-anno]').textContent='Fotografia '+ANNO;
+      meta.querySelector('.portale-vintage').textContent=a?`Anno di riferimento della fonte: ${a[0]}. ${a[1]||'L’anno non certifica la data di pubblicazione.'}`:'Il periodo effettivo e la disponibilità del dato si leggono nella scheda del comune.';
+    });
+  }
+  function aggiorna(){
+    if(ultimaData!==DATA){
+      dl.innerHTML=DATA.slice().sort((a,b)=>a.c.localeCompare(b.c,'it')).map(x=>`<option value="${esc(etichettaComune(x))}"></option>`).join('');ultimaData=DATA;
+    }
+    sincronizzaCampi();aggiornaPercorso();
+    if(annoMeta!==ANNO){aggiornaMeta();annoMeta=ANNO;}
+    filtraCatalogo();decoraConfronto();
+  }
+  const primaDisegnaAnno=disegnaAnno;
+  disegnaAnno=function(...args){const r=primaDisegnaAnno.apply(this,args);aggiorna();return r;};
+  $('hz').addEventListener('change',aggiorna);
+  aggiorna();metodo('breve');posizioneConfronto();
+})();
+</script>
+</body></html>
