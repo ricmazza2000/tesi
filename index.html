@@ -1,116 +1,137 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Early warning del dissesto finanziario dei Comuni italiani</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&display=swap" rel="stylesheet">
-<style>
-:root{--surface:#F7F4EC;--page:#F1EDE1;--ink:#14120E;--ink2:#4A4438;--muted:#75694F;
---ring:rgba(20,18,14,.12);--accent:#1F3A5F;--s2:#B4531F;}
-@media (prefers-color-scheme:dark){:root{--surface:#1C1915;--page:#12100D;--ink:#F4F0E6;
---ink2:#BDB4A0;--muted:#93897A;--ring:rgba(244,240,230,.14);--accent:#8FB3DE;--s2:#DD8552;}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--page);color:var(--ink);
- font-family:'Archivo',system-ui,-apple-system,sans-serif;line-height:1.6;
- display:flex;flex-direction:column;min-height:100vh}
-.wrap{max-width:980px;margin:0 auto;padding:60px 24px 32px;width:100%}
-.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
- font-weight:600;border-top:1px solid var(--ring);padding-top:14px;margin-bottom:14px}
-h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:700;font-size:clamp(29px,5vw,45px);
- line-height:1.08;margin:0 0 16px;letter-spacing:-.01em}
-.lead{color:var(--ink2);font-size:17px;max-width:66ch;margin:0 0 36px}
-.due{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));margin-bottom:18px}
-.minori{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
-a.card{display:block;text-decoration:none;color:inherit;background:var(--surface);
- border:1px solid var(--ring);border-radius:10px;padding:24px 24px 20px;
- transition:border-color .15s,transform .15s}
-a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
-a.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-a.card.piccola{padding:18px 20px 16px}
-.card .n{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.card h2{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:23px;margin:6px 0 10px}
-.card.piccola h2{font-size:18px;margin:4px 0 6px}
-.card p{color:var(--ink2);font-size:14px;margin:0 0 4px}
-.card .go{color:var(--accent);font-size:13px;font-weight:600;margin-top:14px;display:inline-block}
-.bollo{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
- font-weight:700;padding:3px 8px;border-radius:999px;margin-bottom:10px}
-.bollo.v{background:rgba(31,58,95,.1);color:var(--accent);border:1px solid rgba(31,58,95,.25)}
-.bollo.s{background:rgba(180,83,31,.1);color:var(--s2);border:1px solid rgba(180,83,31,.3)}
-@media (prefers-color-scheme:dark){.bollo.v{background:rgba(143,179,222,.14);border-color:rgba(143,179,222,.3)}
- .bollo.s{background:rgba(221,133,82,.14);border-color:rgba(221,133,82,.32)}}
-.cifre{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 0;padding-top:14px;border-top:1px solid var(--ring)}
-.cifra b{display:block;font-family:'Bodoni Moda',Georgia,serif;font-size:21px;font-weight:600;line-height:1.1}
-.cifra span{font-size:11px;color:var(--muted);letter-spacing:.04em}
-.nota{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--s2);
- border-radius:8px;padding:16px 18px;margin:30px 0 0;font-size:14px;color:var(--ink2)}
-.nota b{color:var(--ink)}
-h3.sez{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
- font-weight:600;margin:38px 0 14px;border-top:1px solid var(--ring);padding-top:14px}
-code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
- background:rgba(20,18,14,.06);padding:1px 5px;border-radius:4px}
-@media (prefers-color-scheme:dark){code{background:rgba(244,240,230,.08)}}
-footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--ring);
- max-width:980px;margin:32px auto 0;padding:18px 24px 40px;width:100%}
-footer b{color:var(--ink2);font-weight:600}
-</style></head><body>
-<main class="wrap">
- <div class="kicker">Tesi magistrale · Consulenza professionale alle aziende · Università di Pisa</div>
- <h1>Un sistema di allerta precoce sul dissesto finanziario dei Comuni italiani</h1>
- <p class="lead">Un modello statistico che, a partire dai bilanci pubblici (OpenBDAP) e da 8 fonti
- di contesto, stima quali Comuni rischiano il dissesto <b>prima che accada</b>. Nel portale si sceglie
- l'<b>anno del bilancio</b>, dal 2017 all'ultimo disponibile: sugli anni passati si vede quanti dissesti
- successivi rientrano nel gruppo segnalato, sugli ultimi la verifica è ancora aperta e il portale lo dichiara
- invece di mostrare una percentuale provvisoria.</p>
-
- <div class="due">
-  <a class="card" href="portale.html">
-   <span class="bollo v">Verifica retrospettiva · training sul passato</span>
-   <div class="n">Il portale</div>
-   <h2>Indice di rischio, dal 2017 al 2025</h2>
-   <p>La graduatoria di tutti i Comuni per l'anno di bilancio che scegli, con la scheda di ciascuno e
-   i fattori che spostano il punteggio. Sugli anni i cui esiti si conoscono c'è il confronto con quello
-   che è davvero successo: chi è stato segnalato e poi è fallito, chi è sfuggito e perché.</p>
-   <div class="cifre">
-    <div class="cifra"><b>0,953</b><span>AUC (validazione temporale)</span></div>
-    <div class="cifra"><b>83%</b><span>quota media annua intercettata nel primo 5%</span></div>
-    <div class="cifra"><b>7.864</b><span>Comuni per anno</span></div>
-   </div>
-   <span class="go">Apri il portale &rarr;</span></a>
-
-  <div class="card" style="background:var(--page)">
-   <div class="n">Come si legge</div>
-   <h2>Un anno, due orizzonti</h2>
-   <p>Il modello guarda la <b>fotografia</b> di un Comune in un anno e stima il rischio negli anni
-   <b>successivi</b>: a un anno e entro tre anni, che sono due valutazioni distinte. L'indice è una
-   <b>posizione in graduatoria</b>, non una probabilità: indice 95 vuol dire più esposto di circa il
-   95% dei Comuni valutati, non «95% di dissestare».</p>
-   <p style="margin-top:8px">Il <b>2022</b> è l'anno di riferimento della tesi, ed è quello
-   che si apre per primo: i suoi esiti sono noti e verificabili. Sugli ultimi anni il periodo non è
-   ancora concluso, e lì il portale mostra i conteggi <b>dichiarandoli parziali</b> invece di una
-   percentuale che sembrerebbe definitiva.</p>
+<!doctype html>
+<html lang="it">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#172E4B">
+ <meta name="description" content="Esplora il rischio di dissesto dei Comuni italiani: graduatorie, schede e mappe. Un progetto di tesi magistrale all'Università di Pisa.">
+ <title>Early warning dei Comuni | Portale e mappe</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&display=swap" rel="stylesheet">
+ <style>
+  :root{color-scheme:light dark;--page:#EEEDE7;--surface:#FFFDF8;--ink:#14120E;--ink2:#4A4C4D;--muted:#656D75;--accent:#1F3A5F;--navy:#172E4B;--ring:rgba(31,58,95,.16);--soft:#E9EDF0;--hero-ink:#F9F8F3;--hero-muted:#D5DFE9}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:'Archivo',system-ui,-apple-system,sans-serif;line-height:1.6}
+  a{color:var(--accent)}
+  a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px;border-radius:4px}
+  .skip{position:fixed;top:12px;left:16px;padding:10px 16px;background:var(--surface);z-index:10;transform:translateY(-150%)}
+  .skip:focus{transform:translateY(0)}
+  .wrap{max-width:1120px;margin-inline:auto;padding-inline:28px}
+  .hero{background:var(--navy);color:var(--hero-ink);padding:30px 0 42px}
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:20px;border-bottom:1px solid #ffffff26;margin-bottom:28px}
+  .brand{font-weight:600;font-size:14px;letter-spacing:.01em}
+  .university{font-size:12px;color:var(--hero-muted)}
+  .eyebrow{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px}
+  .hero .eyebrow{color:var(--hero-muted)}
+  h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:600}
+  h1{max-width:25ch;font-size:clamp(32px,4.2vw,48px);line-height:1.13;letter-spacing:-.015em;margin:0 0 18px}
+  .lead{max-width:68ch;font-size:15px;line-height:1.7;margin:0;color:var(--hero-muted)}
+  main{padding-top:30px;padding-bottom:32px}
+  .entry{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--ring);border-radius:12px;transition:border-color .16s,box-shadow .16s}
+  .entry:hover{border-color:var(--accent);box-shadow:0 5px 20px #172e4b0b}
+  .entry .eyebrow{color:var(--accent)}
+  .entry h2{font-size:32px;line-height:1.2;margin:0 0 12px}
+  .entry p{font-size:14px;color:var(--ink2);margin:0;max-width:55ch}
+  .portal{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(235px,1fr);gap:36px;padding:30px 32px;align-items:center}
+  .action{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:43px;font-size:13px;font-weight:600;margin-top:22px}
+  .action-primary{padding:10px 17px;border-radius:7px;background:var(--navy);color:#fff}
+  .arrow{font-size:19px;line-height:1;transition:transform .16s}
+  .entry:hover .arrow{transform:translateX(3px)}
+  .facts{margin:0;padding:2px 0 2px 30px;border-left:1px solid var(--ring);display:grid;gap:17px}
+  .facts div{display:grid;grid-template-columns:135px 1fr;align-items:baseline;gap:10px}
+  .facts dt{font-family:'Bodoni Moda',Georgia,serif;font-size:26px;font-weight:600;line-height:1.15;color:var(--accent)}
+  .facts dd{margin:0;font-size:12px;color:var(--muted);line-height:1.5}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin:28px 0 14px}
+  .section-head h2{font-size:24px;line-height:1.3;margin:0}
+  .section-head p{font-size:12px;color:var(--muted);margin:0}
+  .maps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .map{padding:24px 26px;display:flex;flex-direction:column;align-items:flex-start}
+  .map h3{font-size:25px;line-height:1.25;margin:0 0 10px}
+  .map p{font-size:13px;max-width:48ch;flex:1}
+  .map .action{margin-top:18px;color:var(--accent)}
+  .reading{margin-top:26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:18px 22px;border:1px solid var(--ring);border-radius:10px}
+  .reading h2{font:600 13px 'Archivo',sans-serif;margin:0 0 5px;color:var(--accent)}
+  .reading p{font-size:12px;color:var(--ink2);margin:0;max-width:83ch}
+  .reading a{font-size:12px;font-weight:600;text-underline-offset:4px;white-space:nowrap}
+  .method{margin-top:16px;font-size:12px;color:var(--ink2)}
+  summary{cursor:pointer;color:var(--muted);padding:10px 0;width:fit-content}
+  summary:hover{color:var(--accent)}
+  .method-body{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:18px 22px;margin-top:4px}
+  .method-body p{margin:0 0 10px;max-width:100ch}
+  .method-body p:last-child{margin-bottom:0}
+  .method a{text-underline-offset:3px}
+  footer{border-top:1px solid var(--ring);padding:22px 0 30px;color:var(--muted);font-size:11px}
+  .footer-content{display:flex;justify-content:space-between;gap:20px}
+  footer p{margin:0}
+  footer strong{font-weight:600;color:var(--ink2)}
+  @media(max-width:850px){.portal{gap:22px;padding:26px}.facts{padding-left:22px}.facts div{grid-template-columns:1fr;gap:2px}.facts dt{font-size:25px}.section-head{display:block}.section-head p{margin-top:4px}}
+  @media(max-width:600px){.wrap{padding-inline:20px}.hero{padding:22px 0 30px}.masthead{align-items:flex-start;gap:12px;margin-bottom:24px;padding-bottom:16px}.brand{font-size:12px}.university{font-size:10px;text-align:right;max-width:15ch}h1{font-size:34px}.lead{font-size:14px}main{padding-top:20px}.portal{grid-template-columns:1fr;gap:24px;padding:24px}.entry h2{font-size:29px}.facts{border-left:0;border-top:1px solid var(--ring);padding:18px 0 0;grid-template-columns:1fr;gap:12px}.facts div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px}.facts dt{font-size:22px;white-space:nowrap}.facts dd{font-size:11px;margin-top:0}.maps{grid-template-columns:1fr;gap:14px}.map{padding:22px 24px}.reading{grid-template-columns:1fr;gap:12px;padding:18px}.reading a{white-space:normal}.footer-content{display:block}.footer-content p+p{margin-top:8px}}
+  @media(max-width:360px){.wrap{padding-inline:16px}.portal{padding:20px}h1{font-size:27px}}
+  @media(prefers-reduced-motion:reduce){.entry,.arrow{transition:none}.entry:hover .arrow{transform:none}}
+  @media(prefers-color-scheme:dark){:root{--page:#171B20;--surface:#20262C;--ink:#F4F0E6;--ink2:#D0D4D8;--muted:#A9B3BD;--accent:#A8C4E7;--ring:rgba(200,210,220,.2);--soft:#303942}.action-primary{background:#294A70}.entry:hover{box-shadow:none}}
+ </style>
+</head>
+<body>
+ <a class="skip" href="#contenuto">Vai agli strumenti</a>
+ <header class="hero">
+  <div class="wrap">
+   <div class="masthead"><span class="brand">Early warning dei Comuni</span><span class="university">Università di Pisa · Tesi magistrale</span></div>
+   <p class="eyebrow">Dati pubblici · Rischio finanziario</p>
+   <h1>Un sistema di allerta precoce sul dissesto dei Comuni</h1>
+   <p class="lead">Dai dati di un anno, una graduatoria del rischio di dissesto negli anni successivi. Esplora le schede dei comuni oppure guarda la loro posizione sulle mappe.</p>
   </div>
- </div>
-
- <h3 class="sez">Le stesse letture sulla mappa</h3>
- <div class="minori">
-  <a class="card piccola" href="mappa-nazionale.html">
-   <div class="n">Mappa nazionale</div>
-   <h2>Il rischio, Comune per Comune</h2>
-   <p>Tutta l'Italia per fascia di rischio, con ricerca, zoom regionale e cursore temporale.</p>
-   <span class="go">Apri la mappa &rarr;</span></a>
-  <a class="card piccola" href="mappa-toscana.html">
-   <div class="n">Mappa della Toscana</div>
-   <h2>Focus regionale</h2>
-   <p>La stessa lettura, in dettaglio sui Comuni toscani.</p>
-   <span class="go">Apri la mappa &rarr;</span></a>
- </div>
-</main>
-<footer>
- <b>Riccardo Mazzantini</b> · Relatore: Prof. Zarone, Università di Pisa · 2026 &nbsp;·&nbsp;
- Dati pubblici OpenBDAP 2008-2025, 97.416 osservazioni Comune×anno, 51 variabili.
- La verifica è retrospettiva: le chiusure documentate possono essere confermate dopo l'anno cui
- si riferiscono. La disponibilità di tutti i dati all'epoca resta da verificare.
- <a href="versione_modello.json">Versione del modello e risultati</a>.
- I punteggi sono una lista di sorveglianza a fini di ricerca, non una previsione individuale
- né un giudizio ufficiale sui Comuni.
-</footer>
-</body></html>
+ </header>
+ <main class="wrap" id="contenuto">
+  <nav aria-label="Portale e mappe">
+   <a class="entry portal" href="portale.html?anno=2022&amp;oriz=t1" aria-labelledby="titolo-portale">
+    <div>
+     <div class="eyebrow">01 · Il portale</div>
+     <h2 id="titolo-portale">Esplora e confronta i comuni</h2>
+     <p>Cerca un comune, leggi i suoi indicatori e confrontalo con gli altri. Scegli l’anno del bilancio per consultare la graduatoria e i risultati del modello.</p>
+     <span class="action action-primary">Apri il portale <span class="arrow" aria-hidden="true">→</span></span>
+    </div>
+    <dl class="facts">
+     <div><dt>2017–2025</dt><dd>Anni di bilancio disponibili</dd></div>
+     <div><dt>1 e 3 anni</dt><dd>Due orizzonti di previsione</dd></div>
+     <div><dt>7.864</dt><dd>Comuni valutati nel 2022</dd></div>
+    </dl>
+   </a>
+   <section aria-labelledby="titolo-mappe">
+    <div class="section-head"><h2 id="titolo-mappe">Le stesse letture, sulle mappe</h2><p>Dal quadro nazionale al dettaglio regionale.</p></div>
+    <div class="maps">
+     <a class="entry map" href="mappa-nazionale.html?anno=2022&amp;oriz=t1" aria-labelledby="titolo-italia">
+      <div class="eyebrow">02 · Mappa nazionale</div>
+      <h3 id="titolo-italia">L’Italia, comune per comune</h3>
+      <p>Esplora le fasce di rischio, cerca un comune e approfondisci la situazione di una regione.</p>
+      <span class="action">Apri la mappa nazionale <span class="arrow" aria-hidden="true">→</span></span>
+     </a>
+     <a class="entry map" href="mappa-toscana.html?anno=2022&amp;oriz=t1" aria-labelledby="titolo-toscana">
+      <div class="eyebrow">03 · Mappa Toscana</div>
+      <h3 id="titolo-toscana">Uno sguardo sulla Toscana</h3>
+      <p>Consulta la stessa graduatoria con un focus sui comuni toscani e sui loro indicatori.</p>
+      <span class="action">Apri la mappa della Toscana <span class="arrow" aria-hidden="true">→</span></span>
+     </a>
+    </div>
+   </section>
+  </nav>
+  <aside class="reading" aria-labelledby="titolo-lettura">
+   <div><h2 id="titolo-lettura">Una posizione in graduatoria, non una probabilità</h2><p>Indice 95 significa più a rischio del 95% dei comuni valutati. Tutti gli strumenti si aprono sul 2022, l’anno di riferimento della tesi.</p></div>
+   <a href="portale.html?anno=2022&amp;oriz=t1#leggere">Come si legge il modello <span aria-hidden="true">→</span></a>
+  </aside>
+  <details class="method">
+   <summary>Metodo, fonti e limiti della ricerca</summary>
+   <div class="method-body">
+    <p>Il modello utilizza dati di bilancio, informazioni sul territorio e la storia delle procedure di crisi: 51 variabili su 97.416 osservazioni comune-anno. Per ogni anno, impara dagli esiti già maturati degli anni precedenti e ordina i comuni secondo il rischio di una successiva dichiarazione di dissesto.</p>
+    <p>Le valutazioni nell’anno successivo ed entro tre anni sono distinte. Nei periodi conclusi si possono confrontare le segnalazioni con gli eventi osservati; negli anni più recenti la verifica è ancora parziale e viene indicata negli strumenti.</p>
+    <p>La ricostruzione è retrospettiva: l’anno di riferimento di un dato non coincide necessariamente con la sua data di pubblicazione. La disponibilità storica dell’intero insieme delle informazioni resta da verificare. L’indice è uno strumento di ricerca per orientare gli approfondimenti, non un giudizio ufficiale sui comuni.</p>
+    <p><a href="versione_modello.json">Versione del modello e risultati</a></p>
+   </div>
+  </details>
+ </main>
+ <footer><div class="wrap footer-content">
+  <p><strong>Riccardo Mazzantini</strong><br>Consulenza professionale alle aziende · Università di Pisa</p>
+  <p>Relatore: Prof. Zarone · 2026<br>Elaborazione a fini di ricerca su dati pubblici.</p>
+ </div></footer>
+</body>
+</html>
