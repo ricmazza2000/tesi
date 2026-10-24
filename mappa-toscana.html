@@ -50,8 +50,12 @@
             </script>
 
         
+<!-- INIZIO STILE MAPPE TESTATA -->
+<title>Mappa del rischio di dissesto · Toscana</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&amp;display=swap">
+<!-- FINE STILE MAPPE TESTATA -->
 </head>
-<body>
+<body data-stile-mappe="toscana" class="mappa-coerente mappa-toscana">
     
     
 <style>
@@ -247,6 +251,80 @@
     
             <div class="folium-map" id="map_073c89806679076fe99b08cbd4aa0dd2" ></div>
         
+<!-- INIZIO STILE MAPPE CSS -->
+<style data-stile-mappe="condiviso">
+/* Stile condiviso con il portale: nessuna regola su geometrie o colori di rischio. */
+body.mappa-coerente{
+ --mappa-superficie:#FFFDF8;--mappa-blu:#172E4B;--mappa-accento:#1F3A5F;
+ --mappa-bordo:rgba(31,58,95,.17);--mappa-testo:#14120E;--mappa-secondario:#656D75;
+}
+.mappa-coerente #ctrl,.mappa-coerente #leg,.mappa-coerente #apri-nota{
+ background:var(--mappa-superficie)!important;border:1px solid var(--mappa-bordo)!important;
+ border-radius:10px!important;box-shadow:0 2px 12px #172e4b18!important;
+ font-family:'Archivo',system-ui,-apple-system,sans-serif!important;color:var(--mappa-testo);
+}
+.mappa-coerente #sel-box{font-family:inherit}
+.mappa-coerente #ctrl input,.mappa-coerente #ctrl select{
+ background:#fff!important;border-color:var(--mappa-bordo)!important;border-radius:6px!important;
+ color:var(--mappa-testo);font-family:inherit;
+}
+.mappa-coerente #sel-box label,.mappa-coerente #sel-testo{color:var(--mappa-secondario)}
+.mappa-coerente #sel-oriz button,.mappa-coerente #apri-filtri{
+ border-color:var(--mappa-bordo);border-radius:6px;background:var(--mappa-superficie);font-family:inherit;
+}
+.mappa-coerente #sel-oriz button.on{
+ background:var(--mappa-blu);border-color:var(--mappa-blu);color:#fff;
+}
+.mappa-coerente #tramite{border-bottom-color:var(--mappa-bordo);flex-wrap:wrap}
+.mappa-coerente #tramite i:last-of-type{display:none}
+.mappa-coerente #tramite a{color:var(--mappa-secondario)}
+.mappa-coerente #tramite a:hover{color:var(--mappa-accento);border-color:var(--mappa-bordo)}
+.mappa-coerente #tramite span.qui{
+ color:#fff;background:var(--mappa-blu);border-color:var(--mappa-blu);border-radius:5px;
+}
+.mappa-coerente #tramite i{color:#8C96A0}
+.mappa-coerente #ctrl>div[style*="border-top"]{border-top-color:var(--mappa-bordo)!important}
+.mappa-coerente div:has(> #tit-anno){
+ background:var(--mappa-blu)!important;color:#fff!important;
+ border:1px solid var(--mappa-blu)!important;border-radius:8px!important;
+ box-shadow:0 2px 12px #172e4b1a!important;
+}
+.mappa-coerente #tit-anno{
+ color:#fff!important;font-family:'Bodoni Moda',Georgia,serif;font-weight:600;
+}
+.mappa-coerente #pan,.mappa-coerente #casi{
+ background:var(--mappa-superficie);font-family:'Archivo',system-ui,-apple-system,sans-serif;
+ color:var(--mappa-testo);box-shadow:-2px 0 14px #172e4b20;
+}
+.mappa-coerente #pan>.hd,.mappa-coerente #casi>.hd{
+ background:var(--mappa-blu);color:#fff;border-bottom-color:var(--mappa-blu);z-index:2;
+}
+.mappa-coerente #pan h3,.mappa-coerente #casi h3{
+ font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:22px;color:#fff;
+}
+.mappa-coerente #pan .hd .sub,.mappa-coerente #casi>.hd>div:not(.tabs){color:#D5DFE9!important}
+.mappa-coerente #pan .x,.mappa-coerente #casi .x{color:#fff;border-radius:4px}
+.mappa-coerente #pan .x:hover,.mappa-coerente #casi .x:hover{background:#ffffff1a}
+.mappa-coerente #pan .big{font-family:'Bodoni Moda',Georgia,serif;font-weight:600}
+.mappa-coerente #pan .lbl,.mappa-coerente #casi .lbl{color:var(--mappa-accento)}
+.mappa-coerente #pan td{border-bottom-color:var(--mappa-bordo)}
+.mappa-coerente #casi .caso{border-color:var(--mappa-bordo);border-radius:10px}
+.mappa-coerente #casi .tabs{border-bottom-color:#ffffff40}
+.mappa-coerente #casi .tabs button{color:#D5DFE9}
+.mappa-coerente #casi .tabs button.on{color:#fff;border-bottom-color:#fff}
+.mappa-coerente #btn-casi{background:var(--mappa-blu);font-family:'Archivo',system-ui,sans-serif;border-radius:7px;box-shadow:0 2px 12px #172e4b18}
+.mappa-coerente #btn-casi:hover{background:var(--mappa-accento)}
+.mappa-coerente #leg summary{color:var(--mappa-secondario)}
+.mappa-coerente #leg .est{color:#4A4C4D}
+.mappa-coerente.mappa-nazionale #leg .conf{color:var(--mappa-accento)}
+.mappa-coerente .leaflet-control-zoom a{background:var(--mappa-superficie);color:var(--mappa-accento)}
+.mappa-coerente #ctrl :is(a,button,input,select):focus-visible,
+.mappa-coerente :is(#leg,#pan,#casi) :is(a,button,summary):focus-visible{
+ outline:2px solid var(--mappa-accento);outline-offset:2px;
+}
+.mappa-coerente :is(#pan,#casi)>.hd :is(a,button):focus-visible{outline-color:#fff}
+</style>
+<!-- FINE STILE MAPPE CSS -->
 </body>
 <script>
     
