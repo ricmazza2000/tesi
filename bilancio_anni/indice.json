@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "entra_nel_modello": false,
+  "unita": "centesimi_di_euro",
+  "anni": [
+    {
+      "anno": 2016,
+      "comuni": 7582,
+      "con_parte_disponibile": 7550,
+      "in_disavanzo": 1161,
+      "aggregati": 75,
+      "scarti_componenti_oltre_1_euro": 18
+    },
+    {
+      "anno": 2017,
+      "comuni": 7767,
+      "con_parte_disponibile": 7741,
+      "in_disavanzo": 1144,
+      "aggregati": 64,
+      "scarti_componenti_oltre_1_euro": 1
+    },
+    {
+      "anno": 2018,
+      "comuni": 7674,
+      "con_parte_disponibile": 7674,
+      "in_disavanzo": 1176,
+      "aggregati": 43,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2019,
+      "comuni": 7881,
+      "con_parte_disponibile": 7881,
+      "in_disavanzo": 1543,
+      "aggregati": 14,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2020,
+      "comuni": 7874,
+      "con_parte_disponibile": 7874,
+      "in_disavanzo": 1431,
+      "aggregati": 8,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2021,
+      "comuni": 7871,
+      "con_parte_disponibile": 7871,
+      "in_disavanzo": 1305,
+      "aggregati": 8,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2022,
+      "comuni": 7864,
+      "con_parte_disponibile": 7864,
+      "in_disavanzo": 1179,
+      "aggregati": 8,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2023,
+      "comuni": 7834,
+      "con_parte_disponibile": 7834,
+      "in_disavanzo": 1046,
+      "aggregati": 5,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2024,
+      "comuni": 7799,
+      "con_parte_disponibile": 7799,
+      "in_disavanzo": 946,
+      "aggregati": 2,
+      "scarti_componenti_oltre_1_euro": 0
+    },
+    {
+      "anno": 2025,
+      "comuni": 7592,
+      "con_parte_disponibile": 7592,
+      "in_disavanzo": 804,
+      "aggregati": 2,
+      "scarti_componenti_oltre_1_euro": 0
+    }
+  ]
+}

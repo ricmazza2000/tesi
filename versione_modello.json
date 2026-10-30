@@ -154,6 +154,11 @@
     "confrontabili_con_graduatoria_corrente": false
   },
   "rapporto_documentale": "ricerca_riequilibri/integrazione.json",
+  "dati_contabili_descrittivi": {
+    "indice": "bilancio_anni/indice.json",
+    "voce_parte_disponibile": 502,
+    "entra_nel_modello": false
+  },
   "formato_impronte_pubbliche": "SHA-256 dei file UTF-8 con a-capo LF, come nei blob Git",
   "impronte_annuali": {
     "anno_2017.json": "f49844d748f00f105b70cc048635eb614c79c45d99476d84eb1d44e0b54d08ba",
@@ -169,10 +174,10 @@
     "indice.json": "044a1b2516a016ca3f9ab613b966393392505158f856eea46f976132c59269dc"
   },
   "impronte_pagine": {
-    "index.html": "02f12334759e1707bc47b7ed9539642ba41d85fb13b856f53d550c02ad1ce39d",
-    "mappa-nazionale.html": "0ba87aa68d9d2be8251e6b31565a27b30e4d5d6b7bbd04d703ed60f0d4d736a4",
-    "mappa-toscana.html": "f778af312a26fb56a656e6fb3dc23f8690463e226a7d930d493e9cd76413c56e",
-    "portale.html": "2eb70a02d178fcff0bc44a15a588cf9cfd9bd194904290e4336f8e05cc916c01",
+    "index.html": "dd3aa7f0beecb04f2415b5542a120f04dae0e06c27d8249a2a868d83e4a2a35e",
+    "mappa-nazionale.html": "16c83b129ed4f0fa4009151a797e73678b98070bbd44cecc0e7cc930acf1e94a",
+    "mappa-toscana.html": "11b97dda430a0abcd39079e5e4927b39c842566dbc3490769fda6a4391ebef4b",
+    "portale.html": "9e8f62e0b54576d5d80487197138467f797f35725cc065b6e0d0416aaa18a935",
     "riequilibri.html": "0d2889bf50a486f81b42d8cfe2fbe9d0f9204849e689d196528815c84a3bf606",
     "stime.html": "36c2bba489c87de1f05c88fe3b2bc4c9d91876cbe479dc9dda3cc3829971884c"
   }
