@@ -485,6 +485,58 @@ body.portale-attiva{--page:#EEEDE7;--surface:#FFFDF8;--ring:rgba(31,58,95,.15);-
 @media(max-width:560px){.portale-attiva .cmp-select{min-width:100%}.portale-attiva .cmp-profili{grid-template-columns:1fr}.portale-filtri-catalogo{grid-template-columns:1fr}.portale-filtri-catalogo button{justify-self:start}}
 @media(prefers-color-scheme:dark){body.portale-attiva{--page:#171B20;--surface:#20262C;--grid:#3D454D;--ring:rgba(200,210,220,.2)}.portale-sottoschede{background:#14191F}}
 </style>
+<style data-approfondimenti-portale="approfondimenti_comuni_ui.css">/* Dettagli descrittivi coerenti con la scheda del portale. */
+.ap-pari{margin:0 0 17px;padding:13px 15px;border:1px solid var(--ring);border-radius:9px;background:var(--page);font-size:13px}
+.ap-riferimento{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.ap-riferimento>span{font-weight:600}
+.ap-pulsanti{display:flex;gap:3px;background:var(--surface);padding:3px;border:1px solid var(--ring);border-radius:7px}
+.ap-pulsanti button,.ap-esempi button{font:inherit;padding:6px 10px;border:0;border-radius:4px;background:transparent;color:var(--ink2);cursor:pointer}
+.ap-pulsanti button[aria-pressed=true]{background:var(--s1);color:white}.ap-pulsanti button:disabled{opacity:.45;cursor:default}
+.ap-pulsanti button:focus-visible,.ap-esempi button:focus-visible,.ap-servizi summary:focus-visible{outline:2px solid var(--s1);outline-offset:3px}
+.ap-gruppo{margin:9px 0 5px!important;color:var(--ink2);line-height:1.5;font-size:12.5px!important}
+.ap-metodo{margin:9px 0 0;font-size:12px;line-height:1.6}.ap-metodo summary{cursor:pointer;font-weight:500;color:var(--ink2)}
+.ap-metodo p{font-size:12px!important;line-height:1.6!important;margin:8px 0!important;color:var(--ink2)}
+.ap-esempi{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:10px 0}.ap-esempi span{font-size:12px;color:var(--ink2)}.ap-esempi button{border:1px solid var(--ring);background:var(--surface);font-size:12px}
+.ap-servizi{margin:22px 0;border:1px solid var(--ring);border-radius:10px;background:var(--surface)}
+.ap-servizi>summary{padding:15px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;list-style:none}.ap-servizi>summary::-webkit-details-marker{display:none}
+.ap-servizi>summary b{font-size:16px}.ap-servizi>summary small{display:block;font-size:11.5px;color:var(--ink2);font-weight:400;margin-top:4px}.ap-apri{font-size:12px;color:var(--s1)}.ap-servizi[open] .ap-apri{font-size:0}.ap-servizi[open] .ap-apri::after{content:'Chiudi';font-size:12px}
+.ap-servizi-corpo{padding:0 17px 17px}.ap-scegli-funzione{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink2);margin:0 0 12px}.ap-scegli-funzione select{max-width:100%;min-width:0;font:inherit;background:var(--page);border:1px solid var(--ring);border-radius:6px;padding:7px 9px;color:var(--ink)}
+.ap-annata{font-size:11.5px!important;color:var(--ink2);margin:8px 0 14px!important;line-height:1.5}
+.ap-nota-standard{font-size:12px!important;color:var(--ink2);line-height:1.5;margin:0 0 12px!important}
+.ap-spese{display:grid;grid-template-columns:1fr 1fr;gap:16px}.ap-spese>div{padding:14px;background:var(--page);border:1px solid var(--ring);border-radius:8px;min-width:0}.ap-spese span{display:block;font-size:12px;color:var(--ink2)}.ap-spese strong{display:block;font-size:23px;color:var(--ink);font-variant-numeric:tabular-nums;margin:8px 0}.ap-spese small{display:block;font-size:11px;color:var(--ink2);font-weight:400;margin-top:2px}.ap-spese i{display:block;width:var(--ampiezza);max-width:100%;height:6px;border-radius:3px;background:var(--s1);margin-top:10px}.ap-spese i.ap-standard{background:var(--axis,#8a99a8)}
+.ap-scarto{font-size:14px!important;font-weight:600;margin:13px 0 16px!important}.ap-scarto span{display:block;font-size:11.5px;font-weight:400;color:var(--ink2);margin-top:4px}
+.ap-servizi-quantita{padding:13px 0;border-top:1px solid var(--ring);border-bottom:1px solid var(--ring)}.ap-servizi-quantita>span{display:block;font-size:11.5px;color:var(--ink2)}.ap-servizi-quantita strong{display:block;font-size:14px;margin:5px 0;color:var(--ink)}.ap-servizi-quantita p{font-size:12px!important;line-height:1.5;margin:6px 0 0!important;color:var(--ink2)}
+.ap-mancante{font-size:12px!important;line-height:1.6;color:var(--ink2);margin:7px 0!important}.ap-confrontabilita{padding:12px 14px;background:var(--page);border:1px solid var(--ring);border-radius:7px;font-size:12.5px;color:var(--ink2);line-height:1.5}.ap-profilo-contesto{font-size:12px!important;color:var(--ink2)}
+.ap-anteprima{padding:8px 18px;background:#e9eef3;color:#344d62;font-size:12px;text-align:center;border-bottom:1px solid #cdd7df}
+@media(max-width:600px){.ap-pari{padding:11px}.ap-riferimento{align-items:flex-start}.ap-spese{gap:8px}.ap-spese>div{padding:11px}.ap-spese strong{font-size:19px}.ap-servizi>summary{padding:13px}.ap-servizi-corpo{padding:0 13px 13px}}
+@media(max-width:360px){.ap-spese{grid-template-columns:1fr}.ap-pulsanti button{padding:6px 8px}}
+</style>
+<style data-approfondimenti-portale="scheda_semplice_ui.css">/* Solo presentazione della variante locale semplificata. */
+#card.fs-scheda .portale-hero{margin-bottom:12px;padding-bottom:14px;align-items:start}
+#card.fs-scheda .fs-meta{font-size:13px!important;color:var(--ink2);line-height:1.5}
+.fs-meta small{display:block;font-size:12px;margin-top:5px;color:var(--ink2)}
+#card.fs-scheda .fs-nota-indice{font-size:12px;line-height:1.5;color:var(--ink2);margin:0 0 14px;max-width:90ch}
+.fs-stato,.fs-dopo{display:grid;grid-template-columns:110px 1fr;gap:3px 12px;align-items:baseline;font-size:13px;margin:8px 0;color:var(--ink)}
+.fs-stato>span,.fs-dopo>span{font-size:12px;color:var(--ink2)}.fs-stato strong,.fs-dopo strong{font-size:13px;font-weight:600}.fs-stato small,.fs-dopo small{grid-column:2;font-size:11.5px;color:var(--ink2)}
+.fs-avvisi:empty{display:none}.fs-avvisi{margin:12px 0}.fs-avvisi>.cap{font-size:12px!important;line-height:1.5}
+#card.fs-scheda .fs-inbreve{margin:22px 0 18px;padding:0;border:0}
+.fs-inbreve>h3{font-size:17px!important;margin:0 0 5px!important}.fs-distinta{font-size:11.5px!important;color:var(--ink2);line-height:1.5;margin:0 0 12px!important}
+.fs-dati{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fs-dati article{padding:14px;border:1px solid var(--ring);border-radius:9px;background:var(--page);min-width:0}
+.fs-dato-titolo{display:block;font-size:12px;color:var(--ink2);line-height:1.45;min-height:34px}.fs-dati article>strong{display:block;font-size:21px;line-height:1.3;margin:8px 0;color:var(--ink);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.fs-dati article>p{font-size:12px!important;line-height:1.5;margin:0!important;color:var(--ink2)}
+.fs-azioni{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.fs-azioni button{font:inherit;font-size:12px;padding:6px 0;border:0;background:transparent;text-decoration:underline;text-underline-offset:3px;color:var(--s1);cursor:pointer}
+#card.fs-scheda>details.fs-sezione{border:1px solid var(--ring);border-radius:10px;background:var(--surface);margin:12px 0!important;padding:0!important}
+#card.fs-scheda>details.fs-sezione>summary{display:flex;gap:12px;align-items:center;justify-content:space-between;list-style:none;padding:15px 16px;font-size:15px!important;font-weight:600;color:var(--ink);cursor:pointer}
+#card.fs-scheda>details.fs-sezione>summary::-webkit-details-marker{display:none}#card.fs-scheda>details.fs-sezione>summary::before{display:none}
+.fs-sezione>summary b{font-size:15px}.fs-sezione>summary small{display:block;font-size:11.5px;font-weight:400;color:var(--ink2);margin-top:4px;line-height:1.4}
+.fs-sezione .fs-indicazione{font-size:12px;font-weight:400;color:var(--s1);white-space:nowrap}.fs-sezione[open]>summary .fs-indicazione{font-size:0}.fs-sezione[open]>summary .fs-indicazione::after{content:'Chiudi';font-size:12px}
+.fs-corpo{padding:0 16px 16px}#card.fs-scheda .fs-conti .scheda-bilancio{padding:2px 0 0;margin:0;border:0}
+#card.fs-scheda .fs-conti .portale-intro{font-size:12px;margin-bottom:12px}.fs-spiega{font-size:12px!important;margin:0 0 7px!important;line-height:1.5}
+#card.fs-scheda .fs-approfondimenti #perche{margin:10px 0}.fs-approfondimenti .fs-corpo>details{margin:10px 0;padding:9px 0;border-bottom:1px solid var(--ring)}
+#card.fs-scheda details.ct>summary{display:grid;grid-template-columns:1fr auto;gap:4px 12px}.fs-scheda details.ct .ct-tit{grid-column:1}.fs-scheda details.ct .ct-ab{display:none!important}.fs-contesto-sottotitolo{grid-column:1;margin:0!important}.fs-scheda details.ct>summary>.fs-indicazione{grid-column:2;grid-row:1 / 3}
+.fs-azioni button:focus-visible,.fs-sezione>summary:focus-visible{outline:2px solid var(--s1);outline-offset:3px}
+@media(max-width:620px){#card.fs-scheda .portale-hero{gap:12px}.fs-dati{grid-template-columns:1fr;gap:8px}.fs-dato-titolo{min-height:0}.fs-dati article{padding:12px}.fs-dati article>strong{font-size:21px;margin:5px 0}.fs-stato,.fs-dopo{grid-template-columns:1fr;gap:2px}.fs-stato small,.fs-dopo small{grid-column:1}.fs-corpo{padding:0 12px 12px}#card.fs-scheda>details.fs-sezione>summary{padding:13px}.fs-azioni{gap:16px}}
+</style>
 </head><body>
 <div class="tip" id="tip"></div>
 
@@ -4188,5 +4240,319 @@ const LetturaConfrontoPortale = (()=>{
   $('hz').addEventListener('change',aggiorna);
   aggiorna();metodo('breve');posizioneConfronto();
 })();
+</script>
+<script type="application/json" id="approfondimenti-config">{"schema": 1, "entra_nel_modello": false, "anni_simili": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025], "anni_servizi": [2017, 2018, 2019, 2021, 2022, 2023], "funzioni": {"totale": "Funzioni fondamentali", "amministrazione": "Amministrazione", "istruzione": "Istruzione", "sociale_nido": "Sociale e nidi"}, "turismo_url": "https://www.istat.it/classificazione/classificazione-dei-comuni-in-base-alla-densita-turistica/", "servizi_url": "https://www.opencivitas.it/portale/open-data"}</script>
+<script data-approfondimenti-portale="approfondimenti_comuni_ui.js">/* Lettura descrittiva: gruppi di confronto e OpenCivitas non cambiano il modello. */
+(function(root){
+ 'use strict';
+ const finito=v=>typeof v==='number'&&Number.isFinite(v);
+ const fasce=[0,1000,5000,15000,30000,50000,100000,250000,Infinity];
+ const fascia=p=>!finito(p)||p<=0?null:fasce.findIndex((n,i)=>i<fasce.length-1&&p>=n&&p<fasce[i+1]);
+ const zone={PIEMONTE:'Nord-ovest',LOMBARDIA:'Nord-ovest',LIGURIA:'Nord-ovest',"VALLE D'AOSTA/VALLÉE D'AOSTE":'Nord-ovest',"VALLE D'AOSTA":'Nord-ovest',
+  VENETO:'Nord-est','EMILIA-ROMAGNA':'Nord-est','FRIULI-VENEZIA GIULIA':'Nord-est','TRENTINO-ALTO ADIGE/SÜDTIROL':'Nord-est',
+  TOSCANA:'Centro',UMBRIA:'Centro',MARCHE:'Centro',LAZIO:'Centro',ABRUZZO:'Sud',MOLISE:'Sud',CAMPANIA:'Sud',PUGLIA:'Sud',BASILICATA:'Sud',CALABRIA:'Sud',SARDEGNA:'Isole',SICILIA:'Isole'};
+ // Le chiavi del portale usano grafie canoniche diverse dai nomi pubblici.
+ Object.assign(zone,{'EMILIA ROMAGNA':'Nord-est',FRIULI:'Nord-est','TRENTINO ALTO ADIGE':'Nord-est','VALLE AOSTA':'Nord-ovest'});
+ const zona=k=>zone[String(k).split('|')[0]]||null;
+ const turismo=q=>q==null?null:q===0?0:q<=3?1:2;
+ const nomiTur=['non turistico','turismo di intensità medio-bassa','turismo di intensità alta'];
+ const italiano=(n,c=0)=>Number(n).toLocaleString('it-IT',{maximumFractionDigits:c,useGrouping:'always'});
+ const nomeFascia=i=>i==null?'popolazione non disponibile':i===fasce.length-2?'250.000 abitanti o più':`${italiano(Math.max(1,fasce[i]))}–${italiano(fasce[i+1]-1)} abitanti`;
+ function mediana(v){v=v.filter(finito).sort((a,b)=>a-b);return {n:v.length,v:v.length?(v.length%2?v[(v.length-1)/2]:(v[v.length/2-1]+v[v.length/2])/2):null};}
+ function seleziona(key,righe,meta){
+  const me=meta?.comuni?.[key],f=fascia(me?.ab),z=zona(key),t=turismo(me?.tur);
+  if(f==null)return {enti:[],motivo:'Manca la popolazione osservata nell’anno scelto.',fascia:null,livello:null};
+  const base=righe.filter(x=>x.cn!==key&&fascia(meta.comuni[x.cn]?.ab)===f);
+  const area=base.filter(x=>z&&zona(x.cn)===z);
+  const stretti=t==null?null:area.filter(x=>turismo(meta.comuni[x.cn]?.tur)===t);
+  const livelli=[...(stretti?[{enti:stretti,livello:0}]:[]),{enti:area,livello:1},{enti:base,livello:2}];
+  const scelto=livelli.find(g=>g.enti.length>=20)||livelli[livelli.length-1];
+  return {...scelto,fascia:f,zona:z,turismo:t,pochi:scelto.enti.length<20,
+   criteri:[nomeFascia(f),scelto.livello<2?z:'tutta Italia',...(scelto.livello===0?[nomiTur[t]]:[])]};
+ }
+ root.ComuniSimili={fascia,turismo,zona,nomeFascia,seleziona,mediana};
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const euros=n=>n==null?'Non disponibile':Number(n).toLocaleString('it-IT',{style:'currency',currency:'EUR',useGrouping:'always'});
+ root.SpesaServizi={serviziHtml};
+ if(typeof document==='undefined')return;
+ const cfg=JSON.parse(document.getElementById('approfondimenti-config').textContent);
+ const cache=new Map(),inCorso=new Map();
+ function carica(tipo,anno){
+  const key=tipo+'|'+anno;
+  if(cache.has(key))return Promise.resolve(cache.get(key));
+  if(inCorso.has(key))return inCorso.get(key);
+  const p=fetch(`${tipo}/anno_${anno}.json`).then(r=>{if(!r.ok)throw new Error('Dati non caricati');return r.json();}).then(j=>{
+   if(j.anno!==anno||j.entra_nel_modello!==false)throw new Error('Archivio descrittivo non coerente');
+   cache.set(key,j);return j;
+  }).finally(()=>inCorso.delete(key));inCorso.set(key,p);return p;
+ }
+ root.ComuniSimili.datiAnno=anno=>carica('confronti_simili',anno);
+ const card=document.getElementById('card'),ov=document.getElementById('ov');
+ let corrente=null,preferenzaRif='simili',preferenzaFunzione='totale';
+ function stessaScheda(key,anno,node){return corrente?.key===key&&corrente.anno===anno&&card.contains(node);}
+ function tipoTur(meta,key){const t=turismo(meta.comuni[key]?.tur);return t==null?'Turismo: classificazione non disponibile':nomiTur[t];}
+ function barra(nodo,i,valore,stat,modo,anno){
+  if(!finito(valore)){nodo.innerHTML='';return;}
+  if(stat.n<5||stat.v==null){nodo.innerHTML='<p class="ap-mancante">Meno di cinque comuni con questo dato: confronto non esposto.</p>';return;}
+  const s=ConfrontiPortale.scala(i.k,valore,stat.v),f=v=>esc(fmt(v,i.f));
+  const nome=modo==='simili'?'comuni simili':'Italia';
+  nodo.innerHTML=`<div class="portale-barra" role="img" aria-label="${esc(i.n)}: ${f(valore)}. Mediana ${nome}: ${f(stat.v)}; ${stat.n} comuni con dato."><span class="portale-zero" style="left:${s.zero}%"></span><span class="portale-riempimento" style="left:${Math.min(s.zero,s.valore)}%;width:${Math.abs(s.valore-s.zero)}%"></span><span class="portale-mediana" style="left:${s.mediana}%"></span><span class="portale-valore" style="left:${s.valore}%"></span></div><div class="portale-asse" aria-hidden="true"><span>${f(s.min)}</span><span>${f(s.max)}</span></div><div class="portale-mediana-testo">Valore tipico ${nome==='Italia'?'in Italia':'dei comuni simili'} <b>${f(stat.v)}</b><span class="portale-copertura">${italiano(stat.n)} comuni con dato · ${anno}</span></div>`;
+ }
+ function collegaPari(x,anno,righe){
+  const bilancio=card.querySelector('.scheda-bilancio');if(!bilancio)return;
+  const box=document.createElement('div');box.className='ap-pari';
+  box.innerHTML='<p class="ap-mancante" role="status">Preparazione del confronto con comuni simili…</p>';
+  bilancio.querySelector('.portale-metriche')?.before(box);
+  carica('confronti_simili',anno).then(meta=>{
+   if(!stessaScheda(x.cn,anno,box))return;
+   const gruppo=seleziona(x.cn,righe,meta),ok=gruppo.enti.length>=5;
+   let modo=ok?preferenzaRif:'italia';
+   const vicini=gruppo.enti.slice().sort((a,b)=>Math.abs(meta.comuni[a.cn].ab-meta.comuni[x.cn].ab)-Math.abs(meta.comuni[b.cn].ab-meta.comuni[x.cn].ab)||a.cn.localeCompare(b.cn)).slice(0,3);
+   const testo=ok?`Il confronto usa ${italiano(gruppo.enti.length)} altri comuni: ${gruppo.criteri.join(' · ')}.`:'Non ci sono abbastanza comuni confrontabili. Rimane il riferimento italiano.';
+   box.innerHTML=`<div class="ap-riferimento"><span>Confronta il bilancio con</span><div class="ap-pulsanti" role="group" aria-label="Riferimento degli indicatori di bilancio"><button type="button" data-rif="simili" ${ok?'':'disabled'}>Comuni simili</button><button type="button" data-rif="italia">Italia</button></div></div><p class="ap-gruppo">${esc(testo)}</p>${gruppo.pochi&&ok?'<p class="ap-mancante">Gruppo piccolo: leggi la mediana con cautela.</p>':''}<details class="ap-metodo"><summary>Come scegliamo i comuni</summary><p>Prima cerchiamo comuni nella stessa fascia di popolazione, nella stessa macroarea e con simile intensità turistica. Se sono meno di 20, allarghiamo prima il turismo e poi l’area geografica. Il comune aperto è sempre escluso dalla propria mediana; ogni indicatore richiede almeno cinque valori osservati.</p><p>Il gruppo usa i comuni presenti nella graduatoria dell’anno, senza selezionarli in base al punteggio o a quello che è successo dopo. La somiglianza riguarda queste caratteristiche, non tutte le condizioni dell’ente.</p>${anno>=2022?`<p>Turismo: classificazione ISTAT riferita al 2019, edizione del 19 gennaio 2022. Il raggruppamento unisce i quintili 1–3 e 4–5 e tiene distinti i comuni non turistici. <a href="${esc(cfg.turismo_url)}" target="_blank" rel="noopener">Fonte e definizioni</a>.</p>`:'<p>Per questa annata il turismo non viene usato: l’edizione qui acquisita è stata pubblicata nel 2022.</p>'}<p>Questi confronti descrittivi non ricalcolano il rischio.</p>${vicini.length?`<div class="ap-esempi"><span>Apri un confronto con:</span>${vicini.map(v=>`<button type="button" data-vicino="${esc(v.cn)}">${esc(v.c)}</button>`).join('')}</div>`:''}</details>`;
+   const intro=bilancio.querySelector(':scope>.portale-intro');if(intro)intro.innerHTML='Il punto mostra il dato del comune; il <span class="portale-legend">trattino indica il valore tipico del gruppo</span> (la mediana). Le etichette segnalano le soglie di attenzione del singolo indicatore.';
+   function disegna(){
+    box.querySelectorAll('[data-rif]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.rif===modo)));
+    box.querySelector('.ap-gruppo').textContent=modo==='simili'?testo:'Il confronto usa tutti gli altri comuni italiani presenti nella fotografia '+anno+'.';
+    const campione=modo==='simili'?gruppo.enti:righe.filter(r=>r.cn!==x.cn);
+    for(const n of bilancio.querySelectorAll('.portale-metrica[data-chiave]')){
+     const k=n.dataset.chiave,nodo=n.querySelector('.portale-confronto');
+     if(nodo)barra(nodo,INDBYK[k],x[k],mediana(campione.map(r=>r[k])),modo,anno);
+    }
+   }
+   box.addEventListener('click',e=>{
+    const r=e.target.closest('[data-rif]');if(r){modo=r.dataset.rif;preferenzaRif=modo;disegna();}
+    const b=e.target.closest('[data-vicino]');if(b)apriConfronto(x.cn,b.dataset.vicino);
+   });disegna();
+  }).catch(()=>{if(stessaScheda(x.cn,anno,box))box.innerHTML='<p class="ap-mancante">Il gruppo di confronto non si è caricato. Le barre mantengono il riferimento italiano.</p>';});
+ }
+ function apriConfronto(a,b){
+  ov.classList.remove('on');corrente=null;
+  for(const [id,key,etichetta] of [['cmpA',a,'Primo comune'],['cmpB',b,'Secondo comune']]){
+   document.getElementById(id).value=key;
+   const x=DATA.find(x=>x.cn===key),input=document.querySelector(`input[aria-label="${etichetta}"]`);
+   if(input&&x)input.value=`${x.c} · ${etichettaLuogo(x)}`;
+  }
+  document.querySelector('[data-esplora="confronto"]').click();renderCmp();
+ }
+ function serviziHtml(r,fonte,anno,annoScelto){
+  if(!r)return '<p class="ap-mancante">Nessun dato associato a questo comune per la funzione scelta.</p>';
+  const a=r.spesa,b=r.standard,valido=finito(a)&&finito(b)&&b>0,diff=valido?100*(a/b-1):null,max=Math.max(a||0,b||0,1);
+  const riferimento=anno===2022?'alla media dei comuni della stessa fascia di popolazione':'al riferimento calcolato da OpenCivitas';
+  const quantita=r.servizi==null?'Quantità dei servizi non valutabile':r.servizi>0?'Più servizi rispetto '+riferimento:r.servizi<0?'Meno servizi rispetto '+riferimento:'Servizi in linea con il riferimento OpenCivitas';
+  return `<p class="ap-annata">Dati ${anno}${anno!==annoScelto?` · ultimo anno disponibile non successivo al ${annoScelto}`:''} · pubblicati il ${fonte.pubblicazione.split('-').reverse().join('/')}</p><p class="ap-nota-standard">La spesa di riferimento è una stima basata sulle caratteristiche del comune (spesa standard).</p><div class="ap-spese"><div><span>Spesa del comune</span><strong>${euros(a)}<small>per abitante</small></strong>${finito(a)&&a>=0?`<i aria-hidden="true" style="--ampiezza:${100*a/max}%"></i>`:''}</div><div><span>Spesa di riferimento</span><strong>${euros(b)}<small>per abitante</small></strong>${finito(b)&&b>=0?`<i class="ap-standard" aria-hidden="true" style="--ampiezza:${100*b/max}%"></i>`:''}</div></div>${diff==null?'<p class="ap-mancante">Scostamento non calcolabile con i dati valutabili.</p>':`<p class="ap-scarto">${diff>0?'+':''}${italiano(diff,1)}% rispetto alla spesa standard <span>La differenza va letta insieme ai servizi offerti.</span></p>`}<div class="ap-servizi-quantita"><span>Quantità dei servizi</span><strong>${quantita}</strong><p>Misura quanti servizi vengono erogati, non la qualità percepita o la soddisfazione dei cittadini.</p></div>${r.note.length?`<details class="ap-metodo"><summary>Avvertenze specifiche del dato</summary>${r.note.map(n=>`<p>${esc(n)}</p>`).join('')}</details>`:''}<details class="ap-metodo"><summary>Che cosa significano questi numeri</summary><p>La spesa del comune è la spesa storica ricostruita da OpenCivitas per questa funzione. La spesa standard è una stima costruita considerando le caratteristiche del comune: non è un tetto di spesa, un finanziamento ricevuto o una misura automatica dello spreco.</p><p>Spendere di più può accompagnarsi a più servizi, a modalità di gestione diverse o ad altre condizioni da approfondire. Spendere di meno non dimostra, da solo, conti sani. Gli importi esposti hanno la stessa unità; il dato del gruppo di comuni simili e il riferimento usato da OpenCivitas sono confronti distinti.</p><p>Il totale riguarda le funzioni fondamentali monitorate dalla fonte e non l’intero bilancio. I dati non valutabili o oscurati restano assenti. La ricostruzione è descrittiva: un dato pubblicato dopo l’anno scelto non era necessariamente utilizzabile allora e non entra nel punteggio.</p><p><a href="${esc(fonte.url)}" target="_blank" rel="noopener">Scheda OpenCivitas</a> · <a href="${esc(fonte.dati_url)}" target="_blank" rel="noopener">Dati originali</a> · <a href="${esc(fonte.dizionario_url)}" target="_blank" rel="noopener">Definizioni degli indicatori</a></p></details>`;
+ }
+ function collegaServizi(x,anno){
+  const sezione=document.createElement('details');sezione.className='ap-servizi';
+  const disponibili=cfg.anni_servizi.filter(a=>a<=anno),y=disponibili.at(-1);
+  sezione.innerHTML=`<summary><span><b>Spesa e servizi</b><small>${y?'Dati '+y+' · OpenCivitas':'Nessuna annata disponibile'}</small></span><span class="ap-apri" aria-hidden="true">Apri</span></summary><div class="ap-servizi-corpo"><p role="status">Apri per caricare i dati della fonte.</p></div>`;
+  card.querySelector('.scheda-bilancio')?.after(sezione);
+  let avviato=false;
+  sezione.addEventListener('toggle',()=>{
+   if(!sezione.open||avviato)return;avviato=true;
+   const corpo=sezione.querySelector('.ap-servizi-corpo');
+   if(y==null){corpo.innerHTML='<p class="ap-mancante">Non è disponibile un’annata della fonte non successiva a quella scelta.</p>';return;}
+   corpo.innerHTML='<p role="status">Caricamento della spesa e dei servizi…</p>';
+   carica('spesa_servizi',y).then(j=>{
+    if(!stessaScheda(x.cn,anno,sezione))return;
+    const dati=j.comuni[x.cn];
+    if(!dati){corpo.innerHTML='<p class="ap-mancante">Non c’è un dato associato al comune per questa fotografia. La fonte copre le Regioni a statuto ordinario; anche le variazioni territoriali possono impedire un confronto coerente. L’assenza non indica zero spesa o zero servizi.</p><p class="ap-annata">Fonte: OpenCivitas · dati '+y+'. Nessun valore stimato viene aggiunto.</p>';return;}
+    const fs=Object.keys(cfg.funzioni).filter(f=>dati[f]&&j.fonti[f]);
+    corpo.innerHTML=`<label class="ap-scegli-funzione">Funzione<select aria-label="Funzione di spesa e servizi">${fs.map(f=>`<option value="${esc(f)}">${esc(cfg.funzioni[f])}</option>`).join('')}</select></label><div class="ap-servizi-dati"></div>`;
+    const scegli=corpo.querySelector('select'),area=corpo.querySelector('.ap-servizi-dati');
+    if(fs.includes(preferenzaFunzione))scegli.value=preferenzaFunzione;
+    const aggiorna=()=>{preferenzaFunzione=scegli.value;area.innerHTML=serviziHtml(dati[scegli.value],j.fonti[scegli.value],y,anno);};scegli.addEventListener('change',aggiorna);aggiorna();
+   }).catch(()=>{if(stessaScheda(x.cn,anno,sezione)){corpo.innerHTML='<p class="ap-mancante">I dati non si sono caricati. Chiudi e riapri questa sezione per riprovare.</p>';avviato=false;}});
+  });
+ }
+ const primaApri=apri;
+ apri=function(x){
+  primaApri(x);corrente={key:x.cn,anno:ANNO};
+  collegaPari(x,ANNO,DATA.slice());collegaServizi(x,ANNO);
+ };
+ const primaDisegna=disegnaAnno;
+ disegnaAnno=function(...args){
+  const aperto=ov.classList.contains('on')&&card.querySelector('.ap-servizi')?corrente?.key:null;
+  const serviziAperti=card.querySelector('.ap-servizi')?.open;
+  const r=primaDisegna.apply(this,args);
+  if(aperto){const nuovo=DATA.find(x=>x.cn===aperto);if(nuovo){apri(nuovo);if(serviziAperti)card.querySelector('.ap-servizi').open=true;}else{ov.classList.remove('on');corrente=null;}}
+  return r;
+ };
+ const viste=new WeakSet();
+ const cmp=document.getElementById('ch-cmp');
+ new MutationObserver(()=>{
+  const profili=cmp.querySelector('.cmp-profili');if(!profili||viste.has(profili))return;viste.add(profili);
+  const anno=ANNO,a=document.getElementById('cmpA').value,b=document.getElementById('cmpB').value;
+  carica('confronti_simili',anno).then(meta=>{
+   if(!cmp.contains(profili)||anno!==ANNO)return;
+   const aa=meta.comuni[a],bb=meta.comuni[b];if(!aa||!bb)return;
+   profili.querySelectorAll('.cmp-profilo').forEach((n,i)=>{
+    const popolazione=meta.comuni[i?b:a]?.ab;
+    const assente=Array.from(n.querySelectorAll('p')).find(p=>p.textContent.startsWith('Popolazione non disponibile'));
+    if(assente&&finito(popolazione))assente.textContent=italiano(popolazione)+' abitanti al 1° gennaio '+anno;
+    const t=document.createElement('p');t.className='ap-profilo-contesto';t.textContent=tipoTur(meta,i?b:a);n.querySelector('.cmp-storia')?.before(t);
+   });
+   const p=document.createElement('p');p.className='ap-confrontabilita';
+   const stessa=fascia(aa.ab)!=null&&fascia(aa.ab)===fascia(bb.ab),stessaZona=zona(a)===zona(b);
+   p.textContent=`Per leggere il confronto: ${stessa?'stessa':'diversa'} fascia di popolazione · ${stessaZona?'stessa':'diversa'} macroarea${turismo(aa.tur)!=null&&turismo(bb.tur)!=null?' · '+(turismo(aa.tur)===turismo(bb.tur)?'simile':'diversa')+' intensità turistica':''}. Le differenze di contesto aiutano a interpretare i conti.`;profili.after(p);
+  }).catch(()=>{});
+ }).observe(cmp,{childList:true});
+})(typeof window!=='undefined'?window:globalThis);
+</script>
+<script data-approfondimenti-portale="scheda_semplice_ui.js">/* Variante locale: gerarchia di lettura e testi, senza modifiche al modello. */
+(function(root){
+ 'use strict';
+ const valido=v=>typeof v==='number'&&Number.isFinite(v);
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const num=(v,d=1)=>Number(v).toLocaleString('it-IT',{maximumFractionDigits:d,useGrouping:'always'});
+ const euro=v=>new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',useGrouping:'always'}).format(v);
+ const quando=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'')?new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(d+'T12:00:00Z')):null;
+ function statoBreve(eventi,anno,hz){
+  const validi=eventi.filter(e=>e.st?.k!=='revocata');
+  const prima=validi.filter(e=>e.anno<=anno&&e.st?.k!=='futura');
+  const max=prima.length?Math.max(...prima.map(e=>e.anno)):null;
+  const ultimi=prima.filter(e=>e.anno===max).sort((a,b)=>String(a.data||'').localeCompare(String(b.data||'')));
+  let stato='Nessuna procedura registrata',nota='';
+  if(!ultimi.length&&eventi.some(e=>e.anno<=anno&&e.st?.k==='revocata'))stato='Stato storico da verificare';
+  else if(ultimi.length>1&&ultimi.some(e=>!e.data))stato='Più procedure nello stesso anno: vedi la cronologia';
+  else if(ultimi.length){
+   const u=ultimi.at(-1),s=u.st;
+   if(s?.k==='aperta')stato=u.tipo==='Dissesto'?'Dissesto già dichiarato':'Procedura di riequilibrio in corso';
+   else if(s?.k==='chiusa')stato=/ritirat/i.test(s.txt)?'Attivazione del riequilibrio ritirata':/fusion/i.test(s.txt)?'Procedura terminata per fusione':u.tipo==='Dissesto'?'Procedura di dissesto conclusa':'Procedura di riequilibrio conclusa';
+   else stato='Stato della procedura da verificare';
+   if(s?.k==='incerta'||!s)nota='La data di chiusura non è documentata con certezza.';
+  }
+  const dopo=validi.filter(e=>e.anno>anno).sort((a,b)=>a.anno-b.anno||String(a.data||'').localeCompare(String(b.data||'')));
+  const prossimo=dopo.find(e=>e.tipo==='Dissesto')||dopo[0];
+  const fine=anno+(hz==='t3'?3:1),periodo=hz==='t3'?`${anno+1}–${fine}`:String(anno+1);
+  return {stato,nota,periodo,futuro:prossimo?{
+   testo:prossimo.tipo+(quando(prossimo.data)?' del '+quando(prossimo.data):' nel '+prossimo.anno),
+   finestra:prossimo.tipo==='Dissesto'?(prossimo.anno<=fine?'Nel periodo valutato: ':'Fuori dal periodo valutato: ')+periodo:'Avvio successivo all’anno scelto; non è una dichiarazione di dissesto.'
+  }:null};
+ }
+ function fattiBase(x){
+  const risc=valido(x.ris)?{valore:num(x.ris*100)+'%',spiega:x.ris>=0&&x.ris<=1?`Su 100 euro di tributi registrati come dovuti, ne incassa circa ${num(x.ris*100,0)}.`:'Il rapporto dichiarato richiede la lettura del dettaglio.'}:{valore:'Non disponibile',spiega:'Manca il dato per questa annata.'};
+  const ant=valido(x.ant)?{valore:num(x.ant*100)+'%',spiega:x.ant===0?'Il rendiconto non riporta ricorsi allo scoperto nell’anno.':x.ant>0?'Anticipazioni accertate in rapporto alle entrate correnti.':'Il valore dichiarato richiede una verifica del dettaglio.'}:{valore:'Non disponibile',spiega:'Manca il dato per questa annata.'};
+  return [{titolo:'Incasso dei tributi',...risc},{titolo:'Scoperto di tesoreria',...ant}];
+ }
+ function saldo(r){
+  if(!r||!valido(r.e))return {titolo:'Saldo dopo accantonamenti e vincoli',valore:'Non disponibile',spiega:'Manca la parte disponibile del rendiconto.'};
+  return {titolo:r.e<0?'Disavanzo nella parte disponibile':'Saldo dopo accantonamenti e vincoli',valore:euro(r.e/100),spiega:(r.enti>1||Math.abs(r.scarto||0)>100)?'La fonte richiede la lettura delle avvertenze nel dettaglio.':r.e<0?'La parte disponibile del rendiconto è negativa.':r.e===0?'La parte disponibile del rendiconto è pari a zero.':'La parte disponibile del rendiconto è positiva.'};
+ }
+ root.SchedaSemplice={statoBreve,fattiBase,saldo};
+ if(typeof document==='undefined')return;
+ const card=document.getElementById('card'),ov=document.getElementById('ov');
+ const schede=new WeakMap();
+ function fattoHtml(f){return `<span class="fs-dato-titolo">${esc(f.titolo)}</span><strong>${esc(f.valore)}</strong><p>${esc(f.spiega)}</p>`;}
+ function gruppo(titolo,descr,cls){
+  const d=document.createElement('details');d.className='fs-sezione '+cls;
+  d.innerHTML=`<summary><span><b>${esc(titolo)}</b><small>${esc(descr)}</small></span><span class="fs-indicazione" aria-hidden="true">Apri</span></summary><div class="fs-corpo"></div>`;
+  d.addEventListener('toggle',()=>{if(d.open)window.dispatchEvent(new Event('resize'));});return d;
+ }
+ function testoSemplice(){
+  if(!card.classList.contains('fs-scheda'))return;
+  const nomi={ris:'Incasso dei tributi',ant:'Scoperto di tesoreria',gc:'Liquidità media (in giorni)',dfb:'Debiti fuori bilancio'};
+  for(const m of card.querySelectorAll('.portale-metrica[data-chiave]')){
+   const k=m.dataset.chiave,n=m.querySelector('.nm');if(n&&n.textContent!==nomi[k])n.textContent=nomi[k];
+   const scheda=schede.get(card),x=scheda?.x;if(!x)continue;
+   if(x[k]==null){
+    const v=m.querySelector('.v');if(v&&v.textContent!=='Non disponibile')v.textContent='Non disponibile';
+    const ex=m.querySelector('.ex');if(ex)for(const node of Array.from(ex.childNodes)){if(node.nodeType===3&&node.textContent.trim())node.textContent='';}
+   }
+   if((k==='ris'||k==='ant')&&valido(x[k])){
+    const ex=m.querySelector('.ex');
+    if(ex&&!ex.dataset.fsTesto){
+     ex.dataset.fsTesto='1';for(const node of Array.from(ex.childNodes)){if(node.nodeType===3||['B','STRONG'].includes(node.tagName))node.remove();}
+     const p=document.createElement('p');p.className='fs-spiega';p.textContent=fattiBase(x)[k==='ris'?0:1].spiega;ex.prepend(p);
+    }
+   }
+   if(k==='gc'&&valido(x.gc)){
+    const ex=m.querySelector('.ex');
+    if(ex&&!ex.dataset.fsTesto){
+     ex.dataset.fsTesto='1';for(const node of Array.from(ex.childNodes)){if(node.nodeType===3||['B','STRONG'].includes(node.tagName))node.remove();}
+     const p=document.createElement('p');p.className='fs-spiega';p.textContent=`La cassa media dell’anno equivale a ${num(x.gc,0)} giorni di pagamenti, calcolati sullo stesso anno.`;ex.prepend(p);
+     const dettaglio=ex.querySelector('details');if(dettaglio){const nota=document.createElement('p');nota.className='cap';nota.textContent='È un rapporto fra cassa media e pagamenti dell’anno: non garantisce la copertura dei pagamenti futuri.';dettaglio.append(nota);}
+    }
+   }
+  }
+  for(const h of card.querySelectorAll('.bd-disponibile h4')){
+   if(!h.dataset.fsNome){h.dataset.fsNome='1';const anno=h.querySelector('span')?.textContent||'';h.innerHTML=`Saldo dopo accantonamenti e vincoli <span>${esc(anno)}</span>`;}
+  }
+  for(const el of card.querySelectorAll('.ct-rn')){
+   for(const t of el.childNodes){
+    if(t.nodeType!==3)continue;
+    const nuovo=t.textContent.replace('Occupati tra 20 e 64 anni','Persone che lavorano (20–64 anni)').replace('Reddito imponibile medio dichiarato','Reddito medio dichiarato');
+    if(nuovo!==t.textContent)t.textContent=nuovo;
+   }
+  }
+ }
+ let aggiornamento=false;
+ new MutationObserver(()=>{if(aggiornamento)return;aggiornamento=true;queueMicrotask(()=>{aggiornamento=false;testoSemplice();});}).observe(card,{childList:true,subtree:true,characterData:true});
+ function applica(x,anno,hz){
+  if(!card.querySelector('.scheda-bilancio'))return;
+  card.classList.add('fs-scheda');card.dataset.fsKey=x.cn;card.dataset.fsAnno=anno;
+  schede.set(card,{x,anno,hz});
+  const iniziali=Array.from(card.children),bilancio=card.querySelector('.scheda-bilancio'),hero=card.querySelector('.portale-hero');
+  if(!hero)return;
+  const indexDettaglio=iniziali.find(n=>n.tagName==='DETAILS'&&n.querySelector('summary')?.textContent.includes('Come leggere l’indice'));
+  const statoOriginale=iniziali.find(n=>n.classList.contains('statobox'));
+  const storico=statoOriginale?.querySelector(':scope>details');
+  const eventi=cronologia(x,anno),st=statoBreve(eventi,anno,hz);
+  const sottotitolo=hero.querySelector('.portale-titolo>div:last-child');
+  if(sottotitolo){sottotitolo.className='fs-meta';sottotitolo.innerHTML=`${esc(etichettaLuogo(x))}<span class="fs-popolazione"></span><small>Dati ${anno} · periodo valutato ${esc(st.periodo)}</small>`;}
+  const tipo=hero.querySelector('.scheda-essenziale>div:last-child');if(tipo)tipo.textContent='Posizione nella classifica del rischio';
+  const breve=document.createElement('div');breve.className='fs-introduzione';
+  breve.innerHTML=`<p class="fs-nota-indice">È una posizione in graduatoria, non una probabilità di dissesto. La lettura è ricostruita con dati oggi disponibili.</p><div class="fs-stato"><span>Nel ${anno}</span><strong>${esc(st.stato)}</strong>${st.nota?`<small>${esc(st.nota)}</small>`:''}</div>${st.futuro?`<div class="fs-dopo"><span>Dopo il ${anno}</span><strong>${esc(st.futuro.testo)}</strong><small>${esc(st.futuro.finestra)}</small></div>`:''}`;
+  hero.after(breve);
+  const avvisi=document.createElement('div');avvisi.className='fs-avvisi';breve.after(avvisi);
+  const fatti=document.createElement('section');fatti.className='fs-inbreve';
+  fatti.innerHTML='<h3>Tre dati per orientarsi</h3><p class="fs-distinta">Dati del bilancio. La spiegazione del punteggio è negli approfondimenti.</p><div class="fs-dati">'+fattiBase(x).map(f=>'<article>'+fattoHtml(f)+'</article>').join('')+'<article class="fs-saldo"><span class="fs-dato-titolo">Saldo dopo accantonamenti e vincoli</span><strong>Caricamento…</strong></article></div><div class="fs-azioni"><button type="button" data-fs-apri="conti">Guarda i conti</button><button type="button" data-fs-apri="calcolo">Come nasce il punteggio</button></div>';
+  avvisi.after(fatti);
+  const conti=gruppo('I conti del comune','Incassi, liquidità e saldo del rendiconto','fs-conti');
+  const approfondimenti=gruppo('Approfondimenti','Punteggio, procedure, documenti e tutti gli indicatori','fs-approfondimenti');
+  bilancio.querySelector(':scope>h3')?.remove();
+  conti.querySelector('.fs-corpo').append(bilancio);
+  const servizi=card.querySelector('.ap-servizi');if(servizi)servizi.classList.add('fs-sezione');
+  let contesto=card.querySelector('details.ct');
+  if(!contesto&&root.ContestoUI){
+   const tmp=document.createElement('div');tmp.innerHTML=root.ContestoUI.sezione(x.cn,anno,null,P.ctxidx);contesto=tmp.firstElementChild;
+  }
+  if(contesto){
+   contesto.classList.add('fs-sezione');const titolo=contesto.querySelector('.ct-tit');if(titolo)titolo.textContent='Il territorio e la popolazione';
+   const s=contesto.querySelector(':scope>summary');const sub=document.createElement('small');sub.className='fs-contesto-sottotitolo';sub.textContent='Abitanti, lavoro, redditi e caratteristiche del territorio';s?.append(sub);
+   const apri=document.createElement('span');apri.className='fs-indicazione';apri.setAttribute('aria-hidden','true');apri.textContent='Apri';s?.append(apri);
+  }
+  const contenuto=approfondimenti.querySelector('.fs-corpo');
+  for(const n of iniziali){
+   if(n===hero||n.classList.contains('close')||n===bilancio||n===servizi||n===contesto)continue;
+   if(n===statoOriginale){
+    if(storico){if(storico.textContent.trim()===storico.querySelector('summary')?.textContent.trim()){const p=document.createElement('p');p.textContent='Nell’archivio non risultano procedure registrate per questo comune.';storico.append(p);}contenuto.append(storico);}
+    n.remove();continue;
+   }
+   if(n.tagName==='P'&&n.textContent.includes('Una posizione in classifica')){n.remove();continue;}
+   const posizione=iniziali.indexOf(n),primaConti=posizione<iniziali.indexOf(bilancio);
+   if(primaConti&&n.tagName!=='DETAILS')avvisi.append(n);else contenuto.append(n);
+  }
+  const p3=bilancio.querySelector('.portale-liquidita');if(p3)contenuto.append(p3);
+  fatti.after(conti);if(servizi)conti.after(servizi);if(contesto)(servizi||conti).after(contesto);(contesto||servizi||conti).after(approfondimenti);
+  if(contesto&&root.ContestoUI)root.ContestoUI.collega(card,P.ctxidx);
+  const controlla=node=>card.contains(node)&&card.dataset.fsKey===x.cn&&Number(card.dataset.fsAnno)===anno;
+  root.BilancioDisponibile.carica(anno).then(j=>{const node=fatti.querySelector('.fs-saldo');if(controlla(node))node.innerHTML=fattoHtml(saldo(j.comuni[x.cn]));}).catch(()=>{const node=fatti.querySelector('.fs-saldo');if(controlla(node))node.innerHTML=fattoHtml({titolo:'Saldo dopo accantonamenti e vincoli',valore:'Non caricato',spiega:'Apri i conti per riprovare il caricamento.'});});
+  root.ComuniSimili.datiAnno(anno).then(j=>{const node=hero.querySelector('.fs-popolazione');if(controlla(node)&&valido(j.comuni[x.cn]?.ab))node.textContent=' · '+num(j.comuni[x.cn].ab,0)+' abitanti';}).catch(()=>{});
+  fatti.addEventListener('click',e=>{
+   const b=e.target.closest('[data-fs-apri]');if(!b)return;
+   if(b.dataset.fsApri==='conti'){conti.open=true;conti.scrollIntoView({block:'start',behavior:'auto'});}
+   else{approfondimenti.open=true;const calcolo=card.querySelector('.scheda-calcolo')||indexDettaglio;if(calcolo){calcolo.open=true;calcolo.scrollIntoView({block:'start',behavior:'auto'});}}
+  });
+  testoSemplice();
+ }
+ const primaApri=apri;
+ apri=function(x){card.classList.remove('fs-scheda');primaApri(x);applica(x,ANNO,HZ);};
+ for(const nome of ['apriFN','apriPreso']){
+  if(typeof root[nome]!=='function')continue;
+  const precedente=root[nome];
+  root[nome]=function(...args){card.classList.remove('fs-scheda');schede.delete(card);return precedente.apply(this,args);};
+ }
+})(typeof window!=='undefined'?window:globalThis);
 </script>
 </body></html>
