@@ -54,6 +54,35 @@
 <title>Mappa del rischio di dissesto · Toscana</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&amp;display=swap">
 <!-- FINE STILE MAPPE TESTATA -->
+<style data-classifiche-toscana="pubblicato">/* Solo il nuovo pannello: stile e colori della mappa restano invariati. */
+#casi .tabs{flex-wrap:wrap}
+#casi .tabs button{padding-left:9px;padding-right:9px}
+#classifiche-toscana{font-size:13px;line-height:1.5;color:var(--mappa-testo,#14120E)}
+#classifiche-toscana h4{font-size:18px;margin:0 0 7px;font-weight:600}
+.ct-cl-locale{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mappa-secondario,#656D75);margin:0 0 9px}
+.ct-cl-intro{color:var(--mappa-secondario,#656D75);margin:0 0 16px;font-size:12px}
+.ct-cl-controlli{display:grid;grid-template-columns:minmax(0,1fr) 135px;gap:11px 10px;margin-bottom:15px}
+.ct-cl-controlli label{display:block;font-size:11.5px;font-weight:600;min-width:0}
+.ct-cl-controlli label:first-child,.ct-cl-controlli label:last-child{grid-column:1/-1}
+.ct-cl-controlli select,.ct-cl-controlli input{box-sizing:border-box;width:100%;display:block;background:#fff;color:#172E4B;border:1px solid #ccd2d9;border-radius:6px;font:inherit;font-size:12px;font-weight:400;padding:9px 8px;margin-top:4px;min-width:0}
+.ct-cl-controlli label:nth-child(2){grid-column:1/-1}
+.ct-cl-nota{margin:8px 0;font-size:12px;line-height:1.55}
+.ct-cl-fonte{font-size:10.5px;color:var(--mappa-secondario,#656D75);line-height:1.5;margin:0 0 15px;overflow-wrap:anywhere}
+.ct-cl-fonte a{color:var(--mappa-accento,#1F3A5F);text-decoration:underline}
+.ct-cl-copertura{font-size:12px;font-weight:600;padding:12px 0;margin:0;border-top:1px solid var(--mappa-bordo,#ddd);border-bottom:1px solid var(--mappa-bordo,#ddd)}
+.ct-cl-copertura span{font-size:11px;font-weight:400;color:var(--mappa-secondario,#656D75)}
+.ct-cl-elenco{padding:0;margin:0;list-style:none}
+.ct-cl-elenco li{display:flex;align-items:baseline;gap:11px;padding:11px 0;border-bottom:1px solid var(--mappa-bordo,#ddd)}
+.ct-cl-pos{flex:none;min-width:24px;font-size:11px;font-variant-numeric:tabular-nums;color:var(--mappa-secondario,#656D75)}
+.ct-cl-comune{min-width:0;flex:1}.ct-cl-comune button{font:inherit;font-size:13px;font-weight:600;text-align:left;border:0;padding:0;background:none;color:var(--mappa-accento,#1F3A5F);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.ct-cl-comune small{display:block;font-size:12px;font-variant-numeric:tabular-nums;margin-top:3px;color:var(--mappa-testo,#14120E)}
+.ct-cl-conta,.ct-cl-vuota{font-size:11.5px;color:var(--mappa-secondario,#656D75);margin:13px 0}
+.ct-cl-altri,.ct-cl-riprova{font:inherit;border:1px solid var(--mappa-bordo,#ccd2d9);background:#fff;color:var(--mappa-accento,#1F3A5F);padding:8px 12px;border-radius:6px;font-size:12px;cursor:pointer}
+.ct-cl-metodo{font-size:11px;line-height:1.55;color:var(--mappa-secondario,#656D75);border-top:1px solid var(--mappa-bordo,#ddd);padding-top:13px;margin-top:18px}
+.ct-cl-metodo summary{cursor:pointer;font-weight:600;color:var(--mappa-accento,#1F3A5F)}
+#classifiche-toscana :is(button,input,select,summary):focus-visible{outline:2px solid var(--mappa-accento,#1F3A5F);outline-offset:2px}
+@media(min-width:430px){.ct-cl-controlli label:nth-child(2){grid-column:2}.ct-cl-controlli label:last-child{grid-column:1;grid-row:2}}
+</style>
 </head>
 <body data-stile-mappe="toscana" class="mappa-coerente mappa-toscana">
     
@@ -325,6 +354,168 @@ body.mappa-coerente{
 .mappa-coerente :is(#pan,#casi)>.hd :is(a,button):focus-visible{outline-color:#fff}
 </style>
 <!-- FINE STILE MAPPE CSS -->
+<script data-classifiche-toscana="pubblicato">/* Classifiche descrittive della Toscana, senza cambiare il modello. */
+(function(root){
+ 'use strict';
+ const numero=v=>typeof v==='number'&&Number.isFinite(v);
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const norm=v=>String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+ const M=[];
+ const aggiungi=(id,nome,gruppo,fonte,chiave,formato,ordine,nota)=>M.push({id,nome,gruppo,fonte,chiave,formato,ordine,nota});
+ aggiungi('rischio','Indice di rischio nazionale','Rischio','rischio',null,'indice','desc','Ordina i comuni toscani secondo il rischio rispetto a tutti i comuni italiani. Segue l’orizzonte scelto sulla mappa. Il numero è una posizione in graduatoria, non una probabilità.');
+ aggiungi('saldo_ab','Parte disponibile per abitante','Bilancio','saldo',null,'euro_ab','asc','Parte disponibile del rendiconto dopo accantonamenti e vincoli, divisa per i residenti al 1° gennaio dello stesso anno. Un valore negativo indica un disavanzo. Non è un ingresso diretto del modello.');
+ aggiungi('saldo','Parte disponibile in euro','Bilancio','saldo',null,'euro','asc','Importo della parte disponibile del rendiconto, dopo accantonamenti e vincoli. Gli importi totali risentono della dimensione del comune; per confrontare enti diversi usa anche il valore per abitante.');
+ const conti=[
+  ['ris','Incasso dei tributi','rapporto','asc','Quota dei tributi accertati che viene incassata. Valori bassi possono indicare difficoltà di riscossione.'],
+  ['ant','Anticipazioni di tesoreria','rapporto','desc','Anticipazioni accertate rapportate alle entrate correnti. Descrive il ricorso al tesoriere; non è il debito rimasto aperto a fine anno.'],
+  ['gc','Liquidità media in giorni','giorni','asc','Cassa media dell’anno rapportata ai pagamenti dello stesso anno. Non garantisce la copertura dei pagamenti futuri.'],
+  ['dfb','Debiti fuori bilancio dichiarati','percentuale','desc','Indicatore dei debiti fuori bilancio dichiarati. Le componenti non hanno tutte lo stesso denominatore: il totale è un ordine di grandezza, non una quota di bilancio omogenea.'],
+  ['p7','Debiti fuori bilancio da coprire P7','percentuale','desc','Debiti fuori bilancio ancora da coprire rapportati alle entrate correnti, secondo il parametro P7. Non coincide con il totale dei debiti fuori bilancio dichiarati.'],
+  ['ind','Indice di indebitamento','rapporto','desc','Indicatore dell’indebitamento ricostruito dai dati del bilancio. Va letto insieme alle risorse disponibili e al costo del debito.'],
+  ['rig','Rigidità della spesa','rapporto','desc','Quota delle risorse correnti assorbita dalle componenti di spesa rigide. Valori alti lasciano meno spazio alle altre esigenze.'],
+  ['fcde','FCDE sui residui attivi','rapporto','desc','Accantonamento per crediti di dubbia esigibilità rispetto ai residui attivi. Una quota alta può riflettere crediti difficili da incassare, ma anche maggiore prudenza nell’accantonamento.'],
+  ['sdc','Smaltimento dei debiti commerciali pregressi','percentuale','asc','Quota dei debiti commerciali degli esercizi precedenti smaltita nell’anno. Il dato non riguarda soltanto i nuovi debiti dell’esercizio.']
+ ];
+ for(const [k,n,f,o,d] of conti)aggiungi(k,n,'Bilancio','indicatori',k,f,o,d);
+ const territorio=[
+  ['ab','Abitanti','intero','desc','Residenti al 1° gennaio dell’anno selezionato. La dimensione demografica non è un giudizio sulla gestione.'],
+  ['d5','Variazione della popolazione in cinque anni','rapporto_segno','asc','Variazione dei residenti rispetto a cinque anni prima. Un numero negativo indica una diminuzione; i confronti non disponibili restano esclusi.'],
+  ['o65','Residenti di 65 anni e oltre','rapporto','desc','Quota di residenti con almeno 65 anni. Descrive i bisogni del territorio e non la qualità della gestione.'],
+  ['occ','Occupati tra 20 e 64 anni','percentuale','asc','Quota di residenti fra 20 e 64 anni che lavorano, anche in un altro comune. Non misura i posti di lavoro presenti nel territorio.'],
+  ['istr','Adulti con al massimo la licenza media','percentuale','desc','Quota degli adulti con un titolo di studio non superiore alla licenza media, secondo l’indicatore ISTAT. Descrive il territorio.'],
+  ['red','Reddito medio dichiarato','euro','asc','Reddito imponibile medio dei contribuenti considerati dalla fonte MEF. È riferito all’anno d’imposta indicato, non al reddito di ogni residente.'],
+  ['ifc','Fragilità del territorio ISTAT','decile','desc','Decile dell’indice di fragilità comunale: da 1, meno fragile, a 10, più fragile. Non è una probabilità di dissesto né un voto all’amministrazione.']
+ ];
+ for(const [k,n,f,o,d] of territorio)aggiungi(k,n,'Territorio e popolazione','contesto',k,f,o,d);
+ for(const [k,n] of [['totale','Funzioni fondamentali'],['amministrazione','Amministrazione'],['istruzione','Istruzione'],['sociale_nido','Sociale e nidi']]){
+  aggiungi('spesa_'+k,n+' — spesa per abitante','Spesa e servizi','spesa',k,'euro_ab','desc','Spesa storica per abitante della funzione scelta. Una spesa più alta non significa automaticamente spreco: va letta con i servizi offerti e le caratteristiche del comune.');
+  aggiungi('scarto_'+k,n+' — differenza dal riferimento','Spesa e servizi rispetto al riferimento','scarto',k,'percentuale_segno','desc','Differenza percentuale fra spesa storica e spesa standard OpenCivitas. La spesa standard è un riferimento, non un limite di legge. Il segno non distingue automaticamente buona e cattiva gestione.');
+ }
+ function valore(m,r,j,rischio){
+  const out=(v,anno,sort=v)=>({v:numero(v)?v:null,anno,sort:numero(sort)?sort:null});
+  if(m.fonte==='rischio')return out(rischio?.indice,j.anno,rischio?.probabilita??rischio?.indice);
+  if(m.fonte==='indicatori')return out(r.indicatori?.[m.chiave],j.anno);
+  if(m.fonte==='saldo'){
+   const b=r.bilancio,p=r.contesto?.ab;
+   if(!numero(b?.e)||(b.enti||0)>1||Math.abs(b.scarto||0)>100)return out(null,j.anno);
+   if(m.id==='saldo_ab')return out(numero(p)&&p>0?b.e/100/p:null,j.anno);
+   return out(b.e/100,j.anno,b.e);
+  }
+  if(m.fonte==='contesto'){
+   const c=r.contesto,k=m.chiave;
+   const anno=k==='red'?(c?.a_red||j.contesto_meta.anno_reddito):['occ','istr','ifc'].includes(k)?(c?.a_ifc||j.contesto_meta.anno_ifc):j.anno;
+   return out(c?.[k],anno);
+  }
+  const s=r.servizi?.[m.chiave];
+  if(!s||s.spesa_non_valutabile)return out(null,j.servizi_anno);
+  if(m.fonte==='spesa')return out(s.spesa,j.servizi_anno);
+  return out(numero(s.spesa)&&numero(s.standard)&&s.standard>0?(s.spesa/s.standard-1)*100:null,j.servizi_anno);
+ }
+ function ordina(righe,ordine){
+  const validi=righe.filter(r=>numero(r.v)&&numero(r.sort)).map(r=>({...r}));
+  validi.sort((a,b)=>(ordine==='asc'?a.sort-b.sort:b.sort-a.sort)||a.nome.localeCompare(b.nome,'it')||a.key.localeCompare(b.key));
+  let prima=null,pos=0;
+  validi.forEach((r,i)=>{if(i===0||r.sort!==prima)pos=i+1;r.pos=pos;prima=r.sort;});
+  return validi;
+ }
+ const cifra=(v,d=1)=>new Intl.NumberFormat('it-IT',{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:'always'}).format(v);
+ function formato(v,f){
+  if(!numero(v))return 'Non disponibile';
+  if(f==='euro'||f==='euro_ab')return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',useGrouping:'always'}).format(v)+(f==='euro_ab'?' / ab.':'');
+  if(f==='intero')return cifra(v,0);
+  if(f==='giorni')return cifra(v,0)+' gg';
+  if(f==='decile')return cifra(v,0)+' su 10';
+  if(f==='indice')return cifra(v)+' / 100';
+  const val=f.startsWith('rapporto')?v*100:v;
+  const pct=root.MappeIndicatori?.percentuale?root.MappeIndicatori.percentuale(val):val!==0&&Math.abs(val)<0.005?val.toLocaleString('it-IT',{maximumSignificantDigits:2})+'%':cifra(val,val!==0&&Math.abs(val)<0.05?2:1)+'%';
+  return (f.endsWith('_segno')&&val>0?'+':'')+pct;
+ }
+ root.ClassificheToscana={metriche:M,valore,ordina,formato};
+ if(typeof document==='undefined')return;
+ const cache=new Map(),volo=new Map();
+ const stato={metrica:'rischio',ordine:'desc',cerca:'',limite:20};
+ function carica(anno){
+  if(cache.has(anno))return Promise.resolve(cache.get(anno));
+  if(volo.has(anno))return volo.get(anno);
+  const p=fetch('classifiche_toscana/anno_'+anno+'.json').then(r=>{if(!r.ok)throw new Error('Archivio non caricato');return r.json();}).then(j=>{
+   if(j.schema!==1||j.anno!==anno||j.entra_nel_modello!==false)throw new Error('Archivio non coerente');cache.set(anno,j);return j;
+  }).finally(()=>volo.delete(anno));volo.set(anno,p);return p;
+ }
+ function fonte(m,j){
+  if(m.fonte==='rischio')return `Modello del portale · dati ${j.anno} · ${HZ==='t3'?'orizzonte entro tre anni':'anno successivo'}.`;
+  if(m.fonte==='saldo')return `OpenBDAP · rendiconto ${j.anno}, parte disponibile E (voce 502). Gli storici aggregati e i dati con componenti incongruenti sono esclusi da questa classifica.`;
+  if(m.fonte==='indicatori')return `Stessi valori della scheda sulla mappa · dati ${j.anno}. Definizione e fonte sono consultabili aprendo il comune.`;
+  if(m.fonte==='contesto'){
+   if(m.chiave==='red')return `MEF · anno d’imposta ${j.contesto_meta.anno_reddito}.`;
+   if(['occ','istr','ifc'].includes(m.chiave))return `ISTAT · dati ${j.contesto_meta.anno_ifc}${j.contesto_meta.anno_ifc!==j.anno?' usati nella fotografia '+j.anno:''}. L’anno effettivo compare accanto ai valori.`;
+   return `ISTAT · residenti al 1° gennaio ${j.anno}${m.chiave==='d5'?', confronto con cinque anni prima':''}.`;
+  }
+  const f=j.servizi_fonti[m.chiave];
+  if(!f)return 'Per questa funzione non è disponibile una fonte nell’annata utilizzata.';
+  return `OpenCivitas · dati ${j.servizi_anno}${j.servizi_anno!==j.anno?' usati nella fotografia '+j.anno:''} · pubblicati il ${f.pubblicazione.split('-').reverse().join('/')} · <a target="_blank" rel="noopener" href="${esc(f.url)}">fonte e definizioni</a>.`;
+ }
+ function report(host,j){
+  const m=M.find(x=>x.id===stato.metrica),q=norm(stato.cerca);
+  const righe=Object.entries(j.comuni).map(([key,r])=>{
+   const x=riga(key),v=x?vista(x):null;
+   return {key,nome:NOMI[key]||r.nome,...valore(m,r,j,v?{indice:v.ix,probabilita:HZ==='t3'?x.p3:x.p}:null)};
+  });
+  const validi=ordina(righe,stato.ordine),filtrati=validi.filter(r=>norm(r.nome).includes(q)),mostrati=filtrati.slice(0,stato.limite);
+  host.querySelector('.ct-cl-nota').textContent=m.nota;
+  host.querySelector('.ct-cl-fonte').innerHTML=fonte(m,j);
+  const slot=host.querySelector('.ct-cl-risultati');
+  const conta=`${validi.length} comuni con dato · ${righe.length-validi.length} senza dato confrontabile`;
+  slot.innerHTML=`<p class="ct-cl-copertura">${esc(conta)}<br><span>Fotografia ${j.anno} · ${stato.ordine==='desc'?'valori più alti per primi':'valori più bassi per primi'}</span></p>`
+   +(mostrati.length?`<ol class="ct-cl-elenco" aria-label="Classifica per ${esc(m.nome)}">${mostrati.map(r=>{
+    const apribile=!!LAYMAP[r.key];
+    return `<li><span class="ct-cl-pos" aria-label="Posizione ${r.pos}">${r.pos}</span><div class="ct-cl-comune">${apribile?`<button type="button" data-comune="${esc(r.key)}" aria-label="Apri la scheda di ${esc(r.nome)}">${esc(r.nome)}</button>`:`<span>${esc(r.nome)}</span>`}<small>${esc(formato(r.v,m.formato))}${r.anno!==j.anno?' · dato '+r.anno:''}</small></div></li>`;
+   }).join('')}</ol>`:'<p class="ct-cl-vuota">'+(validi.length?'Nessun comune corrisponde alla ricerca.':'Nessun valore confrontabile per questo indicatore nell’annata selezionata.')+'</p>')
+   +`<p class="ct-cl-conta">Mostrati ${mostrati.length} di ${filtrati.length}${q?' corrispondenti alla ricerca':''}.</p>`
+   +(filtrati.length>mostrati.length?'<button type="button" class="ct-cl-altri">Mostra altri 20 comuni</button>':'');
+ }
+ function vistaClassifiche(){
+  queueMicrotask(()=>{
+   const host=document.getElementById('classifiche-toscana');if(!host)return;
+   const anno=ANNO;
+   const s=host.querySelector('#ct-cl-indicatore');
+   for(const gruppo of [...new Set(M.map(x=>x.gruppo))]){
+    const g=document.createElement('optgroup');g.label=gruppo;
+    M.filter(x=>x.gruppo===gruppo).forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=m.nome;g.append(o);});s.append(g);
+   }
+   s.value=stato.metrica;host.querySelector('#ct-cl-ordine').value=stato.ordine;host.querySelector('#ct-cl-cerca').value=stato.cerca;
+   let data=null;
+   const attivo=()=>document.contains(host)&&ANNO===anno&&SCHEDA===3;
+   s.addEventListener('change',()=>{stato.metrica=s.value;stato.ordine=M.find(x=>x.id===s.value).ordine;host.querySelector('#ct-cl-ordine').value=stato.ordine;stato.limite=20;if(data)report(host,data);});
+   host.querySelector('#ct-cl-ordine').addEventListener('change',e=>{stato.ordine=e.target.value;stato.limite=20;if(data)report(host,data);});
+   host.querySelector('#ct-cl-cerca').addEventListener('input',e=>{stato.cerca=e.target.value;stato.limite=20;if(data)report(host,data);});
+   host.addEventListener('click',e=>{
+    if(e.target.closest('.ct-cl-altri')){stato.limite+=20;if(data)report(host,data);}
+    const b=e.target.closest('[data-comune]');if(b){
+     const k=b.dataset.comune;chiudiCasi();
+     const input=document.getElementById('cerca');
+     if(input&&NOMI[k]){input.value=NOMI[k];input.dispatchEvent(new Event('change',{bubbles:true}));}else mostra(k);
+    }
+   });
+   function scarica(){
+    host.querySelector('.ct-cl-risultati').innerHTML='<p role="status">Caricamento della classifica…</p>';
+    carica(anno).then(j=>{if(attivo()){data=j;report(host,j);}}).catch(()=>{if(attivo()){
+     const slot=host.querySelector('.ct-cl-risultati');slot.innerHTML='<p>La classifica non si è caricata. I valori mancanti non vengono sostituiti.</p><button type="button" class="ct-cl-riprova">Riprova</button>';slot.querySelector('button').addEventListener('click',scarica);
+    }});
+   }
+   scarica();
+  });
+  return `<section id="classifiche-toscana"><h4>Comuni toscani a confronto</h4><p class="ct-cl-intro">Scegli un indicatore e ordina i comuni. I dati descrittivi non modificano il rischio del modello.</p><div class="ct-cl-controlli"><label for="ct-cl-indicatore">Indicatore<select id="ct-cl-indicatore"></select></label><label for="ct-cl-ordine">Ordine<select id="ct-cl-ordine"><option value="desc">Valori più alti</option><option value="asc">Valori più bassi</option></select></label><label for="ct-cl-cerca">Cerca nella classifica<input id="ct-cl-cerca" type="search" placeholder="Nome del comune" autocomplete="off"></label></div><p class="ct-cl-nota"></p><p class="ct-cl-fonte"></p><div class="ct-cl-risultati" aria-live="polite"></div><details class="ct-cl-metodo"><summary>Come leggere la classifica</summary><p>Si confrontano i comuni della Toscana presenti negli archivi dell’anno scelto. Un dato demografico mancante non impedisce di consultare gli altri indicatori di un comune già presente nelle annate precedenti. Le aggregazioni retrospettive del modello con nomi comparsi soltanto successivamente nell’anagrafe demografica non entrano nella classifica. I dati assenti o non confrontabili sono esclusi e non diventano zero. Possono essere inclusi dati descrittivi di comuni senza un punteggio di rischio.</p><p>Le posizioni usano i valori originali, prima dell’arrotondamento; i valori esattamente uguali condividono la posizione. Per il rischio si usa la probabilità non arrotondata del modello e si mostra l’indice nazionale.</p><p>Per servizi e alcuni indicatori del territorio può essere usata un’annata precedente: l’anno effettivo è indicato. La fotografia è ricostruita con le fonti oggi disponibili; non certifica quali informazioni fossero pubbliche all’epoca.</p><p>Valori più alti o più bassi non significano sempre migliore o peggiore gestione. Per interpretare il dato apri la scheda del comune e consulta le fonti.</p></details></section>`;
+ }
+ function inizializza(){
+  if(document.getElementById('tb-3'))return;
+  VISTE.push(vistaClassifiche);
+  const tab=document.createElement('button');tab.id='tb-3';tab.type='button';tab.textContent='Classifiche';tab.addEventListener('click',()=>scheda(3));document.querySelector('#casi .tabs').append(tab);
+  const prima=aggiornaTesti;aggiornaTesti=function(...args){prima.apply(this,args);if(document.getElementById('casi').style.display==='block'&&SCHEDA===3){stato.limite=20;scheda(3);}};
+  if(new URLSearchParams(location.search).get('vista')==='classifiche'){mostraCasi();scheda(3);}
+ }
+ if(document.readyState==='complete')inizializza();else window.addEventListener('load',inizializza,{once:true});
+})(typeof window!=='undefined'?window:globalThis);
+</script>
 </body>
 <script>
     
