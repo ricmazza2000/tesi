@@ -540,6 +540,186 @@ body.portale-attiva{--page:#EEEDE7;--surface:#FFFDF8;--ring:rgba(31,58,95,.15);-
 <link data-stime-correnti="1" rel="stylesheet" href="stime_ui.css?v=20261105-stime1">
 <script data-stime-correnti="1" src="stime_ui.js?v=20261105-stime1" defer></script>
 <script data-stime-correnti="1" src="stime_portale.js?v=20261105-stime1" defer></script>
+<style data-risultati-portale="stile">/* Solo presentazione: eredita colori e caratteri del portale. */
+body:has(#intercetta.on) #sel-riepilogo{display:none}
+#intercetta [hidden]{display:none!important}
+#intercetta .ris-tabs,#intercetta .ris-soglie{display:flex;gap:8px;flex-wrap:wrap}
+#intercetta .ris-tabs{margin:20px 0 15px}
+#intercetta button{min-height:40px;height:auto;padding:9px 14px;border:1px solid var(--ring);border-radius:7px;background:var(--surface);color:var(--ink);font:500 13px 'Archivo',Arial,sans-serif;cursor:pointer}
+#intercetta button[aria-selected=true],#intercetta button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+#intercetta button:focus-visible,#intercetta select:focus-visible,#intercetta summary:focus-visible{outline:3px solid var(--serious);outline-offset:3px}
+#intercetta .ris-contesto{font-size:14px;color:var(--ink2);margin:0 0 20px;line-height:1.6}
+#intercetta .ris-controlli{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin:0 0 16px}
+#intercetta .ris-etichetta{font-size:12px;color:var(--ink2);display:block;margin-bottom:7px}
+#intercetta .ris-sintesi{padding:22px;margin-bottom:10px}
+#intercetta .ris-periodo{font-size:12px;color:var(--ink2);letter-spacing:.04em;text-transform:uppercase;margin:0 0 12px;line-height:1.5}
+#intercetta .ris-metriche{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:12px 0 20px}
+#intercetta .ris-metrica{min-width:0}
+#intercetta .ris-titolo{display:block;font-size:14px;font-weight:600;margin-bottom:5px;color:var(--ink)}
+#intercetta .ris-significato{display:block;font-size:12.5px;color:var(--ink2);line-height:1.5;overflow-wrap:break-word}
+#intercetta .ris-valore{font:400 39px/1.15 'Fraunces',Georgia,serif;margin:9px 0 8px;font-variant-numeric:tabular-nums;color:var(--ink)}
+#intercetta .ris-valore.ris-testo{font-size:21px;line-height:1.4}
+#intercetta .ris-phrase{font-size:15px;line-height:1.6;margin:0}
+#intercetta .ris-barra{height:12px;display:flex;background:var(--grid);border-radius:6px;overflow:hidden;margin:16px 0 8px}
+#intercetta .ris-riempimento{height:100%;background:var(--s1);transition:width .2s ease}
+#intercetta .ris-legenda{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+#intercetta .ris-costo{border-top:1px solid var(--ring);margin-top:18px;padding-top:15px;font-size:14px;line-height:1.6;color:var(--ink2)}
+#intercetta .ris-costo p{margin:0 0 6px}
+#intercetta .ris-stato{display:inline-block;padding:3px 8px;border-radius:4px;background:var(--page);font-size:12px;font-weight:600;color:var(--serious);margin-bottom:10px}
+#intercetta .ris-spiegazione-soglia{margin:10px 0 19px!important}
+#intercetta .ris-spiegazioni{font-size:14px;line-height:1.65}
+#intercetta .ris-spiegazioni summary{font-size:14px;font-weight:600;cursor:pointer}
+#intercetta .ris-spiegazioni p{font-size:13.5px;margin:12px 0 0;line-height:1.65}
+#intercetta .ris-sezione{margin:24px 0}
+#intercetta .ris-sezione h3{font-size:23px;margin-bottom:8px}
+#intercetta .ris-quadro-nota{margin-bottom:16px}
+#intercetta .ris-anno-riga{display:grid;grid-template-columns:45px minmax(90px,1fr) 140px;gap:14px;align-items:center;margin:13px 0;font-size:13px;font-variant-numeric:tabular-nums}
+#intercetta .ris-anno-riga .ris-barra{height:9px;margin:0}
+#intercetta .ris-fineeee{text-align:right;color:var(--ink2)}
+#intercetta .ris-media{padding:15px 0;border-top:1px solid var(--ring);border-bottom:1px solid var(--ring)}
+#intercetta .ris-legge label{display:block;font-size:13px;color:var(--ink2);margin:15px 0 6px}
+#intercetta .ris-legge select{max-width:100%;margin-bottom:12px}
+#intercetta .ris-riga-legge{display:grid;grid-template-columns:145px minmax(90px,1fr) 160px;align-items:center;gap:14px;margin:15px 0;font-size:13px;font-variant-numeric:tabular-nums}
+#intercetta .ris-riga-legge .ris-barra{margin:0}
+#intercetta .ris-riempimento-legge{height:100%;background:var(--serious);transition:width .2s ease}
+#intercetta .ris-fonti{border-top:1px solid var(--ring);margin-top:24px;padding-top:15px}
+#intercetta .ris-avviso{margin:12px 0 0;font-size:12.5px;line-height:1.6;color:var(--ink2)}
+@media(max-width:760px){#intercetta .ris-metriche{gap:18px}#intercetta .ris-valore{font-size:33px}#intercetta .ris-riga-legge{grid-template-columns:115px minmax(55px,1fr) 130px;gap:10px}}
+@media(max-width:540px){#intercetta .ris-sintesi{padding:18px}#intercetta .ris-metriche{grid-template-columns:1fr;gap:18px}#intercetta .ris-metrica+.ris-metrica{border-top:1px solid var(--ring);padding-top:15px}#intercetta .ris-anno-riga{grid-template-columns:36px minmax(45px,1fr) 112px;gap:8px}#intercetta .ris-riga-legge{grid-template-columns:1fr 1fr;gap:8px}#intercetta .ris-riga-legge .ris-barra{grid-column:1 / -1;grid-row:2}#intercetta .ris-tabs button{flex:1}#intercetta .ris-fonti{font-size:12px}}
+@media(prefers-reduced-motion:reduce){#intercetta .ris-riempimento,#intercetta .ris-riempimento-legge{transition:none}}
+</style>
+<script data-risultati-portale="dati" id="risultati-dati" type="application/json">{"schema":1,"versione":"v2026-10-17-chiusure-residue","variabili":51,"esiti_completi_al":2025,"orizzonti":{"t1":{"anni":{"2018":{"anno":2018,"comuni":7679,"eventi":34,"colti":24,"segnalati":384,"auc":0.916,"ap":0.129,"training":"2008-2017"},"2019":{"anno":2019,"comuni":7887,"eventi":24,"colti":23,"segnalati":395,"auc":0.976,"ap":0.154,"training":"2008-2018"},"2020":{"anno":2020,"comuni":7879,"eventi":19,"colti":17,"segnalati":394,"auc":0.961,"ap":0.139,"training":"2008-2019"},"2021":{"anno":2021,"comuni":7877,"eventi":20,"colti":15,"segnalati":394,"auc":0.945,"ap":0.1,"training":"2008-2020"},"2022":{"anno":2022,"comuni":7864,"eventi":22,"colti":19,"segnalati":394,"auc":0.975,"ap":0.159,"training":"2008-2021"},"2023":{"anno":2023,"comuni":7834,"eventi":16,"colti":11,"segnalati":392,"auc":0.918,"ap":0.125,"training":"2008-2022"},"2024":{"anno":2024,"comuni":7799,"eventi":13,"colti":12,"segnalati":390,"auc":0.981,"ap":0.108,"training":"2008-2023"}},"eventi":148,"colti":121,"richiamo":0.8175675675675675,"auc_media":0.953,"ap_media":0.131,"richiamo_medio":0.826},"t3":{"anni":{"2018":{"anno":2018,"comuni":7679,"eventi":79,"colti":44,"segnalati":null,"auc":0.941,"ap":0.22,"training":"2008-2015"},"2019":{"anno":2019,"comuni":7887,"eventi":68,"colti":44,"segnalati":395,"auc":0.93,"ap":0.173,"training":"2008-2016"},"2020":{"anno":2020,"comuni":7879,"eventi":68,"colti":45,"segnalati":394,"auc":0.932,"ap":0.193,"training":"2008-2017"},"2021":{"anno":2021,"comuni":7877,"eventi":80,"colti":49,"segnalati":394,"auc":0.947,"ap":0.239,"training":"2008-2018"},"2022":{"anno":2022,"comuni":7864,"eventi":75,"colti":52,"segnalati":394,"auc":0.934,"ap":0.235,"training":"2008-2019"}},"eventi":370,"colti":234,"richiamo":0.6324324324324324,"auc_media":0.937,"ap_media":0.212,"richiamo_medio":0.634}},"confronto":{"disponibile":true,"scenari":{"t":{"periodo":"2018-2022","segnalazioni":567,"eventi":327,"modello":115,"legge":95},"t2":{"periodo":"2020-2022","segnalazioni":379,"eventi":209,"modello":75,"legge":36}},"fonte":"Ricalcolo riproducibile del capitolo 4, 23 ottobre 2026; stessi comuni e stesso numero annuale di segnalazioni entro ciascuno scenario."},"fonti":{"metriche":"MASTER_validazione_finale.csv","soglie":"portale_anni/anno_<anno>.json","confronto":"confronto_legge_tesi_2026-10-23/confronto_segnalazioni.csv"}}</script>
+<script data-risultati-portale="interfaccia">/* Presentazione dei risultati: nessuna modifica a graduatorie o contributi. */
+(() => {
+  'use strict';
+  let dati = null, selezione = null, collegato = false;
+  const stato = {vista: 'anno', soglia: 5, legge: 't'};
+  const elemento = id => document.getElementById(id);
+  const intero = n => String(Math.round(Number(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const decimale = (n, cifre = 1) => Number(n).toLocaleString('it-IT', {minimumFractionDigits: cifre, maximumFractionDigits: cifre});
+  const percentuale = (n, totale) => totale > 0 ? decimale(100 * n / totale) + '%' : 'n.d.';
+  const testo = valore => String(valore ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const nomeOrizzonte = h => h === 't3' ? 'entro tre anni' : 'nell’anno successivo';
+  function metrica(titolo, significato, valore, nota, id, compatta = false) {
+    return `<div class="ris-metrica"><dt class="ris-titolo">${testo(titolo)}</dt><span class="ris-significato">${testo(significato)}</span><dd class="ris-valore${compatta?' ris-testo':''}"${id?' id="'+id+'"':''}>${testo(valore)}</dd><span class="ris-significato">${testo(nota)}</span></div>`;
+  }
+  function barra(colti, totale, parziale = false) {
+    if (!(totale > 0)) return '';
+    const quota = Math.max(0, Math.min(100, 100 * colti / totale));
+    return `<div class="ris-barra" role="img" aria-label="${colti} casi intercettati e ${totale-colti} fuori dal gruppo${parziale?', conteggio parziale':''}"><div class="ris-riempimento" style="width:${quota}%"></div></div><div class="ris-legenda"><span>${colti} intercettati${parziale?' finora':''}</span><span>${totale-colti} fuori dal gruppo${parziale?' finora':''}</span></div>`;
+  }
+  function periodo(o) {
+    return o.periodo[0] === o.periodo[1] ? 'nel ' + o.periodo[0] : 'fra il ' + o.periodo[0] + ' e il ' + o.periodo[1];
+  }
+  function disegnaAnno() {
+    const {anno, orizzonte, metadati} = selezione;
+    const o = metadati?.orizzonti?.[orizzonte];
+    const corpo = elemento('ris-anno-corpo');
+    const disponibile = !!(o && o.stato !== 'non valutabile' && o.intercettazione);
+    document.querySelectorAll('[data-ris-soglia]').forEach(b => {
+      b.disabled = !disponibile;
+      b.setAttribute('aria-pressed', String(Number(b.dataset.risSoglia) === stato.soglia));
+    });
+    elemento('ris-fotografia').innerHTML = '<b>Bilancio ' + anno + '</b> · ' + intero(selezione.comuni) + ' comuni valutati';
+    if (!disponibile) {
+      corpo.innerHTML = '<p class="ris-phrase"><b>Questo orizzonte non è valutabile per il bilancio ' + anno + '.</b></p><p class="note">' + testo(o?.motivo || metadati?.testo || 'Il campione disponibile non consente una valutazione confrontabile.') + '</p>';
+      return;
+    }
+    const punto = o.intercettazione['top' + stato.soglia];
+    if (!punto) {corpo.innerHTML = '<p>Questa soglia non è disponibile per l’anno scelto.</p>'; return;}
+    const eventi = o.eventi_osservati, colti = punto.colti, segnalati = punto.segnalati;
+    if (![eventi, colti, segnalati].every(Number.isFinite) || colti > eventi || colti > segnalati)
+      throw new Error('Conteggi dei risultati incoerenti');
+    const parziale = !o.verifica_completa;
+    const fold = dati.orizzonti[orizzonte]?.anni?.[String(anno)];
+    const usaMetriche = !!(fold && !parziale && fold.eventi === eventi && fold.comuni === selezione.comuni);
+    const notaMetriche = parziale ? 'Esiti ancora incompleti' : 'Anno fuori dalla validazione principale';
+    const periodoTesto = periodo(o);
+    const richiamo = parziale ? colti + ' su ' + eventi : percentuale(colti, eventi);
+    const gruppo = 'Nel primo ' + stato.soglia + '% della graduatoria';
+    const statoTesto = parziale
+      ? '<div class="ris-stato">Verifica aperta · conteggio parziale</div>'
+      : !fold ? '<div class="ris-stato">Fotografia esplorativa · fuori dal riepilogo ufficiale</div>' : '';
+    const riepilogo = eventi === 1
+      ? '<b>L’unico dissesto' + (parziale?' finora noto':' osservato') + '</b> ' + (colti?'rientra':'non rientra')
+        + ' nel gruppo dei <b>' + intero(segnalati) + ' comuni</b> segnalati.'
+      : '<b>' + colti + ' dei ' + eventi + ' dissesti' + (parziale?' finora noti':'')
+        + '</b> ' + (parziale?'rientrano':'rientravano') + ' nel gruppo dei <b>' + intero(segnalati) + ' comuni</b> segnalati.';
+    corpo.innerHTML = statoTesto + `<p class="ris-periodo">Bilanci ${anno} → dissesti ${periodoTesto}</p><dl class="ris-metriche">`
+      + metrica('Richiamo', 'Quanti dissesti intercetta', richiamo,
+                parziale ? 'Solo fra i casi finora registrati' : gruppo, 'ris-richiamo', parziale)
+      + metrica('AUC', 'Quanto bene ordina i comuni', usaMetriche ? decimale(fold.auc, 3) : 'n.d.',
+                usaMetriche ? '0,5: ordine casuale · 1: perfetto' : notaMetriche, 'ris-auc')
+      + metrica('AP · Average Precision', 'Precisione e richiamo insieme', usaMetriche ? decimale(fold.ap, 3) : 'n.d.',
+                usaMetriche ? 'Scala 0–1 · più alta è meglio' : notaMetriche, 'ris-ap')
+      + '</dl><p class="ris-phrase">' + riepilogo + '</p>'
+      + (parziale && eventi < 5 ? '' : barra(colti, eventi, parziale))
+      + '<div class="ris-costo"><p><b>Fra i comuni segnalati:</b> ' + colti + ' ' + (parziale?(colti===1?'risulta finora associato':'risultano finora associati') + ' a un dissesto':(colti===1?'dichiara':'dichiarano') + ' dissesto ' + periodoTesto)
+      + (parziale ? '. Gli altri ' + intero(segnalati-colti) + ' non hanno un dissesto registrato in questa finestra; l’esito può ancora cambiare.'
+                  : '; ' + intero(segnalati-colti) + ' non lo dichiarano in quel periodo. La precisione alla soglia scelta è ' + percentuale(colti,segnalati) + '.')
+      + '</p><p class="note">Una segnalazione indica un caso da approfondire, non un dissesto certo.</p></div>'
+      + (parziale ? '<p class="note ris-avviso">Gli esiti sono completi fino al ' + testo(metadati.esiti_completi_al) + '. Per gli anni successivi sono inclusi solo i casi già registrati nell’archivio; questi conteggi non sono una misura finale delle prestazioni.</p>' : '');
+  }
+  function disegnaQuadro() {
+    const h = selezione.orizzonte, o = dati.orizzonti[h], corpo = elemento('ris-quadro-corpo');
+    if (!o) {corpo.innerHTML = '<p>Riepilogo non disponibile.</p>'; return;}
+    const anni = Object.values(o.anni).sort((a,b) => a.anno-b.anno);
+    corpo.innerHTML = `<p class="ris-periodo">Bilanci ${anni[0].anno}–${anni[anni.length-1].anno} · ${nomeOrizzonte(h)} · primo 5% ogni anno</p><dl class="ris-metriche">`
+      + metrica('Richiamo complessivo', 'Quanti casi intercetta', percentuale(o.colti,o.eventi), 'Dal totale dei casi valutati', 'ris-tot-richiamo')
+      + metrica('AUC media', 'Quanto bene ordina i comuni', decimale(o.auc_media,3), 'Media dei risultati annuali', 'ris-tot-auc')
+      + metrica('AP media', 'Precisione e richiamo insieme', decimale(o.ap_media,3), 'Media dei risultati annuali', 'ris-tot-ap')
+      + '</dl><p class="ris-phrase"><b>' + o.colti + ' ' + (h==='t3'?'osservazioni associate a dissesto intercettate':'dissesti intercettati') + ' su ' + o.eventi + '</b> nella verifica complessiva.</p>'
+      + '<p class="note ris-avviso">' + (h==='t3'?'Le finestre triennali possono includere più volte lo stesso dissesto: queste non sono ' + o.eventi + ' dichiarazioni distinte.':'Ogni evento è valutato nella fotografia dell’anno precedente.')
+      + ' Il richiamo complessivo deriva dalla somma dei casi; AUC e AP sono medie annuali.</p>';
+    elemento('ris-annuali').innerHTML = anni.map(r => `<div class="ris-anno-riga"><span>${r.anno}</span><div class="ris-barra" role="img" aria-label="${r.anno}: ${r.colti} casi intercettati su ${r.eventi}"><div class="ris-riempimento" style="width:${100*r.colti/r.eventi}%"></div></div><span class="ris-fine">${r.colti}/${r.eventi} · ${percentuale(r.colti,r.eventi)}</span></div>`).join('');
+    elemento('ris-media-nota').innerHTML = 'Il <b>richiamo complessivo è ' + percentuale(o.colti,o.eventi) + '</b>: sommo i ' + o.colti + ' casi intercettati e li divido per i ' + o.eventi + ' casi valutati. La <b>media dei richiami annuali è ' + decimale(o.richiamo_medio*100) + '%</b>: dà lo stesso peso a ogni anno, anche quando cambia il numero di dissesti. AUC e AP sono riportate come medie dei risultati annuali, non come misure ricalcolate su un’unica graduatoria.';
+  }
+  function disegnaLegge() {
+    const host = elemento('ris-legge-corpo'), confronto = dati.confronto;
+    elemento('ris-legge-scenario').disabled = !confronto.disponibile;
+    if (!confronto.disponibile) {host.innerHTML = '<p class="note">' + testo(confronto.motivo) + '</p>'; return;}
+    const s = confronto.scenari[stato.legge];
+    function riga(nome, colti, classe) {
+      return `<div class="ris-riga-legge"><span>${nome}</span><div class="ris-barra" role="img" aria-label="${nome}: ${colti} su ${s.eventi}, ${percentuale(colti,s.eventi)}"><div class="${classe}" style="width:${100*colti/s.eventi}%"></div></div><span class="ris-fine">${colti}/${s.eventi} · ${percentuale(colti,s.eventi)}</span></div>`;
+    }
+    host.innerHTML = `<p class="ris-periodo">Test ${testo(s.periodo)} · ${s.segnalazioni} segnalazioni complessive per metodo</p>`
+      + riga('Modello',s.modello,'ris-riempimento') + riga('Regola di legge',s.legge,'ris-riempimento-legge')
+      + '<p class="note">Il denominatore è ' + s.eventi + ' osservazioni associate a un dissesto nei tre anni successivi. Le finestre possono ripetere lo stesso evento. Il modello intercetta <b>' + (s.modello-s.legge) + ' casi in più</b> con lo stesso numero annuale di segnalazioni.</p>';
+  }
+  function disegna() {
+    document.querySelectorAll('[data-ris-vista]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.risVista === stato.vista)));
+    elemento('ris-anno').hidden = stato.vista !== 'anno'; elemento('ris-quadro').hidden = stato.vista !== 'quadro';
+    const o = selezione.metadati?.orizzonti?.[selezione.orizzonte];
+    elemento('ris-contesto').textContent = stato.vista === 'quadro'
+      ? 'Validazione su tutti gli anni verificabili · orizzonte ' + nomeOrizzonte(selezione.orizzonte)
+      : 'Bilancio ' + selezione.anno + ' · orizzonte ' + nomeOrizzonte(selezione.orizzonte)
+        + (o?.periodo ? ' · dissesti ' + periodo(o) : '');
+    elemento('ris-versione').textContent = 'Specifica a ' + dati.variabili + ' variabili.';
+    elemento('es-tot').textContent = intero(selezione.comuni);
+    disegnaAnno(); disegnaQuadro(); disegnaLegge();
+  }
+  function collega() {
+    if (collegato) return;
+    collegato = true;
+    document.querySelectorAll('[data-ris-vista]').forEach(b => {
+      b.addEventListener('click', () => {stato.vista=b.dataset.risVista;disegna();});
+      b.addEventListener('keydown', e => {
+        if (['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) {
+          e.preventDefault(); const nuova = e.key==='Home'?'anno':e.key==='End'?'quadro':stato.vista==='anno'?'quadro':'anno';
+          const pulsante = document.querySelector('[data-ris-vista="'+nuova+'"]'); pulsante.click(); pulsante.focus();
+        }
+      });
+    });
+    document.querySelectorAll('[data-ris-soglia]').forEach(b => b.addEventListener('click', () => {stato.soglia=Number(b.dataset.risSoglia);disegna();}));
+    elemento('ris-legge-scenario').addEventListener('change', e => {stato.legge=e.target.value;disegnaLegge();});
+  }
+  window.RisultatiPortale = Object.freeze({mostra(nuovaSelezione) {
+    if (!dati) dati = JSON.parse(elemento('risultati-dati').textContent);
+    if (dati.schema !== 1 || !['t1','t3'].includes(nuovaSelezione.orizzonte)) throw new Error('Versione risultati non riconosciuta');
+    selezione=nuovaSelezione;collega();disegna();
+  }});
+})();
+</script>
 </head><body>
 <div class="tip" id="tip"></div>
 
@@ -645,20 +825,39 @@ rischio: 95 significa più a rischio del 95% dei comuni, non una probabilità di
  </details>
 </section>
 
-<section id="intercetta">
- <h2>Quanto intercetta il modello</h2>
- <p class="lead">Quanti dissesti rientravano nel gruppo di allerta. È una verifica storica con dati raccolti successivamente; i due orizzonti sono valutazioni distinte.</p>
- <div class="card" style="border-left:3px solid var(--accent)">
-  <p style="font-size:14.5px;color:var(--ink2);margin-bottom:12px" id="es-intro"></p>
-  <div class="grid g2" id="es-box" style="gap:14px"></div>
-  <p style="font-size:13.5px;color:var(--ink2);margin:12px 0 0" id="es-nota"></p>
-  <p class="note" style="margin:12px 0 0">Allargare il gruppo di allerta permette di intercettare più dissesti,
-   ma richiede di sorvegliare più comuni. <a href="#leggere">Come leggere questi numeri</a>.</p>
+<section id="intercetta" data-risultati-versione="2026-11-17">
+ <h2>Quanto riesce a intercettare il modello?</h2>
+ <p class="lead">È una verifica retrospettiva: i dati descrivono quegli anni, ma non sempre erano già pubblici. I risultati non dimostrano ancora le prestazioni di un’allerta usata all’epoca.</p>
+ <div class="ris-tabs" role="tablist" aria-label="Risultati da consultare">
+  <button type="button" id="ris-tab-anno" role="tab" aria-controls="ris-anno" aria-selected="true" data-ris-vista="anno">Nell’anno scelto</button>
+  <button type="button" id="ris-tab-quadro" role="tab" aria-controls="ris-quadro" aria-selected="false" data-ris-vista="quadro">Il quadro complessivo</button>
  </div>
-
- <p class="note" style="margin-top:14px"><span id="es-tot"></span> comuni nella
- fotografia <span class="av-anno"></span>. Il dettaglio caso per caso è in
- <a href="#casi">Casi spiegati</a>; il metodo in <a href="#leggere">Come si legge</a>.</p>
+ <p class="ris-contesto" id="ris-contesto"></p>
+ <div id="ris-anno" role="tabpanel" aria-labelledby="ris-tab-anno">
+  <div class="ris-controlli"><span id="ris-fotografia"></span><div><span class="ris-etichetta" id="ris-soglia-label">Quanti comuni mettiamo sotto osservazione?</span><div class="ris-soglie" role="group" aria-labelledby="ris-soglia-label">
+   <button type="button" data-ris-soglia="5" aria-pressed="true">Primo 5%</button><button type="button" data-ris-soglia="10" aria-pressed="false">Primo 10%</button><button type="button" data-ris-soglia="20" aria-pressed="false">Primo 20%</button>
+  </div></div></div>
+  <div class="card ris-sintesi" id="ris-anno-corpo" aria-live="polite" aria-atomic="true"></div>
+  <p class="note ris-spiegazione-soglia">Il richiamo cambia con il gruppo scelto. AUC e AP valutano l’intera graduatoria e restano uguali cambiando soglia.</p>
+  <details class="card ris-spiegazioni"><summary>Come leggere AUC, AP e richiamo</summary>
+   <p><b>Richiamo — quanti dissesti intercetta.</b> Fra tutti i dissesti avvenuti nel periodo, è la quota che rientrava nel gruppo segnalato. Per esempio, 19 su 22 significa 86,4%.</p>
+   <p><b>AUC — quanto bene ordina i comuni.</b> Confronta un caso seguito da dissesto con uno senza dissesto e misura quanto spesso il modello assegna più rischio al primo. Un valore di 0,5 corrisponde a un ordinamento casuale; 1 a un ordinamento perfetto. Non è la percentuale di comuni previsti correttamente.</p>
+   <p><b>AP — Average Precision.</b> Riassume la precisione delle segnalazioni mentre allarghiamo il gruppo per intercettare più dissesti. Considera tutte le soglie e non coincide con la precisione del solo gruppo del 5%. Più è alta, meglio è; dipende anche da quanto sono rari i dissesti nel campione.</p>
+   <p><b>Precisione alla soglia scelta.</b> Fra i comuni segnalati, quanti dichiarano dissesto nel periodo? È un’altra domanda rispetto al richiamo: il primo parte dalle segnalazioni, il secondo dai dissesti avvenuti.</p>
+  </details>
+ </div>
+ <div id="ris-quadro" role="tabpanel" aria-labelledby="ris-tab-quadro" hidden>
+  <p class="note ris-quadro-nota">Questo riepilogo usa tutti gli anni della validazione principale con esiti completi. Segue l’orizzonte scelto e non cambia con l’anno di bilancio o con la soglia della prima vista: qui l’allerta è sempre sul primo 5%.</p>
+  <div class="card ris-sintesi" id="ris-quadro-corpo" aria-live="polite" aria-atomic="true"></div>
+  <div class="ris-sezione"><h3>Come cambia il risultato da un anno all’altro</h3><p class="note">Anno del bilancio · dissesti intercettati sul totale osservato · richiamo nel primo 5%</p><div id="ris-annuali"></div></div>
+  <details class="ris-spiegazioni ris-media"><summary>Risultato complessivo e media annuale: perché possono differire</summary><p id="ris-media-nota"></p></details>
+  <div class="ris-legge ris-sezione"><h3>Il confronto con i parametri di legge</h3><p class="note">Verifica distinta <b>entro tre anni</b>. In ciascuno scenario confronto gli stessi comuni e lo stesso numero annuale di segnalazioni per i due metodi.</p>
+   <label for="ris-legge-scenario">Dati usati dalla regola di legge</label><select id="ris-legge-scenario"><option value="t">Dati dell’anno osservato</option><option value="t2">Dati di due anni prima</option></select>
+   <div id="ris-legge-corpo" aria-live="polite" aria-atomic="true"></div>
+   <p class="note">I due scenari usano campioni diversi: il confronto corretto è fra modello e regola nello stesso scenario. L’anno dei dati non certifica quando fossero pubblicati.</p>
+  </div>
+ </div>
+ <p class="note ris-fonti"><span id="es-tot"></span> comuni nell’anno selezionato. <a href="#casi">Casi spiegati</a> (gruppo del 10%) · <a href="#leggere">Metodo e fonti</a>. <span id="ris-versione"></span></p>
 </section>
 
 <!-- id "casi" e non "mancati": il div dell'elenco si chiama gia' "mancati" e due
@@ -2060,107 +2259,8 @@ function disegnaRiepilogo(){
 }
 
 function disegnaRisultati(){
-  const box=document.getElementById('es-box'), intro=document.getElementById('es-intro'),
-        nota=document.getElementById('es-nota');
-  if(!box) return;
-  const O = AM && AM.orizzonti ? AM.orizzonti : null;
-  if(!O){ intro.innerHTML=''; box.innerHTML=''; if(nota) nota.innerHTML='';
-          disegnaRiepilogo(); return; }
-
-  intro.innerHTML = `Fotografia <b>${ANNO}</b> · allerta sul <b>${Math.round(AM.soglia_allerta*100)}% più a rischio</b>.
-    Per ogni orizzonte: dissesti intercettati rispetto a quelli avvenuti dopo.`;
-
-  /* Un riquadro per orizzonte, non uno solo: chi legge vuole sapere sia «quanti
-     ne prende l'anno dopo» sia «quanti ne prende in tre anni», e sono due
-     numeri che rispondono a due domande diverse. Il riquadro si disegna anche
-     quando la finestra e' aperta, perche' «non lo sappiamo ancora» detto con un
-     numero parziale dichiarato e' piu' utile di una casella vuota — ma la
-     parola «parziale» deve stare addosso al numero, non in una nota sotto. */
-  function riquadro(ch, etichetta){
-    const o = O[ch];
-    if(!o || o.stato==='non valutabile' || !o.intercettazione){
-      return `<div class="card" style="margin:0;background:var(--page);opacity:.8">
-        <div style="font-size:12px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em">
-         ${etichetta}</div>
-        <div style="font-size:30px;font-weight:800;margin:1px 0 2px;color:var(--muted)">non disponibile</div>
-        <div style="font-size:13.5px;color:var(--ink2)">Per il bilancio ${ANNO} questo orizzonte non
-         ammette una valutazione: ${(o&&o.motivo)||'il campione di addestramento non lo consente'}.</div></div>`;
-    }
-    const per = o.periodo[0]===o.periodo[1] ? `nel ${o.periodo[0]}`
-              : `fra il ${o.periodo[0]} e il ${o.periodo[1]}`;
-    const ev = o.eventi_osservati;
-    const I = o.intercettazione;
-    const soglie = Object.keys(I).map(k=>({pct:+k.replace('top',''), ...I[k]}))
-                         .sort((a,b)=>a.pct-b.pct);
-    const princ = soglie.find(x=>Math.abs(x.pct/100 - AM.soglia_allerta)<1e-9) || soglie[0];
-    const aperta = !o.verifica_completa;
-    const quota = ev ? princ.colti/ev*100 : null;
-    /* Su una finestra aperta con pochissimi eventi una quota non significa
-       niente: il 2025 mostrava «100,0%» su 1 dissesto su 1, che letto di
-       sfuggita sembra un risultato straordinario ed e' solo un conteggio di
-       uno. Sotto la soglia si mostra il conteggio e si dice che la quota non
-       e' calcolabile. */
-    const POCHI = 5;
-    const troppoPochi = aperta && ev < POCHI;
-    const righe = soglie.map(x=>`<tr${x.pct===princ.pct?' style="font-weight:700"':''}>
-       <td style="padding:2px 10px 2px 0">top ${x.pct}%</td>
-       <td class="num" style="padding:2px 10px 2px 0">${x.colti} su ${ev}</td>
-       <td class="num" style="padding:2px 0">${aperta?'dato parziale':ev?F1(x.colti/ev*100)+'%':'n/d'}</td></tr>`).join('');
-    const bollo = aperta
-      ? `<span style="display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;
-          text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;
-          background:rgba(180,83,31,.12);color:var(--serious);border:1px solid rgba(180,83,31,.3);
-          margin-left:8px">dato parziale</span>` : '';
-    return `<div class="card" style="margin:0;background:var(--page)">
-      <div style="font-size:12px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em">
-       ${etichetta} · dissesto ${per}</div>
-      <div style="font-size:34px;font-weight:800;margin:1px 0 2px">${
-        aperta ? `${princ.colti} su ${ev}` : (ev?F1(quota)+'%':'n/d')}${bollo}</div>
-      <div style="font-size:14px;color:var(--ink2);margin-bottom:8px">${
-       troppoPochi
-        ? `Finora si conosce${ev===1?'':'no'} <b>${ev} dissest${ev===1?'o':'i'}</b> ${per}. ${
-           ev===1
-            ? (princ.colti ? `Quell'unico caso <b>rientra</b>` : `Quel caso <b>non rientra</b>`)
-            : `Di questi, <b>${princ.colti}</b> rientra${princ.colti===1?'':'no'}`} nel
-           ${princ.pct}% più a rischio. <b>Troppo pochi per una percentuale</b>: con uno o due
-           eventi una quota non misura niente.`
-        : `Intercettati <b>${princ.colti} dissest${princ.colti===1?'o':'i'} su ${ev}</b>${
-           aperta?' <b>finora noti</b>':''} fra quelli dichiarati ${per}, guardando il
-           ${princ.pct}% più a rischio (${IT(princ.segnalati)} comuni).`}
-       ${aperta?`<br><span style="color:var(--serious)">Verifica aperta. Gli esiti sono completi fino al
-         <b>${AM.esiti_completi_al}</b>; per gli anni successivi si contano solo i casi già registrati.
-         Il conteggio può cambiare.</span>`:''}</div>
-      ${troppoPochi ? '' : PresentazionePortale.barra(princ.colti,ev,aperta)}
-      ${troppoPochi ? '' : `<div style="font-size:12.5px;color:var(--ink2);
-       border-top:1px solid var(--ring);padding-top:7px">
-       <details><summary style="cursor:pointer">Se sorvegliamo più comuni</summary>
-       <table style="border-collapse:collapse;margin-top:6px"><thead><tr>
-        <th>Gruppo di allerta</th><th>Dissesti intercettati</th><th>Quota</th>
-       </tr></thead><tbody>${righe}</tbody></table></details></div>`}</div>`;
-  }
-
-  box.innerHTML = riquadro('t1','A un anno') + riquadro('t3','Entro tre anni');
+  RisultatiPortale.mostra({anno:ANNO,orizzonte:HZ,metadati:AM,comuni:DATA.length});
   disegnaRiepilogo();
-
-  /* la frase sotto: i mancati erano lontani o vicini? Si prende dall'orizzonte
-     a un anno se la sua finestra e' chiusa, perche' e' quello principale. */
-  const o1 = O.t1;
-  if(nota){
-    if(o1 && o1.intercettazione && o1.verifica_completa && o1.eventi_osservati){
-      const s = Object.keys(o1.intercettazione).map(k=>({pct:+k.replace('top',''),
-                 ...o1.intercettazione[k]})).sort((a,b)=>a.pct-b.pct);
-      const ampia = s[s.length-1], ev = o1.eventi_osservati, q = ampia.colti/ev*100;
-      nota.innerHTML = q>=99
-       ? `A un anno, allargando al <b>${ampia.pct}% più a rischio</b> — ${IT(ampia.segnalati)} comuni
-          su ${IT(DATA.length)} — il modello intercetta <b>tutti</b> i dissesti ${
-          o1.periodo[0]===o1.periodo[1]?'del '+o1.periodo[0]:''}.`
-       : `A un anno, allargando al <b>${ampia.pct}% più a rischio</b> si arriva al <b>${F1(q)}%</b>:
-          <b>${ev-ampia.colti}</b> dissesti restano fuori anche da questo gruppo.`;
-    } else {
-      nota.innerHTML = `Per il bilancio ${ANNO} il periodo valutato non è ancora concluso: i numeri
-        qui sopra sono <b>parziali</b> e non vanno letti come il risultato finale.`;
-    }
-  }
 }
 
 if(false && S.esempio && S.esempio.voci && S.esempio.voci.length){
