@@ -720,6 +720,7 @@ body:has(#intercetta.on) #sel-riepilogo{display:none}
   }});
 })();
 </script>
+<link rel="stylesheet" data-territorio-comuni="1" href="territorio/territorio.css?v=20261117-territorio1">
 </head><body>
 <div class="tip" id="tip"></div>
 
@@ -4658,4 +4659,17 @@ const LetturaConfrontoPortale = (()=>{
  }
 })(typeof window!=='undefined'?window:globalThis);
 </script>
+<script data-territorio-comuni="1" src="territorio/territorio_core.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1" src="territorio/territorio_ui.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1" src="territorio/territorio_portale.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1">window.addEventListener('load',()=>{
+
+const precedenteApriTerritorio=apri;
+const territorioPortale=TerritorioPortale({stato:()=>({anno:ANNO,hz:HZ,righe:DATA}),apri:x=>apri(x),mostraComuni:()=>mostraSezione('comuni',true),renderConfronto:()=>renderCmp()});
+apri=function(x){precedenteApriTerritorio(x);territorioPortale.scheda(x);};
+const precedenteAnnoTerritorio=disegnaAnno;
+disegnaAnno=function(){precedenteAnnoTerritorio();territorioPortale.daURL();};
+territorioPortale.daURL();
+
+});</script>
 </body></html>

@@ -57,6 +57,7 @@
 <link data-stime-correnti="1" rel="stylesheet" href="stime_ui.css?v=20261105-stime1">
 <script data-stime-correnti="1" src="stime_ui.js?v=20261105-stime1" defer></script>
 <script data-stime-correnti="1" src="stime_mappe.js?v=20261105-stime1" defer></script>
+<link rel="stylesheet" data-territorio-comuni="1" href="territorio/territorio.css?v=20261117-territorio1">
 </head>
 <body data-stile-mappe="nazionale" class="mappa-coerente mappa-nazionale">
     
@@ -277,6 +278,25 @@ body.mappa-coerente{
 .mappa-coerente :is(#pan,#casi)>.hd :is(a,button):focus-visible{outline-color:#fff}
 </style>
 <!-- FINE STILE MAPPE CSS -->
+<script data-territorio-comuni="1" src="territorio/territorio_core.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1" src="territorio/territorio_ui.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1" src="territorio/territorio_mappa.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1">window.addEventListener('load',()=>{
+
+const richiestaTerritorio=new URL(location.href).searchParams;
+const precedenteMostraTerritorio=mostra;
+const territorioMappa=TerritorioMappa({mappa:map_347e3ad617e913acf2b865a663e0a4a6,livello:geo_json_69840b46873aab324956057dd0e78d93,regionale:false,richiestaFocus:richiestaTerritorio.get('dintorni')==='1'?richiestaTerritorio.get('comune'):null,
+ stato:()=>({anno:ANNO,hz:HZ,key:APERTO}),leggiStile:()=>stileDi,scriviStile:f=>{stileDi=f;},leggiColori:()=>applicaColori,scriviColori:f=>{applicaColori=f;},ridisegna:()=>applicaColori(),apri:k=>mostra(k),
+ righe:()=>Object.values(dati()?.per||{})});
+mostra=function(k){precedenteMostraTerritorio(k);territorioMappa.scheda(k);};
+const ricercaTerritorio=document.getElementById('cerca');
+ricercaTerritorio?.addEventListener('keydown',e=>{if(e.key==='Enter'){const k=typeof DNAME!=='undefined'?DNAME[ricercaTerritorio.value]:Object.keys(NOMI).find(x=>NOMI[x]===ricercaTerritorio.value);if(k){e.preventDefault();if(!document.body.classList.contains('tc-territorio-attivo')){const l=LAYMAP[k];if(l?.getBounds)map_347e3ad617e913acf2b865a663e0a4a6.setView(l.getBounds().getCenter(),11);}mostra(k);}}});
+function apriTerritorioURL(){const annoRichiesto=Number(richiestaTerritorio.get('anno'))||ANNO_INLINE,k=richiestaTerritorio.get('comune');if(k&&ANNO===annoRichiesto){richiestaTerritorio.delete('comune');mostra(k);}}
+const precedenteRiapriTerritorio=riapriScheda;
+riapriScheda=function(){precedenteRiapriTerritorio();apriTerritorioURL();};
+apriTerritorioURL();
+
+});</script>
 </body>
 <script>
     

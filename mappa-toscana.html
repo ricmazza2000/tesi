@@ -86,6 +86,7 @@
 <link data-stime-correnti="1" rel="stylesheet" href="stime_ui.css?v=20261105-stime1">
 <script data-stime-correnti="1" src="stime_ui.js?v=20261105-stime1" defer></script>
 <script data-stime-correnti="1" src="stime_mappe.js?v=20261105-stime1" defer></script>
+<link rel="stylesheet" data-territorio-comuni="1" href="territorio/territorio.css?v=20261117-territorio1">
 </head>
 <body data-stile-mappe="toscana" class="mappa-coerente mappa-toscana">
     
@@ -519,6 +520,25 @@ body.mappa-coerente{
  if(document.readyState==='complete')inizializza();else window.addEventListener('load',inizializza,{once:true});
 })(typeof window!=='undefined'?window:globalThis);
 </script>
+<script data-territorio-comuni="1" src="territorio/territorio_core.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1" src="territorio/territorio_ui.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1" src="territorio/territorio_mappa.js?v=20261117-territorio1"></script>
+<script data-territorio-comuni="1">window.addEventListener('load',()=>{
+
+const richiestaTerritorio=new URL(location.href).searchParams;
+const precedenteMostraTerritorio=mostra;
+const territorioMappa=TerritorioMappa({mappa:map_7ce5368a311a8a69c8b89552482195bf,livello:geo_json_4c09e2c949b70a4241a0885ed535adef,regionale:true,richiestaFocus:richiestaTerritorio.get('dintorni')==='1'?richiestaTerritorio.get('comune'):null,
+ stato:()=>({anno:ANNO,hz:HZ,key:APERTO}),leggiStile:()=>stileDi,scriviStile:f=>{stileDi=f;},leggiColori:()=>applicaColori,scriviColori:f=>{applicaColori=f;},ridisegna:()=>applicaColori(),apri:k=>mostra(k),
+ righe:null});
+mostra=function(k){precedenteMostraTerritorio(k);territorioMappa.scheda(k);};
+const ricercaTerritorio=document.getElementById('cerca');
+ricercaTerritorio?.addEventListener('keydown',e=>{if(e.key==='Enter'){const k=typeof DNAME!=='undefined'?DNAME[ricercaTerritorio.value]:Object.keys(NOMI).find(x=>NOMI[x]===ricercaTerritorio.value);if(k){e.preventDefault();if(!document.body.classList.contains('tc-territorio-attivo')){const l=LAYMAP[k];if(l?.getBounds)map_7ce5368a311a8a69c8b89552482195bf.setView(l.getBounds().getCenter(),11);}mostra(k);}}});
+function apriTerritorioURL(){const annoRichiesto=Number(richiestaTerritorio.get('anno'))||ANNO_INLINE,k=richiestaTerritorio.get('comune');if(k&&ANNO===annoRichiesto){richiestaTerritorio.delete('comune');mostra(k);}}
+const precedenteRiapriTerritorio=riapriScheda;
+riapriScheda=function(){precedenteRiapriTerritorio();apriTerritorioURL();};
+apriTerritorioURL();
+
+});</script>
 </body>
 <script>
     
